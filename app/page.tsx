@@ -1,5 +1,5 @@
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
+
 import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 
@@ -15,9 +15,7 @@ export default function Home() {
         <h1 className={title({ color: "violet" })}> parking gates&nbsp;</h1>
         <br />
         <h1 className={title()}>for you</h1>
-        <h2 className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
-        </h2>
+        <h2 className={subtitle({ class: "mt-4" })}>yeah player</h2>
       </div>
 
       <div className="flex gap-3">
