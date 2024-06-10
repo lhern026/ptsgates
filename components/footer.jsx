@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white shadow-lg mt-10">
+    <footer className="bg-white shadow-lg mt-10 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center gap-3 mb-4 md:mb-0">
             <Link href="/" className="flex items-center gap-1">
               <Image
                 src="https://i.imgur.com/NJO8gUO.png"
@@ -20,7 +20,7 @@ const Footer = () => {
               <p className="font-bold text-xl text-gray-800">PTS</p>
             </Link>
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row gap-6">
             <Link href="/about" className="text-gray-600 hover:text-primary">
               About
             </Link>
