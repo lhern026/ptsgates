@@ -2,6 +2,8 @@
 
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
+import Footer from "../components/footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -46,9 +48,11 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/400x300?parking"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Reliable Performance"
+                  width={400}
+                  height={300}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">
@@ -60,9 +64,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/401x301?security"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Enhanced Security"
+                  width={401}
+                  height={301}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">
@@ -74,9 +80,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/402x302?cost"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Cost-Effective"
+                  width={402}
+                  height={302}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">Cost-Effective</h3>
@@ -97,9 +105,11 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/403x303?entry"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Step 1: Entry"
+                  width={403}
+                  height={303}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">Step 1: Entry</h3>
@@ -109,9 +119,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/404x304?processing"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Step 2: Processing"
+                  width={404}
+                  height={304}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">
@@ -123,15 +135,70 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src="https://source.unsplash.com/random/405x305?park"
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
                   alt="Step 3: Park"
+                  width={405}
+                  height={305}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
                 <h3 className="text-2xl font-semibold mb-2">Step 3: Park</h3>
                 <p className="text-gray-600">
                   The gate opens, allowing the vehicle to enter and park
                   securely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Benefits of Our Parking Systems
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Convenience"
+                  width={406}
+                  height={306}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Convenience</h3>
+                <p className="text-gray-600">
+                  Our systems provide unparalleled convenience for both
+                  operators and users, streamlining parking operations.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Safety"
+                  width={407}
+                  height={307}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Safety</h3>
+                <p className="text-gray-600">
+                  Advanced safety features ensure that both vehicles and
+                  pedestrians are protected at all times.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Efficiency"
+                  width={408}
+                  height={308}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Efficiency</h3>
+                <p className="text-gray-600">
+                  Our systems maximize efficiency, reducing wait times and
+                  optimizing space usage.
                 </p>
               </div>
             </div>
@@ -163,6 +230,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
