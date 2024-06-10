@@ -221,8 +221,8 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-semibold mb-2">John Doe</h3>
                 <p className="text-gray-600 italic">
-                  "The best parking system we've ever used. Efficient and
-                  reliable!"
+                  &quot;The best parking system we&#39;ve ever used. Efficient
+                  and reliable!&quot;
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
@@ -235,8 +235,8 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-semibold mb-2">Jane Smith</h3>
                 <p className="text-gray-600 italic">
-                  "Highly recommend these parking gates. Great for security and
-                  cost-effectie."
+                  &quot;Highly recommend these parking gates. Great for security
+                  and cost-effective.&quot;
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
@@ -249,8 +249,8 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-semibold mb-2">Emily Johnson</h3>
                 <p className="text-gray-600 italic">
-                  "A seamless experience from start to finish. Our customers
-                  love it!"
+                  &quot;A seamless experience from start to finish. Our
+                  customers love it!&quot;
                 </p>
               </div>
             </div>
