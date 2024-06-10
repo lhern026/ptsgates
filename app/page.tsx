@@ -1,36 +1,168 @@
+"use client";
+
 import { Link } from "@nextui-org/link";
-
-import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Sexy&nbsp;</h1>
-        <h1 className={title({ color: "violet" })}> parking gates&nbsp;</h1>
-        <br />
-        <h1 className={title()}>for you</h1>
-        <h2 className={subtitle({ class: "mt-4" })}>yeah player</h2>
-      </div>
-
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          // href={siteConfig.links.docs}
+    <div className="min-h-screen bg-gray-100">
+      <main className="pt-24">
+        {/* Hero Section */}
+        <section
+          className="bg-cover bg-center h-screen text-white"
+          style={{
+            backgroundImage:
+              "url('https://source.unsplash.com/random/1600x900')",
+          }}
         >
-          Request quote
-        </Link>
-      </div>
-    </section>
+          <div className="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                Revolutionary Parking Gates
+              </h1>
+              <p className="text-lg md:text-xl mb-6">
+                Innovative solutions for modern parking needs.
+              </p>
+              <Link
+                href="/contact"
+                className={buttonStyles({
+                  color: "primary",
+                  radius: "full",
+                  variant: "shadow",
+                  className: "px-6 py-3 text-lg font-semibold",
+                })}
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose Our Parking Gates?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+                <img
+                  src="https://imgur.com/gallery/nothing-happened-M1Jyfpq#/t/gate"
+                  alt="Reliable Performance"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Reliable Performance
+                </h3>
+                <p className="text-gray-600">
+                  Our parking gates are designed for durability and consistent
+                  performance, ensuring smooth operation at all times.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+                <img
+                  src="https://source.unsplash.com/random/401x301"
+                  alt="Enhanced Security"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Enhanced Security
+                </h3>
+                <p className="text-gray-600">
+                  Advanced security features to prevent unauthorized access and
+                  ensure the safety of parked vehicles.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+                <img
+                  src="https://source.unsplash.com/random/402x302"
+                  alt="Cost-Effective"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Cost-Effective</h3>
+                <p className="text-gray-600">
+                  Optimize your parking management and reduce costs with our
+                  efficient and scalable solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-16 bg-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              How It Works
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-white rounded-lg shadow-md">
+                <img
+                  src="https://source.unsplash.com/random/403x303"
+                  alt="Step 1: Entry"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Step 1: Entry</h3>
+                <p className="text-gray-600">
+                  Vehicles approach the gate and input their details to gain
+                  access.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md">
+                <img
+                  src="https://source.unsplash.com/random/404x304"
+                  alt="Step 2: Processing"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Step 2: Processing
+                </h3>
+                <p className="text-gray-600">
+                  Our system verifies the details and processes the entry
+                  request.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md">
+                <img
+                  src="https://source.unsplash.com/random/405x305"
+                  alt="Step 3: Park"
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Step 3: Park</h3>
+                <p className="text-gray-600">
+                  The gate opens, allowing the vehicle to enter and park
+                  securely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call-to-Action Section */}
+        <section className="py-16 bg-primary text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Upgrade Your Parking?
+            </h2>
+            <p className="text-lg md:text-xl mb-6">
+              Contact us today to learn more about our advanced parking gate
+              solutions.
+            </p>
+            <Link
+              href="/contact"
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "shadow",
+                className:
+                  "px-6 py-3 text-lg font-semibold bg-white text-primary",
+              })}
+            >
+              Contact Us
+            </Link>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
