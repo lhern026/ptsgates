@@ -29,6 +29,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import Dropdown from "../components/dropdown"; // Import the custom dropdown
 
 export const Navbar = () => {
   return (

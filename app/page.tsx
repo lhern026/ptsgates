@@ -39,15 +39,15 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Why Choose Our Parking Gates?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://imgur.com/gallery/nothing-happened-M1Jyfpq#/t/gate"
+                  src="https://source.unsplash.com/random/400x300?parking"
                   alt="Reliable Performance"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
@@ -59,9 +59,9 @@ export default function Home() {
                   performance, ensuring smooth operation at all times.
                 </p>
               </div>
-              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://source.unsplash.com/random/401x301"
+                  src="https://source.unsplash.com/random/401x301?security"
                   alt="Enhanced Security"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
@@ -73,9 +73,9 @@ export default function Home() {
                   ensure the safety of parked vehicles.
                 </p>
               </div>
-              <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://source.unsplash.com/random/402x302"
+                  src="https://source.unsplash.com/random/402x302?cost"
                   alt="Cost-Effective"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
@@ -96,9 +96,9 @@ export default function Home() {
               How It Works
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-white rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://source.unsplash.com/random/403x303"
+                  src="https://source.unsplash.com/random/403x303?entry"
                   alt="Step 1: Entry"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
@@ -108,9 +108,9 @@ export default function Home() {
                   access.
                 </p>
               </div>
-              <div className="p-6 bg-white rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://source.unsplash.com/random/404x304"
+                  src="https://source.unsplash.com/random/404x304?processing"
                   alt="Step 2: Processing"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
@@ -122,9 +122,9 @@ export default function Home() {
                   request.
                 </p>
               </div>
-              <div className="p-6 bg-white rounded-lg shadow-md">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                 <img
-                  src="https://source.unsplash.com/random/405x305"
+                  src="https://source.unsplash.com/random/405x305?park"
                   alt="Step 3: Park"
                   className="w-full h-48 object-cover mb-4 rounded"
                 />
