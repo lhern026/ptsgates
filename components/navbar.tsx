@@ -38,12 +38,12 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
-              src="https://i.imgur.com/NJO8gUO.png"
-              width={50}
-              height={50}
+              src="https://i.imgur.com/haYGPsF.jpeg"
+              width={400}
+              height={400}
               alt="logo"
             />
-            <p className="font-bold text-xl text-gray-800">PTS</p>
+            <p className="font-bold text-xl text-gray-800"></p>
           </NextLink>
         </NavbarBrand>
         <NavbarMenuToggle className="md:hidden" />
