@@ -236,7 +236,7 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">Jane Smith</h3>
                 <p className="text-gray-600 italic">
                   "Highly recommend these parking gates. Great for security and
-                  cost-effective."
+                  cost-effectie."
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
