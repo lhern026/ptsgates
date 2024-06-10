@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -8,7 +11,6 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import { button as buttonStyles } from "@nextui-org/theme";
@@ -27,39 +29,44 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import Dropdown from "@/components/Dropdown"; // Import the custom dropdown
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
+    <NextUINavbar className="bg-white shadow-lg fixed top-0 w-full z-50">
+      <div className="flex justify-between items-center w-full px-6 py-4">
+        <NavbarBrand as="li" className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
               src="https://i.imgur.com/NJO8gUO.png"
-              width={70}
-              height={70}
+              width={50}
+              height={50}
               alt="logo"
             />
-            <p className="font-bold text-inherit">PTS</p>
+            <p className="font-bold text-xl text-gray-800">PTS</p>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-9 justify-start ml-2">
+        <NavbarMenuToggle className="md:hidden" />
+      </div>
+
+      <NavbarContent className="hidden md:flex gap-6 justify-center w-full py-2">
+        <ul className="flex gap-8">
           {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
+            <NavbarItem key={item.href} className="relative group">
+              <Dropdown
+                label={item.label}
+                items={[
+                  { label: "Subitem 1", href: `${item.href}/subitem1` },
+                  { label: "Subitem 2", href: `${item.href}/subitem2` },
+                  { label: "Subitem 3", href: `${item.href}/subitem3` },
+                ]}
+              />
             </NavbarItem>
           ))}
         </ul>
+      </NavbarContent>
 
+      <NavbarContent className="hidden md:flex basis-1/5 justify-end items-center gap-4">
         <Link
           href="/contact"
           target="_blank"
@@ -70,18 +77,13 @@ export const Navbar = () => {
             variant: "shadow",
           })}
         >
-          Request quote
+          Request Quote
         </Link>
+        <ThemeSwitch />
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
-      ></NavbarContent>
-
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="flex md:hidden justify-end items-center gap-4">
         <ThemeSwitch />
-        <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
