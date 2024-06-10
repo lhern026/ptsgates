@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import Footer from "../components/footer"
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xrgnwdnb");
@@ -8,7 +9,7 @@ function ContactForm() {
     return <p className="text-center text-green-500">We will be in touch with you!</p>;
   }
 
-  return (
+  return (<>
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-8 border border-gray-300 rounded-lg bg-white shadow-md">
       <div className="mb-4">
         <label htmlFor="email" className="block text-sm font-bold mb-2">
@@ -53,6 +54,7 @@ function ContactForm() {
         </button>
       </div>
     </form>
+    <Footer/></>
   );
 }
 

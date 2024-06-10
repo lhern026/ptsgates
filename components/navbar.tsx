@@ -34,7 +34,7 @@ import Dropdown from "../components/dropdown"; // Import the custom dropdown
 export const Navbar = () => {
   return (
     <NextUINavbar className="bg-white shadow-lg fixed top-0 w-full z-50">
-      <div className="flex justify-between items-center w-full px-6 py-4">
+      <div className="flex justify-between items-center w-full px-6 py-6">
         <NavbarBrand as="li" className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
@@ -46,10 +46,11 @@ export const Navbar = () => {
             <p className="font-bold text-xl text-gray-800"></p>
           </NextLink>
         </NavbarBrand>
-        <NavbarMenuToggle className="md:hidden" />
+        <NavbarMenuToggle className="md:hidden text-3xl p-4" />{" "}
+        {/* Increased size here */}
       </div>
 
-      <NavbarContent className="hidden md:flex gap-6 justify-center w-full py-2">
+      <NavbarContent className="hidden md:flex gap-6 justify-center w-full py-4">
         <ul className="flex gap-8">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">

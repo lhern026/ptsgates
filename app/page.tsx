@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <main className="pt-24">
+      <main className="">
         {/* Hero Section */}
         <section
           className="bg-cover bg-center h-screen text-white"
