@@ -25,18 +25,19 @@ export default function DocsPage() {
           </p>
           <p className="mb-6">
             That goal was to provide excellent service at the most affordable
-            prices, with a quick response to clients' requests and versatility.
-            PTS takes great pride in being one of the very few, if not the only
-            company that services every type of parking equipment, regardless of
-            make, model, date of manufacture, and time of installation. From
-            Amano, Falcon Omnihost, and Keri Systems to the modern and more
-            recent WPS parking systems, PTS installs and services them all.
+            prices, with a quick response to clients&apos; requests and
+            versatility. PTS takes great pride in being one of the very few, if
+            not the only company that services every type of parking equipment,
+            regardless of make, model, date of manufacture, and time of
+            installation. From Amano, Falcon Omnihost, and Keri Systems to the
+            modern and more recent WPS parking systems, PTS installs and
+            services them all.
           </p>
           <p className="mb-6">
-            What makes PTS your "number one option" whenever your parking
-            facility needs either service or an upgrade, is our highly qualified
-            workforce that consists of technicians and engineers ready to
-            address and resolve any problem, no matter how complex it may be.
+            What makes PTS your &quot;number one option&quot; whenever your
+            parking facility needs either service or an upgrade, is our highly
+            qualified workforce that consists of technicians and engineers ready
+            to address and resolve any problem, no matter how complex it may be.
           </p>
           <p className="mb-6">
             From electro-mechanical to sophisticated computerized equipment, PTS
@@ -49,7 +50,6 @@ export default function DocsPage() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
