@@ -20,9 +20,9 @@ export default function Home() {
   };
 
   const images = [
-    "https://i.imgur.com/NJO8gUO.png",
-    "https://i.imgur.com/NJO8gUO.png",
-    "https://i.imgur.com/NJO8gUO.png",
+    "https://i.imgur.com/IyEp7mfb.jpg",
+    "https://i.imgur.com/KWb3n5kb.jpg",
+    "https://i.imgur.com/9lRA2Ivb.jpg",
   ];
   return (
     <div className="min-h-screen bg-gray-100">
