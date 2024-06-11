@@ -46,7 +46,7 @@ export default function DocsPage() {
           </p>
           <p className="mb-6">
             The concept is, in essence, quite simple: You need our service, you
-            get it! Satisfaction guaranteed!
+            get it! Satisfaction guaranteed!s
           </p>
         </div>
       </div>
