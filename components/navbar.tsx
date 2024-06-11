@@ -21,24 +21,17 @@ import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
+
 import Dropdown from "../components/dropdown"; // Import the custom dropdown
 
 export const Navbar = () => {
   return (
-    <NextUINavbar className="bg-white shadow-lg fixed top-0 w-full z-50 ">
+    <NextUINavbar isBordered className="bg-white shadow-lg fixed  w-full z-50 ">
       <div className="flex justify-between items-center w-full ">
         <NavbarBrand as="li" className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
-              src="https://i.imgur.com/haYGPsF.jpeg"
+              src="https://i.imgur.com/u1fiTYz.png"
               width={150}
               height={150}
               alt="logo"

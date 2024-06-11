@@ -13,8 +13,7 @@ export default function Home() {
         <section
           className="bg-cover bg-center h-screen text-white"
           style={{
-            backgroundImage:
-              "url('https://source.unsplash.com/random/1600x900')",
+            backgroundImage: "url('https://i.imgur.com/ZBPUuWTb.jpg')",
           }}
         >
           <div className="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
