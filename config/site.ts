@@ -5,11 +5,11 @@ export const siteConfig = {
   description: "Make beautifujjl websites regardless of your design experience.",
   navItems: [
     {
-      label: "Home",
+      label: "Access control",
       href: "/",
     },
     {
-      label: "Products",
+      label: "Productsss",
       href: "/products",
     },
     {
@@ -27,11 +27,11 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Home",
+      label: "Access control",
       href: "/",
     },
     {
-      label: "Products",
+      label: "Productsss",
       href: "/products",
     },
     {

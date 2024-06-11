@@ -1,9 +1,9 @@
 import { title } from "@/components/primitives";
 
-export default function BlogPage() {
+export default function AboutPage() {
   return (
     <div>
-      <h1 className={title()}>Solutions</h1>
+      <h1 className={title()}>Keri systems</h1>
     </div>
   );
 }

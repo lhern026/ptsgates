@@ -8,7 +8,7 @@ export default function DocsPage() {
         <h1
           className={`${title()} text-4xl font-extrabold text-gray-900 mb-8 text-center`}
         >
-          About Us
+          About us
         </h1>
         <div className="max-w-3xl mx-auto text-gray-700 leading-loose">
           <p className="text-xl font-semibold mb-4">
