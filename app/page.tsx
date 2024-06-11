@@ -4,39 +4,63 @@ import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import Footer from "../components/footer";
 import Image from "next/image";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default function Home() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
+  const images = [
+    "https://i.imgur.com/NJO8gUO.png",
+    "https://i.imgur.com/NJO8gUO.png",
+    "https://i.imgur.com/NJO8gUO.png",
+  ];
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="">
         {/* Hero Section */}
-        <section
-          className="bg-cover bg-center h-screen text-white"
-          style={{
-            backgroundImage: "url('https://i.imgur.com/ZBPUuWTb.jpg')",
-          }}
-        >
-          <div className="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                Revolutionary Parking Gates
-              </h1>
-              <p className="text-lg md:text-xl mb-6">
-                Innovative solutions for modern parking needs.
-              </p>
-              <Link
-                href="/contact"
-                className={buttonStyles({
-                  color: "primary",
-                  radius: "full",
-                  variant: "shadow",
-                  className: "px-6 py-3 text-lg font-semibold",
-                })}
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
+        <section className="h-screen text-white">
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <div key={index}>
+                <div
+                  className="bg-cover bg-center h-screen flex items-center justify-center"
+                  style={{
+                    backgroundImage: `url(${image})`,
+                  }}
+                >
+                  <div className="bg-gray-900 bg-opacity-50 p-8 rounded-lg text-center">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                      Revolutionary Parking Gates
+                    </h1>
+                    <p className="text-lg md:text-xl mb-6">
+                      Innovative solutions for modern parking needs.
+                    </p>
+                    <Link
+                      href="/contact"
+                      className={buttonStyles({
+                        color: "primary",
+                        radius: "full",
+                        variant: "shadow",
+                        className: "px-6 py-3 text-lg font-semibold",
+                      })}
+                    >
+                      Get Started
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
         </section>
 
         {/* Features Section */}
