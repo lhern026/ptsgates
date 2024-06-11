@@ -1,133 +1,56 @@
-"use client";
+import { title } from "@/components/primitives";
+import Footer from "@/components/footer";
 
-import React from "react";
-import Link from "next/link"; // Importing Link from next/link
-import { button as buttonStyles } from "@nextui-org/theme";
-import { useForm, ValidationError } from "@formspree/react";
-
-function ContactForm() {
-  const [state, handleSubmit] = useForm("xqkrrkro");
-
-  if (state.succeeded) {
-    return (
-      <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md text-center">
-        <h2 className="text-2xl font-bold mb-4 text-gray-700">Thank You!</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Your message has been successfully sent. We will get back to you
-          shortly.
-        </p>
-        <Link
-          href="/"
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-            className: "px-6 py-3 text-lg font-semibold",
-          })}
-        >
-          Go to Home
-        </Link>
-      </div>
-    );
-  }
-
+export default function DocsPage() {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md"
-    >
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
-        Contact Us
-      </h2>
-
-      <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-600 mb-2">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="Your name"
-          required
-        />
-        <ValidationError
-          prefix="Name"
-          field="name"
-          errors={state.errors}
-          className="text-red-500 text-sm mt-2"
-        />
+    <div className="min-h-screen flex flex-col">
+      <div className="bg-gray-50 py-12 px-6 md:px-12 lg:px-24">
+        <h1
+          className={`${title()} text-4xl font-extrabold text-gray-900 mb-8 text-center`}
+        >
+          About Us
+        </h1>
+        <div className="max-w-3xl mx-auto text-gray-700 leading-loose">
+          <p className="text-xl font-semibold mb-4">
+            <strong>History of Parking Technical Services</strong>
+          </p>
+          <p className="mb-6">
+            Located in Santa Fe Springs, California, Parking Technical Services
+            (PTS) was founded over twenty years ago, as a result of an
+            increasing demand for qualified personnel in the booming parking
+            industry. Today, it is a well-established company with an impressive
+            record in terms of professionalism, reliability, and quality of
+            services. Through the years, PTS has lived up to the goal set by its
+            founder and current Chairman of the Board, Armando Castro.
+          </p>
+          <p className="mb-6">
+            That goal was to provide excellent service at the most affordable
+            prices, with a quick response to clients&apos; requests and
+            versatility. PTS takes great pride in being one of the very few, if
+            not the only company that services every type of parking equipment,
+            regardless of make, model, date of manufacture, and time of
+            installation. From Amano, Falcon Omnihost, and Keri Systems to the
+            modern and more recent WPS parking systems, PTS installs and
+            services them all.
+          </p>
+          <p className="mb-6">
+            What makes PTS your &quot;number one option&quot; whenever your
+            parking facility needs either service or an upgrade, is our highly
+            qualified workforce that consists of technicians and engineers ready
+            to address and resolve any problem, no matter how complex it may be.
+          </p>
+          <p className="mb-6">
+            From electro-mechanical to sophisticated computerized equipment, PTS
+            provides service, installation, and tech support in a manner
+            unequaled by other companies in the parking industry.
+          </p>
+          <p className="mb-6">
+            The concept is, in essence, quite simple: You need our service, you
+            get it! Satisfaction guaranteed!
+          </p>
+        </div>
       </div>
-
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-600 mb-2">
-          Email Address
-        </label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="Your email"
-          required
-        />
-        <ValidationError
-          prefix="Email"
-          field="email"
-          errors={state.errors}
-          className="text-red-500 text-sm mt-2"
-        />
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="phone" className="block text-gray-600 mb-2">
-          Phone Number
-        </label>
-        <input
-          id="phone"
-          type="tel"
-          name="phone"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="Your phone number"
-          required
-        />
-        <ValidationError
-          prefix="Phone"
-          field="phone"
-          errors={state.errors}
-          className="text-red-500 text-sm mt-2"
-        />
-      </div>
-
-      <div className="mb-6">
-        <label htmlFor="message" className="block text-gray-600 mb-2">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="Your message"
-          required
-        />
-        <ValidationError
-          prefix="Message"
-          field="message"
-          errors={state.errors}
-          className="text-red-500 text-sm mt-2"
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={state.submitting}
-        className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
-      >
-        Submit
-      </button>
-    </form>
+      <Footer />
+    </div>
   );
 }
-
-export default ContactForm;
