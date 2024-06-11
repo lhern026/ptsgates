@@ -41,8 +41,8 @@ const navItems = [
     href: "/installationsandservices",
   },
   {
-    label: "About us",
-    href: "/about",
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
