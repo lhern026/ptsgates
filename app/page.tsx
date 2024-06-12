@@ -5,8 +5,10 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import Footer from "../components/footer";
 import Image from "next/image";
 import Slider from "react-slick";
+import { FaCheckCircle, FaLock, FaClock, FaQuoteLeft } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 export default function Home() {
   const settings = {
     dots: true,
@@ -24,11 +26,12 @@ export default function Home() {
     "https://i.imgur.com/XULqRUX.jpeg",
     "https://i.imgur.com/LVRajBQ_d.webp?maxwidth=760&fidelity=grand",
   ];
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <main className="">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="h-screen text-white">
+        <section className="h-screen text-white relative">
           <Slider {...settings}>
             {images.map((image, index) => (
               <div key={index}>
@@ -71,13 +74,7 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://i.imgur.com/NJO8gUO.png"
-                  alt="Reliable Performance"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
+                <FaCheckCircle className="text-4xl text-primary mb-4 mx-auto" />
                 <h3 className="text-2xl font-semibold mb-2">
                   Reliable Performance
                 </h3>
@@ -87,13 +84,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://i.imgur.com/NJO8gUO.png"
-                  alt="Enhanced Security"
-                  width={401}
-                  height={301}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
+                <FaLock className="text-4xl text-primary mb-4 mx-auto" />
                 <h3 className="text-2xl font-semibold mb-2">
                   Enhanced Security
                 </h3>
@@ -103,13 +94,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://i.imgur.com/NJO8gUO.png"
-                  alt="Cost-Effective"
-                  width={402}
-                  height={302}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
+                <FaClock className="text-4xl text-primary mb-4 mx-auto" />
                 <h3 className="text-2xl font-semibold mb-2">Cost-Effective</h3>
                 <p className="text-gray-600">
                   Optimize your parking management and reduce costs with our
