@@ -13,6 +13,7 @@ import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -44,6 +45,20 @@ const navItems = [
     href: "/about",
   },
 ];
+
+const menuVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -135,10 +150,15 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50">
+        <motion.div
+          className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50"
+          initial="hidden"
+          animate="visible"
+          variants={menuVariants}
+        >
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <div
+              <motion.div
                 key={item.href}
                 className="relative group"
                 onClick={handleLinkClick}
@@ -147,17 +167,18 @@ export const Navbar = () => {
                 onKeyPress={(e) => {
                   if (e.key === "Enter") handleLinkClick();
                 }}
+                variants={itemVariants}
               >
                 {item.subitems ? (
                   <>
                     <button className="text-gray-700 hover:text-primary py-2">
                       {item.label}
                     </button>
-                    <div className="ml-4 ">
+                    <div className="ml-4">
                       {item.subitems.map((subitem) => (
                         <div
                           key={subitem.href}
-                          className={`py-8  ${
+                          className={`py-8 ${
                             subitem.isDisabled
                               ? "cursor-not-allowed text-gray-400"
                               : "cursor-pointer"
@@ -187,10 +208,10 @@ export const Navbar = () => {
                     </NextLink>
                   </NavbarMenuItem>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </NextUINavbar>
   );
