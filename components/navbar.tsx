@@ -58,14 +58,15 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
+              alt="logo"
+              height={150}
               src="https://i.imgur.com/u1fiTYz.png"
               width={150}
-              height={150}
-              alt="logo"
             />
           </NextLink>
         </NavbarBrand>
-        <NavbarMenuToggle
+        <button
+          aria-label="Toggle menu"
           className="md:hidden text-3xl p-2 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -86,7 +87,7 @@ export const Navbar = () => {
               }`}
             ></span>
           </div>
-        </NavbarMenuToggle>
+        </button>
       </div>
 
       {/* Hide NavbarContent on medium and smaller screens */}
@@ -96,17 +97,17 @@ export const Navbar = () => {
             <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
                 <Dropdown
-                  label={item.label}
                   items={item.subitems.map((subitem) => ({
-                    label: subitem.label,
                     href: subitem.href,
                     isDisabled: subitem.isDisabled,
+                    label: subitem.label,
                   }))}
+                  label={item.label}
                 />
               ) : (
                 <NextLink
-                  href={item.href}
                   className="text-gray-700 hover:text-primary"
+                  href={item.href}
                 >
                   {item.label}
                 </NextLink>
@@ -119,14 +120,14 @@ export const Navbar = () => {
       {/* Hide the request quote link and theme switch on medium and smaller screens */}
       <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4">
         <Link
-          href="/contact"
-          target="_blank"
-          isExternal
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
+          href="/contact"
+          isExternal
+          target="_blank"
         >
           Request Quote
         </Link>
@@ -138,8 +139,17 @@ export const Navbar = () => {
         <div className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50">
           <div className="flex flex-col gap-4">
             <ThemeSwitch />
-            {navItems.map((item, index) => (
-              <div key={item.href} className="relative group">
+            {navItems.map((item) => (
+              <div
+                key={item.href}
+                className="relative group"
+                onClick={handleLinkClick}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") handleLinkClick();
+                }}
+              >
                 {item.subitems ? (
                   <>
                     <button className="text-gray-700 hover:text-primary py-2">
@@ -154,9 +164,6 @@ export const Navbar = () => {
                               ? "cursor-not-allowed text-gray-400"
                               : "cursor-pointer"
                           }`}
-                          onClick={() =>
-                            !subitem.isDisabled && handleLinkClick()
-                          }
                         >
                           {subitem.isDisabled ? (
                             <span>{subitem.label}</span>
@@ -172,9 +179,8 @@ export const Navbar = () => {
                 ) : (
                   <NavbarMenuItem key={item.href}>
                     <NextLink
-                      href={item.href}
                       className="text-gray-700 hover:text-primary py-2 cursor-pointer"
-                      onClick={handleLinkClick}
+                      href={item.href}
                     >
                       {item.label}
                     </NextLink>
