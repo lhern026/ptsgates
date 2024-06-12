@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link"; // Importing Link from next/link
+import Link from "next/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
@@ -61,7 +61,7 @@ function ContactForm() {
       <motion.form
         onSubmit={handleSubmit}
         className="max-w-md mx-auto p-8 bg-white rounded-lg shadow-md"
-        variants={itemVariants}
+        variants={containerVariants}
       >
         <motion.h2
           className="text-2xl font-bold mb-6 text-center text-gray-700"
