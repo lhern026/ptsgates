@@ -138,7 +138,6 @@ export const Navbar = () => {
       {isMenuOpen && (
         <div className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50">
           <div className="flex flex-col gap-4">
-            <ThemeSwitch />
             {navItems.map((item) => (
               <div
                 key={item.href}
@@ -155,11 +154,11 @@ export const Navbar = () => {
                     <button className="text-gray-700 hover:text-primary py-2">
                       {item.label}
                     </button>
-                    <div className="ml-4">
+                    <div className="ml-4 ">
                       {item.subitems.map((subitem) => (
                         <div
                           key={subitem.href}
-                          className={`py-2 hover:bg-gray-100 ${
+                          className={`py-8  ${
                             subitem.isDisabled
                               ? "cursor-not-allowed text-gray-400"
                               : "cursor-pointer"
@@ -168,7 +167,10 @@ export const Navbar = () => {
                           {subitem.isDisabled ? (
                             <span>{subitem.label}</span>
                           ) : (
-                            <NextLink href={subitem.href}>
+                            <NextLink
+                              className="hover:bg-blue-100 border-style: dotted"
+                              href={subitem.href}
+                            >
                               {subitem.label}
                             </NextLink>
                           )}
