@@ -84,7 +84,7 @@ export const Navbar = () => {
     <NextUINavbar isBordered className="bg-white shadow-lg fixed w-full z-50">
       <div className="flex justify-between items-center w-full px-4">
         <NavbarBrand as="li" className="flex items-center gap-3">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+          <NextLink className="flex justify-start items-center gap-1 " href="/">
             <Image
               alt="logo"
               height={150}
@@ -111,7 +111,9 @@ export const Navbar = () => {
             ></span>
             <span
               className={`block w-6 h-0.5 bg-current transition-transform duration-300 ${
-                isMenuOpen ? "transform -rotate-45 -translate-y-1.5" : ""
+                isMenuOpen
+                  ? "transform -rotate-45 -translate-y-1.5 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  : ""
               }`}
             ></span>
           </div>
@@ -127,6 +129,7 @@ export const Navbar = () => {
                 <Dropdown
                   items={item.subitems.map((subitem) => ({
                     href: subitem.href,
+
                     isDisabled: subitem.isDisabled,
                     label: subitem.label,
                   }))}
@@ -151,7 +154,10 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* Hide the request quote link and theme switch on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4">
+      <NavbarContent
+        className="hidden lg:flex basis-1/5 justify-end items-center gap-4 '...' expected.ts(1005)
+Spread types may only be created from object types."
+      >
         <Link
           className={buttonStyles({
             color: "primary",
@@ -176,11 +182,11 @@ export const Navbar = () => {
             exit="hidden"
             variants={mobileMenuVariants}
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 ">
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group"
+                  className="relative group text-gray-700 hover:text-primary py-2 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
@@ -191,7 +197,7 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button className="text-gray-700 hover:text-primary py-2">
+                      <button className="text-gray-700 hover:text-primary py-2 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
                         {item.label}
                       </button>
                       <div className="ml-4">
