@@ -44,7 +44,7 @@ export default function DocsPage() {
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl mb-6">
               PTS stepped in with a comprehensive service plan tailored to
-              Scheidt-Bachmann's needs. Our team of expert technicians and
+              Scheidt-Bachmann&apos;s needs. Our team of expert technicians and
               engineers provided round-the-clock support, regular maintenance,
               and rapid response to any issues, ensuring seamless operations.
             </p>
@@ -53,25 +53,26 @@ export default function DocsPage() {
               The Results
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl mb-6">
-              Thanks to PTS's dedicated service, Scheidt-Bachmann experienced a
-              significant reduction in system downtime, enhanced customer
-              satisfaction, and improved operational efficiency. Our partnership
-              has enabled them to focus on their core business while we handle
-              their parking solutions.
+              Thanks to PTS&apos;s dedicated service, Scheidt-Bachmann
+              experienced a significant reduction in system downtime, enhanced
+              customer satisfaction, and improved operational efficiency. Our
+              partnership has enabled them to focus on their core business while
+              we handle their parking solutions.
             </p>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Client Testimonial
             </h2>
             <blockquote className="text-lg md:text-xl lg:text-2xl italic border-l-4 border-primary pl-4">
-              "PTS has been an invaluable partner in our journey. Their
+              &quot;PTS has been an invaluable partner in our journey. Their
               expertise and dedication have transformed our operations, allowing
-              us to deliver superior service to our clients. We couldn't have
-              asked for a better partner." - Scheidt-Bachmann
+              us to deliver superior service to our clients. We couldn&apos;t
+              have asked for a better partner.&quot; - Scheidt-Bachmann
             </blockquote>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
