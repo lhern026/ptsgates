@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import NavButton from "./navButton";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -121,10 +122,10 @@ export const Navbar = () => {
       </div>
 
       {/* Hide NavbarContent on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex gap-6 justify-center w-full py-4">
-        <ul className="flex gap-8">
+      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full py-4 ">
+        <ul className="flex gap-8 ">
           {navItems.map((item) => (
-            <NavbarItem key={item.href} className="relative group">
+            <NavbarItem key={item.href} className="relative group ">
               {item.subitems ? (
                 <Dropdown
                   items={item.subitems.map((subitem) => ({
@@ -139,11 +140,9 @@ export const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
+                  className="px-6 py-2 font-medium bg-indigo-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]"
                 >
-                  <NextLink
-                    className="text-gray-700 hover:text-primary"
-                    href={item.href}
-                  >
+                  <NextLink className=" " href={item.href}>
                     {item.label}
                   </NextLink>
                 </motion.div>
@@ -154,10 +153,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* Hide the request quote link and theme switch on medium and smaller screens */}
-      <NavbarContent
-        className="hidden lg:flex basis-1/5 justify-end items-center gap-4 '...' expected.ts(1005)
-Spread types may only be created from object types."
-      >
+      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4 ">
         <Link
           className={buttonStyles({
             color: "primary",
@@ -211,7 +207,9 @@ Spread types may only be created from object types."
                             }`}
                           >
                             {subitem.isDisabled ? (
-                              <span>{subitem.label}</span>
+                              <span className="px-6 py-2 font-medium bg-indigo-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
+                                {subitem.label}
+                              </span>
                             ) : (
                               <NextLink
                                 className="hover:bg-blue-100 border-style: dotted"
