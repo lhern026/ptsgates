@@ -155,7 +155,7 @@ function ContactForm() {
           className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
           variants={itemVariants}
         >
-          Submit
+          Submitssg
         </motion.button>
       </motion.form>
     </motion.div>
