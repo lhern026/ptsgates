@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import VerticalAccordion from "../components/verticalAccordion";
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import Image from "next/image";
@@ -233,57 +234,7 @@ export default function Home() {
           </motion.div>
         </section>
         {/* Testimonials Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              What Our Clients Say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://source.unsplash.com/random/406x306?client1"
-                  alt="Client Testimonial 1"
-                  width={406}
-                  height={306}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
-                <h3 className="text-xl font-semibold mb-2">John Doe</h3>
-                <p className="text-gray-600 italic">
-                  &quot;The best parking system we&#39;ve ever used. Efficient
-                  and reliable!&quot;
-                </p>
-              </div>
-              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://source.unsplash.com/random/407x307?client2"
-                  alt="Client Testimonial 2"
-                  width={407}
-                  height={307}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
-                <h3 className="text-xl font-semibold mb-2">Jane Smith</h3>
-                <p className="text-gray-600 italic">
-                  &quot;Highly recommend these parking gates. Great for security
-                  and cost-effective.&quot;
-                </p>
-              </div>
-              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <Image
-                  src="https://source.unsplash.com/random/408x308?client3"
-                  alt="Client Testimonial 3"
-                  width={408}
-                  height={308}
-                  className="w-full h-48 object-cover mb-4 rounded"
-                />
-                <h3 className="text-xl font-semibold mb-2">Emily Johnson</h3>
-                <p className="text-gray-600 italic">
-                  &quot;A seamless experience from start to finish. Our
-                  customers love it!&quot;
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <VerticalAccordion />
 
         {/* Call-to-Action Section */}
         <section className="py-16 bg-primary text-white">
