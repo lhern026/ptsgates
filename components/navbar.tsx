@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
-  NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
@@ -41,12 +40,18 @@ const navItems = [
     href: "/installationsandservices",
   },
   {
-    label: "Contact",
-    href: "/contact",
+    label: "About us",
+    href: "/about",
   },
 ];
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <NextUINavbar isBordered className="bg-white shadow-lg fixed w-full z-50">
       <div className="flex justify-between items-center w-full">
@@ -61,11 +66,14 @@ export const Navbar = () => {
             <p className="font-bold text-xl text-gray-800"></p>
           </NextLink>
         </NavbarBrand>
-        <NavbarMenuToggle className="md:hidden text-3xl p-4" />{" "}
-        {/* Increased size here */}
+        <NavbarMenuToggle
+          className="md:hidden text-3xl p-4"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
       </div>
 
-      <NavbarContent className="hidden md:flex gap-6 justify-center w-full py-4">
+      {/* Hide NavbarContent on medium and smaller screens */}
+      <NavbarContent className="hidden lg:flex gap-6 justify-center w-full py-4">
         <ul className="flex gap-8">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
@@ -91,7 +99,8 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex basis-1/5 justify-end items-center gap-4">
+      {/* Hide the request quote link and theme switch on medium and smaller screens */}
+      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4">
         <Link
           href="/contact"
           target="_blank"
@@ -107,50 +116,57 @@ export const Navbar = () => {
         <ThemeSwitch />
       </NavbarContent>
 
-      <NavbarContent className="flex md:hidden justify-end items-center gap-4">
-        <ThemeSwitch />
-      </NavbarContent>
-
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {navItems.map((item) =>
-            item.subitems ? (
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50">
+          <div className="flex flex-col gap-4">
+            {navItems.map((item, index) => (
               <div key={item.href} className="relative group">
-                <button className="text-gray-700 hover:text-primary py-2">
-                  {item.label}
-                </button>
-                <div className="ml-4">
-                  {item.subitems.map((subitem, index) => (
-                    <div
-                      key={index}
-                      className={`py-2 hover:bg-gray-100 ${
-                        subitem.isDisabled
-                          ? "cursor-not-allowed text-gray-400"
-                          : "cursor-pointer"
-                      }`}
-                    >
-                      {subitem.isDisabled ? (
-                        <span>{subitem.label}</span>
-                      ) : (
-                        <NextLink href={subitem.href}>{subitem.label}</NextLink>
-                      )}
+                {item.subitems ? (
+                  <>
+                    <button className="text-gray-700 hover:text-primary py-2">
+                      {item.label}
+                    </button>
+                    <div className="ml-4">
+                      {item.subitems.map((subitem) => (
+                        <div
+                          key={subitem.href}
+                          className={`py-2 hover:bg-gray-100 ${
+                            subitem.isDisabled
+                              ? "cursor-not-allowed text-gray-400"
+                              : "cursor-pointer"
+                          }`}
+                          onClick={() =>
+                            !subitem.isDisabled && handleLinkClick()
+                          }
+                        >
+                          {subitem.isDisabled ? (
+                            <span>{subitem.label}</span>
+                          ) : (
+                            <NextLink href={subitem.href}>
+                              {subitem.label}
+                            </NextLink>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </>
+                ) : (
+                  <NavbarMenuItem key={item.href}>
+                    <NextLink
+                      href={item.href}
+                      className="text-gray-700 hover:text-primary py-2 cursor-pointer"
+                      onClick={handleLinkClick}
+                    >
+                      {item.label}
+                    </NextLink>
+                  </NavbarMenuItem>
+                )}
               </div>
-            ) : (
-              <NavbarMenuItem key={item.href}>
-                <NextLink
-                  href={item.href}
-                  className="text-gray-700 hover:text-primary py-2"
-                >
-                  {item.label}
-                </NextLink>
-              </NavbarMenuItem>
-            )
-          )}
+            ))}
+          </div>
         </div>
-      </NavbarMenu>
+      )}
     </NextUINavbar>
   );
 };
