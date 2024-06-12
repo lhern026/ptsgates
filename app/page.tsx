@@ -212,6 +212,153 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Features Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose Our Parking Gates?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <FaCheckCircle className="text-4xl text-primary mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Reliable Performance
+                </h3>
+                <p className="text-gray-600">
+                  Our parking gates are designed for durability and consistent
+                  performance, ensuring smooth operation at all times.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <FaLock className="text-4xl text-primary mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Enhanced Security
+                </h3>
+                <p className="text-gray-600">
+                  Advanced security features to prevent unauthorized access and
+                  ensure the safety of parked vehicles.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <FaClock className="text-4xl text-primary mb-4 mx-auto" />
+                <h3 className="text-2xl font-semibold mb-2">Cost-Effective</h3>
+                <p className="text-gray-600">
+                  Optimize your parking management and reduce costs with our
+                  efficient and scalable solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-16 bg-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              How It Works
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Step 1: Entry"
+                  width={403}
+                  height={303}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Step 1: Entry</h3>
+                <p className="text-gray-600">
+                  Vehicles approach the gate and input their details to gain
+                  access.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Step 2: Processing"
+                  width={404}
+                  height={304}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">
+                  Step 2: Processing
+                </h3>
+                <p className="text-gray-600">
+                  Our system verifies the details and processes the entry
+                  request.
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Step 3: Park"
+                  width={405}
+                  height={305}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Step 3: Park</h3>
+                <p className="text-gray-600">
+                  The gate opens, allowing the vehicle to enter and park
+                  securely.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Benefits of Our Parking Systems
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Convenience"
+                  width={406}
+                  height={306}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Convenience</h3>
+                <p className="text-gray-600">
+                  Our systems provide unparalleled convenience for both
+                  operators and users, streamlining parking operations.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Safety"
+                  width={407}
+                  height={307}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Safety</h3>
+                <p className="text-gray-600">
+                  Advanced safety features ensure that both vehicles and
+                  pedestrians are protected at all times.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="https://i.imgur.com/NJO8gUO.png"
+                  alt="Efficiency"
+                  width={408}
+                  height={308}
+                  className="w-full h-48 object-cover mb-4 rounded"
+                />
+                <h3 className="text-2xl font-semibold mb-2">Efficiency</h3>
+                <p className="text-gray-600">
+                  Our systems maximize efficiency, reducing wait times and
+                  optimizing space usage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Testimonials Section */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
