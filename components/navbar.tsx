@@ -59,11 +59,10 @@ export const Navbar = () => {
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image
               src="https://i.imgur.com/u1fiTYz.png"
-              width={50}
-              height={50}
+              width={150}
+              height={150}
               alt="logo"
             />
-            <p className="font-bold text-xl text-gray-800">BrandName</p>
           </NextLink>
         </NavbarBrand>
         <NavbarMenuToggle
