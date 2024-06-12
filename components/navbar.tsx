@@ -131,7 +131,6 @@ export const Navbar = () => {
         >
           Request Quote
         </Link>
-        <ThemeSwitch />
       </NavbarContent>
 
       {/* Mobile Menu */}
@@ -181,10 +180,10 @@ export const Navbar = () => {
                 ) : (
                   <NavbarMenuItem key={item.href}>
                     <NextLink
-                      className="text-gray-700 hover:text-primary py-2 cursor-pointer"
+                      className="text-gray-700 hover:text-primary hover:focus:1 py-2 cursor-pointer"
                       href={item.href}
                     >
-                      {item.label}
+                      {item.label}s
                     </NextLink>
                   </NavbarMenuItem>
                 )}

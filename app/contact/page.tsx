@@ -34,7 +34,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-lg mx-auto bg-white p-9 rounded-lg shadow-md"
+      className="max-w-full top-1 mx-full bg-white p-9 rounded-lg shadow-md"
     >
       <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
         Contact Us
