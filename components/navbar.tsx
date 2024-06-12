@@ -180,7 +180,7 @@ export const Navbar = () => {
                 ) : (
                   <NavbarMenuItem key={item.href}>
                     <NextLink
-                      className="text-gray-700 hover:text-primary hover:focus:1 py-2 cursor-pointer"
+                      className="text-gray-700 hover:text-primary hover:bg-red-100 py-2 cursor-pointer"
                       href={item.href}
                     >
                       {item.label}s
