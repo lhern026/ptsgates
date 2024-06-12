@@ -1,3 +1,7 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 import { title } from "@/components/primitives";
 import {
   FaTools,
@@ -8,10 +12,32 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 
+const containerVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 export default function PricingPage() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-gray-50">
-      <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white">
+    <motion.div
+      className="min-h-screen flex flex-col w-full bg-gray-50"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.div
+        className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white"
+        variants={itemVariants}
+      >
         <h1
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
         >
@@ -20,10 +46,13 @@ export default function PricingPage() {
         <p className="text-xl md:text-2xl lg:text-3xl text-center max-w-3xl mx-auto">
           Comprehensive solutions for all your parking gate system needs.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="py-12 px-6 md:px-12 lg:px-24 w-full text-gray-800">
-        <div className="max-w-4xl mx-auto mb-16">
+      <motion.div
+        className="py-12 px-6 md:px-12 lg:px-24 w-full text-gray-800"
+        variants={containerVariants}
+      >
+        <motion.div className="max-w-4xl mx-auto mb-16" variants={itemVariants}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Our Services
           </h2>
@@ -33,55 +62,57 @@ export default function PricingPage() {
             installation, maintenance, upgrades, and emergency repairs, all
             tailored to meet your specific needs.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <FaTools className="text-4xl text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Installation Services</h3>
-            <p className="text-lg text-gray-600">
-              Our team of experienced technicians ensures seamless installation
-              of parking gate systems tailored to your specific needs.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <FaCogs className="text-4xl text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Maintenance and Support</h3>
-            <p className="text-lg text-gray-600">
-              Regular maintenance is crucial for the longevity and reliability
-              of your parking gate systems. We offer comprehensive maintenance
-              plans.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <FaClipboardCheck className="text-4xl text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-4">System Upgrades</h3>
-            <p className="text-lg text-gray-600">
-              Keep your parking gate systems up-to-date with the latest
-              technology advancements.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <FaClock className="text-4xl text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-4">
-              Emergency Repair Services
-            </h3>
-            <p className="text-lg text-gray-600">
-              Our emergency repair services are available 24/7 to minimize
-              downtime and inconvenience.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <FaWrench className="text-4xl text-primary mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Custom Solutions</h3>
-            <p className="text-lg text-gray-600">
-              Every parking facility has unique requirements. We offer custom
-              solutions tailored to your specific needs.
-            </p>
-          </div>
-        </div>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+          variants={containerVariants}
+        >
+          {[
+            {
+              icon: <FaTools className="text-4xl text-primary mb-4" />,
+              title: "Installation Services",
+              description:
+                "Our team of experienced technicians ensures seamless installation of parking gate systems tailored to your specific needs.",
+            },
+            {
+              icon: <FaCogs className="text-4xl text-primary mb-4" />,
+              title: "Maintenance and Support",
+              description:
+                "Regular maintenance is crucial for the longevity and reliability of your parking gate systems. We offer comprehensive maintenance plans.",
+            },
+            {
+              icon: <FaClipboardCheck className="text-4xl text-primary mb-4" />,
+              title: "System Upgrades",
+              description:
+                "Keep your parking gate systems up-to-date with the latest technology advancements.",
+            },
+            {
+              icon: <FaClock className="text-4xl text-primary mb-4" />,
+              title: "Emergency Repair Services",
+              description:
+                "Our emergency repair services are available 24/7 to minimize downtime and inconvenience.",
+            },
+            {
+              icon: <FaWrench className="text-4xl text-primary mb-4" />,
+              title: "Custom Solutions",
+              description:
+                "Every parking facility has unique requirements. We offer custom solutions tailored to your specific needs.",
+            },
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-lg"
+              variants={itemVariants}
+            >
+              {service.icon}
+              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-lg text-gray-600">{service.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto mt-16">
+        <motion.div className="max-w-4xl mx-auto mt-16" variants={itemVariants}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Why Choose Us?
           </h2>
@@ -98,24 +129,27 @@ export default function PricingPage() {
               Up-to-date with the latest technology advancements
             </li>
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800">
+        <motion.div
+          className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800"
+          variants={containerVariants}
+        >
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Client Testimonials
             </h2>
             <div className="flex flex-col md:flex-row gap-12">
-              <div className="flex-1">
-                <blockquote className="text-lg md:text-xl lg:text-2xl italic border-l-4 border-primary pl-4">
+              <motion.div className="flex-1" variants={itemVariants}>
+                <p className="text-lg md:text-xl lg:text-2xl italic">
                   &quot;PTS has been an invaluable partner in our journey. Their
                   expertise and dedication have transformed our operations,
                   allowing us to deliver superior service to our clients.&quot;
                   <br />
                   <span className="font-bold">- Scheidt-Bachmann</span>
-                </blockquote>
-              </div>
-              <div className="flex-1">
+                </p>
+              </motion.div>
+              <motion.div className="flex-1" variants={itemVariants}>
                 <Image
                   src="https://source.unsplash.com/random/400x400"
                   alt="Client Image"
@@ -123,12 +157,15 @@ export default function PricingPage() {
                   height={400}
                   className="rounded-lg shadow-lg"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto mt-16 text-center">
+        <motion.div
+          className="max-w-4xl mx-auto mt-16 text-center"
+          variants={itemVariants}
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
@@ -142,8 +179,8 @@ export default function PricingPage() {
           >
             Contact Us
           </a>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }
