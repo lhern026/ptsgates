@@ -72,7 +72,6 @@ export default function DocsPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
