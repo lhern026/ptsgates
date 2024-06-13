@@ -81,18 +81,20 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar
+      shouldHideOnScroll
       isBordered
-      className="bg-white shadow-lg fixed w-full z-50"
-      style={{ height: "125px" }} // Increased height
+      className="bg-white fixed w-full z-50 border-solid  border-sky-500"
+      style={{ height: "110px" }} // Increased height
     >
-      <div className="flex justify-between items-center w-full ">
+      <div className="flex justify-between items-center w-full  my-6 ">
         <NavbarBrand as="li" className="flex  ">
-          <NextLink className="flex justify-start  gap-1" href="/">
+          <NextLink className="flex justify-start   " href="/">
             <Image
               alt="logo"
+              className="w-full "
               height={300} // Adjusted height for better visibility
               src="https://i.imgur.com/u1fiTYz.png"
-              width={200} // Adjusted width for better visibility
+              width={300} // Adjusted width for better visibility
               style={{ objectFit: "contain" }} // Ensure the image fits well
             />
           </NextLink>
@@ -123,7 +125,7 @@ export const Navbar = () => {
       </div>
 
       {/* Hide NavbarContent on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full py-4">
+      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full  ">
         <ul className="flex gap-10">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
