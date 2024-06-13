@@ -23,10 +23,39 @@ const itemVariants = {
 function ContactForm() {
   const [state, handleSubmit] = useForm("xqkrrkro");
 
+  const Card = () => (
+    <motion.div
+      className="bg-white p-8 rounded-lg shadow-md text-center max-w-sm mx-auto lg:mx-0 lg:mr-8"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-2xl font-bold mb-4 text-gray-700">
+        Contact Information
+      </h2>
+      <p className="text-lg text-gray-600 mb-6">info-its@integrated-tec.com</p>
+      <p className="text-lg text-gray-600 mb-6">
+        8 Capital Drive, Wallingford, CT 06492
+      </p>
+      <p className="text-lg text-gray-600 mb-6">Fax: (203) 949-4710</p>
+      <Link
+        href="/"
+        className={buttonStyles({
+          color: "primary",
+          radius: "full",
+          variant: "shadow",
+          className: "px-6 py-3 text-lg font-semibold",
+        })}
+      >
+        Go to Home
+      </Link>
+    </motion.div>
+  );
+
   if (state.succeeded) {
     return (
       <motion.div
-        className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md text-center"
+        className=" bg-white p-8 rounded-lg shadow-md text-center max-w-full "
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -53,14 +82,15 @@ function ContactForm() {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-16 px-6"
+      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
+      <Card />
       <motion.form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto p-8 bg-white rounded-lg shadow-md"
+        className="max-w-md mx-auto lg:mx-0 p-9 bg-white rounded-lg shadow-md"
         variants={containerVariants}
       >
         <motion.h2

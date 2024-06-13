@@ -18,7 +18,7 @@ function ContactForm() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="min-h-screen flex flex-col w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-16 px-6 md:px-12 lg:px-24 text-white"
+        className="min-h-screen flex flex-col max-w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-16 px-6 md:px-12 lg:px-24 text-white"
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8">
           Contact Us
@@ -28,12 +28,12 @@ function ContactForm() {
         </p>
         <motion.form
           onSubmit={handleSubmit}
-          className="max-w-md mx-auto p-8 border border-gray-300 rounded-lg bg-white shadow-md"
+          className="max-w-full  p-8 border border-gray-300 rounded-lg bg-white shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="mb-4">
+          <div className="mb-4 max-w-full">
             <label htmlFor="email" className="block text-sm font-bold mb-2">
               Email Address
             </label>
