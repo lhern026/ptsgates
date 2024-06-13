@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -14,7 +13,6 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import Dropdown from "../components/dropdown"; // Import the custom dropdown
@@ -82,39 +80,42 @@ export const Navbar = () => {
   };
 
   return (
-    <NextUINavbar isBordered className="bg-white shadow-lg fixed w-full z-50">
-      <div className="flex justify-between items-center w-full px-4">
-        <NavbarBrand as="li" className="flex items-center gap-3">
-          <NextLink className="flex justify-start items-center gap-1 " href="/">
+    <NextUINavbar
+      isBordered
+      className="bg-white shadow-lg fixed w-full z-50"
+      style={{ height: "125px" }} // Increased height
+    >
+      <div className="flex justify-between items-center w-full ">
+        <NavbarBrand as="li" className="flex  ">
+          <NextLink className="flex justify-start  gap-1" href="/">
             <Image
               alt="logo"
-              height={150}
+              height={300} // Adjusted height for better visibility
               src="https://i.imgur.com/u1fiTYz.png"
-              width={150}
+              width={200} // Adjusted width for better visibility
+              style={{ objectFit: "contain" }} // Ensure the image fits well
             />
           </NextLink>
         </NavbarBrand>
         <button
           aria-label="Toggle menu"
-          className="md:hidden text-3xl p-2 focus:outline-none rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+          className="md:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <div className="flex flex-col items-center justify-center space-y-1">
             <span
-              className={`block w-6 h-0.5 bg-current transition-transform duration-300 ${
+              className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
                 isMenuOpen ? "transform rotate-45 translate-y-1.5" : ""
               }`}
             ></span>
             <span
-              className={`block w-6 h-0.5 bg-current transition-opacity duration-300 ${
+              className={`block w-8 h-0.5 bg-current transition-opacity duration-300 ${
                 isMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
             <span
-              className={`block w-6 h-0.5 bg-current transition-transform duration-300 ${
-                isMenuOpen
-                  ? "transform -rotate-45 -translate-y-1.5 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
-                  : ""
+              className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
+                isMenuOpen ? "transform -rotate-45 -translate-y-1.5" : ""
               }`}
             ></span>
           </div>
@@ -122,15 +123,14 @@ export const Navbar = () => {
       </div>
 
       {/* Hide NavbarContent on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full py-4 ">
-        <ul className="flex gap-8 ">
+      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full py-4">
+        <ul className="flex gap-10">
           {navItems.map((item) => (
-            <NavbarItem key={item.href} className="relative group ">
+            <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
                 <Dropdown
                   items={item.subitems.map((subitem) => ({
                     href: subitem.href,
-
                     isDisabled: subitem.isDisabled,
                     label: subitem.label,
                   }))}
@@ -140,11 +140,9 @@ export const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 font-medium bg-red-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]"
+                  className="px-2 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none "
                 >
-                  <NextLink className=" " href={item.href}>
-                    {item.label}
-                  </NextLink>
+                  <NextLink href={item.href}>{item.label}</NextLink>
                 </motion.div>
               )}
             </NavbarItem>
@@ -153,7 +151,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* Hide the request quote link and theme switch on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4 ">
+      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4">
         <Link
           className={buttonStyles({
             color: "primary",
@@ -172,17 +170,17 @@ export const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="flex flex-col md:hidden bg-white p-4 shadow-lg w-full absolute top-16 left-0 z-50"
+            className="flex flex-col md:hidden bg-white p-6 shadow-lg w-full absolute top-16 left-0 z-50"
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={mobileMenuVariants}
           >
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group text-gray-700 hover:text-primary py-2 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
@@ -193,14 +191,14 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button className="text-gray-700 hover:text-primary py-2 rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                      <button className="text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
                         {item.label}
                       </button>
                       <div className="ml-4">
                         {item.subitems.map((subitem) => (
                           <div
                             key={subitem.href}
-                            className={`py-2 ${
+                            className={`py-4 ${
                               subitem.isDisabled
                                 ? "cursor-not-allowed text-gray-400"
                                 : "cursor-pointer"
@@ -225,7 +223,7 @@ export const Navbar = () => {
                   ) : (
                     <NavbarMenuItem key={item.href}>
                       <NextLink
-                        className="text-gray-700 hover:text-primary hover:bg-red-100 py-2 cursor-pointer"
+                        className="text-gray-700 hover:text-primary hover:bg-red-100 py-4 cursor-pointer"
                         href={item.href}
                       >
                         {item.label}
