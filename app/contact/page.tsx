@@ -55,7 +55,7 @@ function ContactForm() {
   if (state.succeeded) {
     return (
       <motion.div
-        className=" bg-white p-8 rounded-lg shadow-md text-center max-w-full "
+        className="bg-white p-8 rounded-lg shadow-md text-center max-w-full"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -108,7 +108,7 @@ function ContactForm() {
             id="name"
             type="text"
             name="name"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your name"
             required
           />
@@ -128,7 +128,7 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your email"
             required
           />
@@ -148,7 +148,7 @@ function ContactForm() {
             id="phone"
             type="tel"
             name="phone"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your phone number"
             required
           />
@@ -167,7 +167,7 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your message"
             required
           />

@@ -23,7 +23,7 @@ const item = {
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+    <div className="min-h-screen flex flex-col w-full bg-gradient-to-r from-blue-400 via-blue-500 to-red-500">
       <div className="flex-grow">
         <div className="py-16 px-6 md:px-12 lg:px-24 w-full text-white">
           <motion.h1

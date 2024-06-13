@@ -35,7 +35,7 @@ export default function PricingPage() {
       variants={containerVariants}
     >
       <motion.div
-        className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white"
+        className="bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white"
         variants={itemVariants}
       >
         <h1
