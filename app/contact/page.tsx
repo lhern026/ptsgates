@@ -25,19 +25,35 @@ function ContactForm() {
 
   const Card = () => (
     <motion.div
-      className="bg-white p-8 rounded-lg shadow-md text-center max-w-sm mx-auto lg:mx-0 lg:mr-8"
+      className="bg-white p-8 rounded-lg shadow-lg text-center w-full"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-2xl font-bold mb-4 text-gray-700">
+      <motion.h2
+        className="text-2xl font-extrabold mb-4 text-gray-800"
+        variants={itemVariants}
+      >
         Contact Information
-      </h2>
-      <p className="text-lg text-gray-600 mb-6">info-its@integrated-tec.com</p>
-      <p className="text-lg text-gray-600 mb-6">
+      </motion.h2>
+      <motion.p
+        className="text-lg text-gray-700 mb-6 font-medium"
+        variants={itemVariants}
+      >
+        info-its@integrated-tec.com
+      </motion.p>
+      <motion.p
+        className="text-lg text-gray-700 mb-6 font-medium"
+        variants={itemVariants}
+      >
         8 Capital Drive, Wallingford, CT 06492
-      </p>
-      <p className="text-lg text-gray-600 mb-6">Fax: (203) 949-4710</p>
+      </motion.p>
+      <motion.p
+        className="text-lg text-gray-700 mb-6 font-medium"
+        variants={itemVariants}
+      >
+        Fax: (203) 949-4710
+      </motion.p>
       <Link
         href="/"
         className={buttonStyles({
@@ -60,8 +76,10 @@ function ContactForm() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl font-bold mb-4 text-gray-700">Thank You!</h2>
-        <p className="text-lg text-gray-600 mb-6">
+        <h2 className="text-2xl font-extrabold mb-4 text-gray-800">
+          Thank You!
+        </h2>
+        <p className="text-lg text-gray-700 mb-6 font-medium">
           Your message has been successfully sent. We will get back to you
           shortly.
         </p>
@@ -82,7 +100,7 @@ function ContactForm() {
 
   return (
     <motion.div
-      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6"
+      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6 gap-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -90,18 +108,21 @@ function ContactForm() {
       <Card />
       <motion.form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto lg:mx-0 p-9 bg-white rounded-lg shadow-md"
+        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg"
         variants={containerVariants}
       >
         <motion.h2
-          className="text-2xl font-bold mb-6 text-center text-gray-700"
+          className="text-2xl font-extrabold mb-6 text-center text-gray-800"
           variants={itemVariants}
         >
           Contact Us
         </motion.h2>
 
         <motion.div className="mb-4" variants={itemVariants}>
-          <label htmlFor="name" className="block text-gray-600 mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 mb-2 font-medium"
+          >
             Name
           </label>
           <input
@@ -121,7 +142,10 @@ function ContactForm() {
         </motion.div>
 
         <motion.div className="mb-4" variants={itemVariants}>
-          <label htmlFor="email" className="block text-gray-600 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 mb-2 font-medium"
+          >
             Email Address
           </label>
           <input
@@ -141,7 +165,10 @@ function ContactForm() {
         </motion.div>
 
         <motion.div className="mb-4" variants={itemVariants}>
-          <label htmlFor="phone" className="block text-gray-600 mb-2">
+          <label
+            htmlFor="phone"
+            className="block text-gray-700 mb-2 font-medium"
+          >
             Phone Number
           </label>
           <input
@@ -161,7 +188,10 @@ function ContactForm() {
         </motion.div>
 
         <motion.div className="mb-6" variants={itemVariants}>
-          <label htmlFor="message" className="block text-gray-600 mb-2">
+          <label
+            htmlFor="message"
+            className="block text-gray-700 mb-2 font-medium"
+          >
             Message
           </label>
           <textarea
