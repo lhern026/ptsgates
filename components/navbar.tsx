@@ -81,7 +81,6 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar
-      shouldHideOnScroll
       isBordered
       className="bg-white fixed w-full z-50 border-solid  border-sky-500"
       style={{ height: "110px" }} // Increased height
@@ -161,8 +160,6 @@ export const Navbar = () => {
             variant: "shadow",
           })}
           href="/contact"
-          isExternal
-          target="_blank"
         >
           Request Quote
         </Link>
