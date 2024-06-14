@@ -58,20 +58,18 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-blue-100 flex flex-col">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="h-screen text-white relative">
+        <section className="relative h-screen w-full text-white">
           <Slider {...sliderSettings}>
             {imageUrls.map((image, index) => (
               <div key={index}>
                 <div
-                  className="bg-cover bg-center h-screen flex items-center justify-center"
-                  style={{
-                    backgroundImage: `url(${image})`,
-                  }}
+                  className="flex items-center justify-center h-screen bg-cover bg-center"
+                  style={{ backgroundImage: `url(${image})` }}
                 >
-                  <div className="bg-gray-900 bg-opacity-50 p-8 rounded-lg text-center">
+                  <div className="bg-gradient-to-r from-black/70 to-transparent p-8 rounded-lg text-center max-w-2xl mx-auto">
                     <motion.h1
                       className="text-4xl md:text-6xl font-bold mb-4"
                       initial={{ opacity: 0, y: -50 }}
@@ -94,7 +92,8 @@ export default function Home() {
                         color: "primary",
                         radius: "full",
                         variant: "shadow",
-                        className: "px-6 py-3 text-lg font-semibold",
+                        className:
+                          "px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300",
                       })}
                     >
                       Get Started

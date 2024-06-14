@@ -13,12 +13,12 @@ const Footer = () => {
             <Link href="/" className="flex items-center gap-1">
               <Image
                 src="https://i.imgur.com/u1fiTYz.png"
-                width={100}
-                height={100}
+                width={220}
+                height={220}
                 alt="logo"
                 className="rounded-full"
               />
-              <span className="text-2xl font-bold">PTS</span>
+             
             </Link>
           </div>
           <div className="flex flex-col md:flex-row gap-6 text-center md:text-left">
