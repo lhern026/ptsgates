@@ -17,75 +17,98 @@ export default function AboutPage() {
       </div>
 
       <div className="py-16 px-6 md:px-12 lg:px-24 w-full text-gray-800">
-        <div className="max-w-4xl mx-auto mb-16">
-          <Image
-            src="https://source.unsplash.com/random/800x400?security"
-            alt="Keri Systems"
-            width={800}
-            height={400}
-            className="rounded-lg shadow-lg mb-6"
-          />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            About Keri Systems
-          </h2>
-          <p className="text-lg md:text-xl lg:text-2xl mb-6">
-            Keri Systems is renowned for its expertise in access control and
-            integrated security solutions. With a commitment to innovation and
-            quality, we provide customized security solutions that cater to the
-            unique needs of each client. Our systems are designed to be robust,
-            scalable, and user-friendly, ensuring maximum security and ease of
-            use.
-          </p>
+        <div className="py-16 px-6 md:px-12 lg:px-24 w-full text-gray-800">
+          <div className="max-w-4xl mx-auto mb-16 bg-white p-8 rounded-lg shadow-lg">
+            <Image
+              src="https://source.unsplash.com/random/800x400?security"
+              alt="Keri Systems"
+              width={800}
+              height={400}
+              className="rounded-lg shadow-md mb-6"
+            />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
+              About Keri Systems
+            </h2>
+            <p className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed">
+              Keri Systems is renowned for its expertise in access control and
+              integrated security solutions. With a commitment to innovation and
+              quality, we provide customized security solutions that cater to
+              the unique needs of each client. Our systems are designed to be
+              robust, scalable, and user-friendly, ensuring maximum security and
+              ease of use.
+            </p>
+          </div>
         </div>
 
-        <div className="max-w-4xl mx-auto mt-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <div className="max-w-4xl mx-auto mt-16 p-6 bg-white rounded-lg shadow-lg">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
             Why Choose Keri Systems?
           </h2>
-          <ul className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-600">
-            <li className="mb-4">Advanced access control technology</li>
-            <li className="mb-4">Customizable security solutions</li>
-            <li className="mb-4">User-friendly and scalable systems</li>
-            <li className="mb-4">Commitment to innovation and quality</li>
-            <li className="mb-4">Dedicated customer support</li>
+          <ul className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-4">
+            <li className="flex items-start">
+              <span className="text-2xl text-blue-500 mr-2">✓</span>
+              Advanced access control technology
+            </li>
+            <li className="flex items-start">
+              <span className="text-2xl text-blue-500 mr-2">✓</span>
+              Customizable security solutions
+            </li>
+            <li className="flex items-start">
+              <span className="text-2xl text-blue-500 mr-2">✓</span>
+              User-friendly and scalable systems
+            </li>
+            <li className="flex items-start">
+              <span className="text-2xl text-blue-500 mr-2">✓</span>
+              Commitment to innovation and quality
+            </li>
+            <li className="flex items-start">
+              <span className="text-2xl text-blue-500 mr-2">✓</span>
+              Dedicated customer support
+            </li>
           </ul>
         </div>
 
-        <div className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg">
+        <div className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
               Our Solutions
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">Access Control</h3>
-                <p className="text-lg text-gray-600">
+              <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+                <h3 className="text-2xl font-bold mb-4 text-green-600">
+                  Access Control
+                </h3>
+                <p className="text-lg text-gray-700">
                   Secure and manage access to your premises with our
                   state-of-the-art access control systems, designed for
                   efficiency and reliability.
                 </p>
               </div>
-              <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">Integrated Security</h3>
-                <p className="text-lg text-gray-600">
+              <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+                <h3 className="text-2xl font-bold mb-4 text-green-600">
+                  Integrated Security
+                </h3>
+                <p className="text-lg text-gray-700">
                   Our integrated security solutions combine various security
                   measures into a cohesive system, providing comprehensive
                   protection for your facility.
                 </p>
               </div>
-              <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">Scalable Solutions</h3>
-                <p className="text-lg text-gray-600">
+              <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+                <h3 className="text-2xl font-bold mb-4 text-green-600">
+                  Scalable Solutions
+                </h3>
+                <p className="text-lg text-gray-700">
                   Whether you need security for a small office or a large
                   enterprise, our scalable solutions can grow with your
                   business.
                 </p>
               </div>
-              <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">
+              <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-lg shadow-lg transition transform hover:scale-105">
+                <h3 className="text-2xl font-bold mb-4 text-green-600">
                   User-Friendly Interfaces
                 </h3>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-gray-700">
                   Our systems feature intuitive interfaces, making it easy for
                   users to manage security settings and monitor access.
                 </p>
