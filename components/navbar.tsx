@@ -150,7 +150,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden lg:flex basis-1/5 items-center gap-4">
-        <Link
+        <NextLink
           className={buttonStyles({
             color: "primary",
             radius: "full",
@@ -159,7 +159,7 @@ export const Navbar = () => {
           href="/contact"
         >
           Request Quote
-        </Link>
+        </NextLink>
       </NavbarContent>
 
       <AnimatePresence>
