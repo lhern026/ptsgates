@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white">
+      <div className="bg-gradient-to-r from-blue-600 via-teal-600 to-green-600 py-16 px-6 md:px-12 lg:px-24 w-full text-white">
         <h1
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
         >
@@ -16,7 +16,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="py-12 px-6 md:px-12 lg:px-24 w-full text-gray-800">
+      <div className="py-16 px-6 md:px-12 lg:px-24 w-full text-gray-800">
         <div className="max-w-4xl mx-auto mb-16">
           <Image
             src="https://source.unsplash.com/random/800x400?security"
@@ -51,7 +51,7 @@ export default function AboutPage() {
           </ul>
         </div>
 
-        <div className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800">
+        <div className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Our Solutions
@@ -104,7 +104,7 @@ export default function AboutPage() {
           </p>
           <a
             href="/contact"
-            className="inline-block bg-primary text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-primary-dark transition duration-300"
+            className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
           >
             Contact Us
           </a>
