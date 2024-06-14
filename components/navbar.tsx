@@ -14,8 +14,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import Dropdown from "../components/dropdown"; // Import the custom dropdown
+import Dropdown from "../components/dropdown";
 
 const navItems = [
   {
@@ -30,8 +29,8 @@ const navItems = [
     label: "Products",
     href: "/products",
     subitems: [
-      { label: "scheidt-bachmann", href: "/products/scheidt-bachmann/" },
-      { label: "Ev chargers coming soon", href: "#", isDisabled: true },
+      { label: "Scheidt-Bachmann", href: "/products/scheidt-bachmann/" },
+      { label: "EV Chargers Coming Soon", href: "#", isDisabled: true },
     ],
   },
   {
@@ -82,19 +81,19 @@ export const Navbar = () => {
   return (
     <NextUINavbar
       isBordered
-      className="bg-white fixed w-full z-50 border-solid  border-sky-500"
-      style={{ height: "110px" }} // Increased height
+      className="bg-white fixed w-full z-50 border-solid border-sky-500"
+      style={{ height: "110px" }}
     >
-      <div className="flex justify-between items-center w-full  my-6 ">
-        <NavbarBrand as="li" className="flex  ">
-          <NextLink className="flex justify-start   " href="/">
+      <div className="flex justify-between items-center w-full my-6">
+        <NavbarBrand as="li" className="flex">
+          <NextLink className="flex justify-start" href="/">
             <Image
               alt="logo"
-              className="w-full "
-              height={300} // Adjusted height for better visibility
+              className="w-full"
+              height={300}
               src="https://i.imgur.com/u1fiTYz.png"
-              width={300} // Adjusted width for better visibility
-              style={{ objectFit: "contain" }} // Ensure the image fits well
+              width={300}
+              style={{ objectFit: "contain" }}
             />
           </NextLink>
         </NavbarBrand>
@@ -123,8 +122,7 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Hide NavbarContent on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full  ">
+      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full">
         <ul className="flex gap-10">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
@@ -141,7 +139,7 @@ export const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-2 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none "
+                  className="px-2 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none"
                 >
                   <NextLink href={item.href}>{item.label}</NextLink>
                 </motion.div>
@@ -151,8 +149,7 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      {/* Hide the request quote link and theme switch on medium and smaller screens */}
-      <NavbarContent className="hidden lg:flex basis-1/5 justify-end items-center gap-4">
+      <NavbarContent className="hidden lg:flex basis-1/5 items-center gap-4">
         <Link
           className={buttonStyles({
             color: "primary",
@@ -165,7 +162,6 @@ export const Navbar = () => {
         </Link>
       </NavbarContent>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -179,7 +175,7 @@ export const Navbar = () => {
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
@@ -190,7 +186,7 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button className="text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                      <button className="text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
                         {item.label}
                       </button>
                       <div className="ml-4">
@@ -209,7 +205,7 @@ export const Navbar = () => {
                               </span>
                             ) : (
                               <NextLink
-                                className="hover:bg-blue-100 border-style: dotted"
+                                className="text-gray-700 hover:text-primary hover:bg-red-100 py-4 cursor-pointer"
                                 href={subitem.href}
                               >
                                 {subitem.label}
