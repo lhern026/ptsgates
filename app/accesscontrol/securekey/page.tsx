@@ -144,6 +144,7 @@ export default function AboutPage() {
             ))}
           </motion.ul>
         </motion.div>
+
         <motion.div
           className="max-w-6xl mx-auto mt-16 text-center"
           variants={container}

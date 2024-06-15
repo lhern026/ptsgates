@@ -10,6 +10,7 @@ import { FaCheckCircle, FaLock, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import HorizontalScrollCarousel from "../components/HorizontalScrollCarousel";
 
 const sliderSettings = {
   dots: true,
@@ -38,11 +39,7 @@ export default function Home() {
     "https://i.imgur.com/XULqRUX.jpeg",
     "https://i.imgur.com/LVRajBQ_d.webp?maxwidth=760&fidelity=grand",
   ];
-  const images = [
-    "https://i.imgur.com/PA7Jl6K.jpeg",
-    "https://i.imgur.com/XULqRUX.jpeg",
-    "https://i.imgur.com/LVRajBQ_d.webp?maxwidth=760&fidelity=grand",
-  ];
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

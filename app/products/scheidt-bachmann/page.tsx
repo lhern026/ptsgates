@@ -3,6 +3,7 @@
 import { title } from "@/components/primitives";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { TextParallaxContent } from "../../../components/TextParallalContext";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -21,6 +22,11 @@ const item = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
+const listItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
 const hoverEffect = {
   hover: {
     scale: 1.05,
@@ -32,36 +38,22 @@ const hoverEffect = {
   },
 };
 
-const DocsPage = () => {
+export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gradient-to-r from-blue-400 via-blue-500 to-red-500">
       <div className="flex-grow">
-        <div className="py-16 px-6 md:px-12 lg:px-24 w-full text-white text-shadow-lg">
-          <motion.h1
-            className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Products: Scheidt-Bachmann
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl lg:text-3xl text-center max-w-3xl mx-auto mb-8 text-shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            Discover how Scheidt-Bachmann revolutionized their parking solutions
-            with the help of PTS.
-          </motion.p>
-        </div>
-
         <motion.div
           className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg"
           initial="hidden"
           animate="visible"
           variants={container}
         >
+          <TextParallaxContent
+            imgUrl="https://i.imgur.com/dgHPO4S.jpeg"
+            subheading="Discover how Scheidt & Bachmann revolutionizes parking solutions
+            with innovative technology and unparalleled service."
+            heading="Scheidt & Bachmann"
+          />
           <div className="max-w-6xl mx-auto">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -122,6 +114,4 @@ const DocsPage = () => {
       </div>
     </div>
   );
-};
-
-export default DocsPage;
+}

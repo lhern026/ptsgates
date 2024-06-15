@@ -120,38 +120,38 @@ const descriptionVariants = {
 const items = [
   {
     id: 1,
-    title: "Earn more",
+    title: "Barrier systems",
     Icon: FiDollarSign,
     imgSrc:
-      "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      "https://i.imgur.com/uZ2x2rY.jpeg",
     description:
-      "Maximize your earnings with our innovative solutions. Experience unparalleled growth and financial success.",
+      "Our state-of-the-art barrier systems ensure efficient and secure access control for car parks, providing a reliable solution for managing vehicle entry and exit.",
   },
   {
     id: 2,
-    title: "Play more",
+    title: "Pay Stations",
     Icon: FiPlay,
     imgSrc:
-      "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
+      "https://i.imgur.com/nyS7Nmx.jpeg",
     description:
-      "Enjoy your leisure time with our engaging and fun activities. Play more and live better.",
+      "Pay stations serve as the primary interface between parking management and customers, offering seamless payment options and enhancing the overall parking experience.",
   },
   {
     id: 3,
-    title: "Keep track",
+    title: "Control Devices",
     Icon: FiBell,
     imgSrc:
-      "https://images.unsplash.com/photo-1578450671530-5b6a7c9f32a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "https://i.imgur.com/5Vu0XgO.jpeg",
     description:
       "Stay organized and informed with our advanced tracking systems. Keep track of what's important.",
   },
   {
     id: 4,
-    title: "Grow faster",
+    title: "Camera Systems",
     Icon: FiBarChart,
     imgSrc:
-      "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      "https://i.imgur.com/4Y4MP1L.jpeg",
     description:
-      "Accelerate your growth with our expert strategies and tools. Grow faster and achieve your goals.",
+      "Advanced camera systems enhance security and monitoring within parking areas, providing real-time surveillance and aiding in incident management",
   },
 ];
