@@ -40,19 +40,19 @@ function ContactForm() {
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        info-its@integrated-tec.com
+        info@parkingtechnicalservices.com
       </motion.p>
       <motion.p
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        8 Capital Drive, Wallingford, CT 06492
+        123 Parking Lane, Suite 100, Parkville, USA
       </motion.p>
       <motion.p
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        Fax: (203) 949-4710
+        Phone: (555) 123-4567
       </motion.p>
       <Link
         href="/"

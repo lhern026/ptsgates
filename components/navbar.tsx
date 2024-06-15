@@ -18,27 +18,27 @@ import Dropdown from "../components/dropdown";
 
 const navItems = [
   {
-    label: "Access control",
+    label: "ACCESS CONTROL",
     href: "/accesscontrol",
     subitems: [
-      { label: "Keri Systems", href: "/accesscontrol/kerisystems" },
-      { label: "Secure Key", href: "/accesscontrol/securekey" },
+      { label: "KERI SYSTEMS", href: "/accesscontrol/kerisystems" },
+      { label: "SECURE KEY", href: "/accesscontrol/securekey" },
     ],
   },
   {
-    label: "Products",
+    label: "PRODUCTS",
     href: "/products",
     subitems: [
-      { label: "Scheidt-Bachmann", href: "/products/scheidt-bachmann/" },
-      { label: "EV Chargers Coming Soon", href: "#", isDisabled: true },
+      { label: "SCHEIDT-BACHMANN", href: "/products/scheidt-bachmann/" },
+      { label: "EV CHARGERS COMING SOON", href: "#", isDisabled: true },
     ],
   },
   {
-    label: "Installations and Services",
+    label: "INSTALLATIONS AND SERVICES",
     href: "/installationsandservices",
   },
   {
-    label: "About us",
+    label: "ABOUT US",
     href: "/about",
   },
 ];
@@ -79,30 +79,26 @@ export const Navbar = () => {
   };
 
   return (
-    <NextUINavbar
-      isBordered
-      className="bg-white fixed w-full z-50 border-solid border-sky-500"
-      style={{ height: "110px" }}
-    >
-      <div className="flex justify-between items-center w-full my-6">
-        <NavbarBrand as="li" className="flex">
-          <NextLink className="flex justify-start" href="/">
+    <NextUINavbar isBordered className="" style={{ height: "7rem" }}>
+      <div className="flex  items-center w-full  h-2 ">
+        <NavbarBrand as="li" className="flex size-max">
+          <NextLink className="flex justify-start relative" href="/">
             <Image
               alt="logo"
-              className="w-full"
-              height={300}
+              className="w-80 h-80  " // Adjusted height
+              height={194} // Adjusted height
               src="https://i.imgur.com/u1fiTYz.png"
-              width={300}
+              width={194} // Adjusted width
               style={{ objectFit: "contain" }}
             />
           </NextLink>
         </NavbarBrand>
         <button
           aria-label="Toggle menu"
-          className="md:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-dashed border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+          className="md:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-solid border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className="flex flex-col items-center justify-center space-y-1">
+          <div className="flex flex-col items-center  justify-center space-y-1">
             <span
               className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
                 isMenuOpen ? "transform rotate-45 translate-y-1.5" : ""
@@ -122,8 +118,8 @@ export const Navbar = () => {
         </button>
       </div>
 
-      <NavbarContent className="hidden lg:flex gap-1 justify-center w-full">
-        <ul className="flex gap-10">
+      <NavbarContent className="hidden lg:flex  h-1">
+        <ul className="flex gap-6">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
@@ -139,7 +135,7 @@ export const Navbar = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-2 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none"
+                  className="px-1 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none"
                 >
                   <NextLink href={item.href}>{item.label}</NextLink>
                 </motion.div>
@@ -149,7 +145,7 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex basis-1/5 items-center gap-4">
+      <NavbarContent className="hidden lg:flex   gap-1">
         <NextLink
           className={buttonStyles({
             color: "primary",
@@ -175,7 +171,7 @@ export const Navbar = () => {
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-solid border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
