@@ -85,7 +85,7 @@ export const Navbar = () => {
           <NextLink className="flex justify-start relative" href="/">
             <Image
               alt="logo"
-              className="w-80 h-80  " // Adjusted height
+              className="w-80 h-80" // Adjusted height
               height={174} // Adjusted height
               src="https://i.imgur.com/u1fiTYz.png"
               width={174} // Adjusted width

@@ -157,7 +157,9 @@ export default function AboutPage() {
           variants={container}
         >
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600"></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
+              Software Solutions
+            </h2>
             <motion.ul
               className="list-disc pl-6 text-xl md:text-2xl lg:text-3xl text-gray-700 space-y-6 leading-relaxed"
               initial="hidden"
