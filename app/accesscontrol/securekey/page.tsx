@@ -1,8 +1,8 @@
 "use client";
 
 import { title } from "@/components/primitives";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -21,6 +21,11 @@ const item = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
+const listItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
 const hoverEffect = {
   hover: {
     scale: 1.05,
@@ -35,26 +40,37 @@ const hoverEffect = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gray-50">
-      <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 py-16 px-6 md:px-12 lg:px-24 w-full text-white text-shadow-lg">
+      <motion.div
+        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-gray-500 text-white text-shadow-lg animate-gradient"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Image
+          src={"https://i.imgur.com/XeQ6mls.jpeg"}
+          alt={"SecuraKey Logo"}
+          width={200}
+          height={200}
+          className="w-1/3 h-1/3 rounded-lg"
+        />
         <motion.h1
-          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
+          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          SecureKey
+          SecuraKey Superstore
         </motion.h1>
         <motion.p
-          className="text-xl md:text-2xl lg:text-3xl text-center max-w-3xl mx-auto mb-8 text-shadow-md"
+          className="text-xl md:text-2xl lg:text-3xl text-center text-black max-w-3xl mx-auto mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Leading provider of secure key management and access control systems,
-          ensuring the highest level of security and convenience.
+          DF Supply, Inc. is the Leading SecuraKey Access Control Systems and
+          Accessories Distributor.
         </motion.p>
-      </div>
-
+      </motion.div>
       <motion.div
         className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg"
         initial="hidden"
@@ -74,32 +90,31 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Key Management",
+                  title: "Proximity Readers",
                   description:
-                    "Manage your keys securely and efficiently with our advanced key management systems, designed to ensure complete control over access and usage.",
+                    "Explore our range of Proximity Readers, ideal for various access control needs.",
                   image:
-                    "https://source.unsplash.com/random/800x400?key-management",
+                    "https://source.unsplash.com/random/800x400?proximity-reader",
                 },
                 {
-                  title: "Access Control",
+                  title: "Contactless Readers",
                   description:
-                    "Our access control solutions provide comprehensive security, integrating various technologies to offer a seamless and secure experience.",
+                    "Our Contactless Readers offer high security and convenience for modern access control systems.",
                   image:
-                    "https://source.unsplash.com/random/800x400?access-control",
+                    "https://source.unsplash.com/random/800x400?contactless-reader",
                 },
                 {
-                  title: "Scalable Solutions",
+                  title: "RK600 Series",
                   description:
-                    "Whether you need solutions for a small business or a large enterprise, our systems are designed to scale with your needs.",
-                  image:
-                    "https://source.unsplash.com/random/800x400?scalable-solutions",
+                    "Check out the reliable and versatile RK600 Series for robust access control.",
+                  image: "https://source.unsplash.com/random/800x400?rk600",
                 },
                 {
-                  title: "User-Friendly Interfaces",
+                  title: "NOVA.16 Proximity Readers",
                   description:
-                    "Our systems feature intuitive interfaces, making it easy to manage security settings and monitor access in real-time.",
+                    "NOVA.16 Proximity Readers provide cutting-edge technology for enhanced security.",
                   image:
-                    "https://source.unsplash.com/random/800x400?user-friendly",
+                    "https://source.unsplash.com/random/800x400?nova-proximity-reader",
                 },
               ].map((solution, index) => (
                 <motion.div
@@ -125,7 +140,49 @@ export default function AboutPage() {
             </div>
           </div>
         </motion.div>
-
+        <motion.div
+          className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg"
+          initial="hidden"
+          animate="visible"
+          variants={container}
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
+            Solutions Overview
+          </h2>
+          <motion.ul
+            className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-4"
+            initial="hidden"
+            animate="visible"
+            variants={container}
+          >
+            {[
+              "Overview",
+              "Solutions Overview",
+              "NXT Hardware Platform",
+              "Management Software",
+              "Doors.NET™ Platform",
+              "Borealis Cloud Solution",
+              "Doors32 Software",
+              "Hardware",
+              "Controllers",
+              "Credentials",
+              "Readers",
+              "Product Integrations",
+              "Telephone Entry Panels",
+              "Wireless Locks",
+              "Mobile Access",
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                className="flex items-start"
+                variants={listItem}
+              >
+                <span className="text-2xl text-blue-500 mr-2">✓</span>
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
         <motion.div
           className="max-w-6xl mx-auto mt-16 text-center"
           variants={container}
@@ -134,12 +191,12 @@ export default function AboutPage() {
             Contact Us
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl mb-8">
-            Ready to enhance your security with SecureKey? Get in touch with us
+            Ready to enhance your security with SecuraKey? Get in touch with us
             today to learn more about our tailored solutions.
           </p>
           <a
             href="/contact"
-            className="inline-block bg-purple-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition duration-300"
+            className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
           >
             Contact Us
           </a>
