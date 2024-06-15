@@ -113,6 +113,7 @@ export default function AboutPage() {
                     alt={solution.title}
                     width={600}
                     height={400}
+                    loading="lazy"
                     className="w-full h-60 object-cover rounded-lg"
                   />
                   <h3 className="text-2xl font-semibold mb-2 mt-4">

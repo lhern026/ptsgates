@@ -79,14 +79,14 @@ const DocsPage = () => {
                   title: "Pay Station",
                   description:
                     "Pay stations are the most direct point of contact between parking management and the end customer. They give the entire parking system a face.",
-                  image: "https://i.imgur.com/MLyY3ap.jpeg",
+                  image: "https://i.imgur.com/nyS7Nmx.jpeg",
                   alt: "Parking Pay Station",
                 },
                 {
                   title: "Control Devices",
                   description:
                     "The entervo.entry for entry lanes and entervo.exit for exit and transit lanes are characterized by their broad range of applications, simple operation, reliability, and maintenance-friendly technology.",
-                  image: "https://i.imgur.com/eSWxCqd.jpeg",
+                  image: "https://i.imgur.com/5Vu0XgO.jpeg",
                   alt: "Control Devices",
                 },
                 {
