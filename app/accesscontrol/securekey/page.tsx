@@ -3,6 +3,7 @@
 import { title } from "@/components/primitives";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { TextParallaxContent } from "../../../components/TextParallalContext";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -53,6 +54,7 @@ export default function AboutPage() {
           height={200}
           className="w-1/3 h-1/3 rounded-lg"
         />
+
         <motion.h1
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
           initial={{ opacity: 0, y: -20 }}
@@ -61,6 +63,7 @@ export default function AboutPage() {
         >
           SecuraKey Superstore
         </motion.h1>
+
         <motion.p
           className="text-xl md:text-2xl lg:text-3xl text-center text-black max-w-3xl mx-auto mt-4"
           initial={{ opacity: 0, y: 20 }}
@@ -71,75 +74,17 @@ export default function AboutPage() {
           Accessories Distributor.
         </motion.p>
       </motion.div>
+      <TextParallaxContent
+        imgUrl="https://i.imgur.com/54Qw4zx.jpeg"
+        subheading="Providing Innovative and Reliable Security Systems for Over 38 Years"
+        heading="SecuraKey: Leading the Way in Access Control and RFID Solutions"
+      />
       <motion.div
         className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg"
         initial="hidden"
         animate="visible"
         variants={container}
       >
-        <motion.div
-          className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg"
-          initial="hidden"
-          animate="visible"
-          variants={container}
-        >
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
-              Our Solutions
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Proximity Readers",
-                  description:
-                    "Explore our range of Proximity Readers, ideal for various access control needs.",
-                  image:
-                    "https://source.unsplash.com/random/800x400?proximity-reader",
-                },
-                {
-                  title: "Contactless Readers",
-                  description:
-                    "Our Contactless Readers offer high security and convenience for modern access control systems.",
-                  image:
-                    "https://source.unsplash.com/random/800x400?contactless-reader",
-                },
-                {
-                  title: "RK600 Series",
-                  description:
-                    "Check out the reliable and versatile RK600 Series for robust access control.",
-                  image: "https://source.unsplash.com/random/800x400?rk600",
-                },
-                {
-                  title: "NOVA.16 Proximity Readers",
-                  description:
-                    "NOVA.16 Proximity Readers provide cutting-edge technology for enhanced security.",
-                  image:
-                    "https://source.unsplash.com/random/800x400?nova-proximity-reader",
-                },
-              ].map((solution, index) => (
-                <motion.div
-                  key={index}
-                  className="p-6 bg-gray-100 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:rotate-1 hover:shadow-2xl"
-                  variants={item}
-                  whileHover="hover"
-                >
-                  <Image
-                    src={solution.image}
-                    alt={solution.title}
-                    width={600}
-                    height={400}
-                    loading="lazy"
-                    className="w-full h-60 object-cover rounded-lg"
-                  />
-                  <h3 className="text-2xl font-semibold mb-2 mt-4">
-                    {solution.title}
-                  </h3>
-                  <p className="text-gray-600">{solution.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
         <motion.div
           className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg"
           initial="hidden"
@@ -171,6 +116,22 @@ export default function AboutPage() {
               "Telephone Entry Panels",
               "Wireless Locks",
               "Mobile Access",
+              "Proximity Readers",
+              "Contactless Readers",
+              "Touch Readers",
+              "Low Frequency (Radio Key) Cards & Keytags",
+              "High Frequency (e*Tag) Cards & Keytags",
+              "Barium Ferrite Cards & Keytags",
+              "Wiegand Cards & Keytags",
+              "Select Engineered Systems Cards & Keytags",
+              "Modern Electronics Systems Cards & Keytags",
+              "Touchcard, e*Tag Custom Options",
+              "Programming Tools",
+              "Wiegand Interface Products",
+              "Wireless Accessories",
+              "Parts",
+              "OEM Products",
+              "Card Finder",
             ].map((item, index) => (
               <motion.li
                 key={index}
