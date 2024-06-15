@@ -86,9 +86,9 @@ export const Navbar = () => {
             <Image
               alt="logo"
               className="w-80 h-80  " // Adjusted height
-              height={194} // Adjusted height
+              height={174} // Adjusted height
               src="https://i.imgur.com/u1fiTYz.png"
-              width={194} // Adjusted width
+              width={174} // Adjusted width
               style={{ objectFit: "contain" }}
             />
           </NextLink>
