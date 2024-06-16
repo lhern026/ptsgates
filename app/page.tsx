@@ -73,7 +73,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
                     >
-                      Revolutionary Parking Gates
+                      Parking Technical Services
                     </motion.h1>
                     <motion.p
                       className="text-lg md:text-xl mb-6"

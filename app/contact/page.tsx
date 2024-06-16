@@ -25,7 +25,7 @@ function ContactForm() {
 
   const Card = () => (
     <motion.div
-      className="bg-white p-8 rounded-lg shadow-lg text-center w-full"
+      className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}

@@ -79,9 +79,12 @@ export const Navbar = () => {
   };
 
   return (
-    <NextUINavbar isBordered className="flex" style={{ height: "8rem" }}>
-      <div className="flex flex-row items-center w-full  h-2 start-px   ">
-        <NavbarBrand as="li" className="flex size-max mr-90">
+    <NextUINavbar isBordered className="flex" style={{ height: "7.5rem" }}>
+      <div
+        className="flex flex-row items-center
+       w-full  h-2 start-px   "
+      >
+        <NavbarBrand as="li" className="flex size-max">
           <NextLink className=" " href="/">
             <Image
               alt="logo"
@@ -145,7 +148,7 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex   gap-1">
+      <NavbarContent className="hidden lg:flex gap-1">
         <NextLink
           className={buttonStyles({
             color: "primary",
