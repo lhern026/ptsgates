@@ -1,11 +1,12 @@
 "use client";
 
 import { title } from "@/components/primitives";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
+import { FaCheckCircle } from "react-icons/fa";
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -17,32 +18,21 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.9 },
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
-const listItem = {
+const listItem: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0 },
-};
-
-const hoverEffect = {
-  hover: {
-    scale: 1.05,
-    rotate: 2,
-    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-    transition: {
-      duration: 0.3,
-    },
-  },
 };
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gray-50">
       <motion.div
-        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-gray-500 text-white text-shadow-lg animate-gradient"
+        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to--500 text-white text-shadow-lg animate-gradient"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -52,7 +42,7 @@ export default function AboutPage() {
           alt={"SecuraKey Logo"}
           width={200}
           height={200}
-          className="w-1/3 h-1/3 rounded-lg"
+          className="w-1/3 h-1/3 rounded-lg shadow-lg"
         />
 
         <motion.h1
@@ -95,7 +85,7 @@ export default function AboutPage() {
             Solutions Overview
           </h2>
           <motion.ul
-            className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-lg md:text-xl lg:text-2xl text-gray-700"
             initial="hidden"
             animate="visible"
             variants={container}
@@ -135,11 +125,11 @@ export default function AboutPage() {
             ].map((item, index) => (
               <motion.li
                 key={index}
-                className="flex items-start"
+                className="flex items-start space-x-4"
                 variants={listItem}
               >
-                <span className="text-2xl text-blue-500 mr-2">✓</span>
-                {item}
+                <FaCheckCircle className="text-blue-500 mt-1" />
+                <span>{item}</span>
               </motion.li>
             ))}
           </motion.ul>

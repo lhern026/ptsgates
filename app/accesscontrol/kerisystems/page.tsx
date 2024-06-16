@@ -4,6 +4,7 @@ import { title } from "@/components/primitives";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
+import { FaCheckCircle } from "react-icons/fa";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -89,7 +90,7 @@ export default function AboutPage() {
           Solutions Overview
         </h2>
         <motion.ul
-          className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-lg md:text-xl lg:text-2xl text-gray-700"
           initial="hidden"
           animate="visible"
           variants={container}
@@ -113,11 +114,11 @@ export default function AboutPage() {
           ].map((item, index) => (
             <motion.li
               key={index}
-              className="flex items-start"
+              className="flex items-start space-x-4"
               variants={listItem}
             >
-              <span className="text-2xl text-blue-500 mr-2">✓</span>
-              {item}
+              <FaCheckCircle className="text-blue-500 mt-1" />
+              <span>{item}</span>
             </motion.li>
           ))}
         </motion.ul>
