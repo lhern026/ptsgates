@@ -79,14 +79,14 @@ export const Navbar = () => {
   };
 
   return (
-    <NextUINavbar isBordered className="" style={{ height: "7rem" }}>
-      <div className="flex  items-center w-full  h-2 ">
-        <NavbarBrand as="li" className="flex size-max">
-          <NextLink className="flex justify-start relative" href="/">
+    <NextUINavbar isBordered className="flex" style={{ height: "8rem" }}>
+      <div className="flex flex-row items-center w-full  h-2 start-px   ">
+        <NavbarBrand as="li" className="flex size-max mr-90">
+          <NextLink className=" " href="/">
             <Image
               alt="logo"
-              className="w-80 h-80" // Adjusted height
-              height={174} // Adjusted height
+              className="h-79 w-80 " // Adjusted height
+              height={104} // Adjusted height
               src="https://i.imgur.com/u1fiTYz.png"
               width={174} // Adjusted width
               style={{ objectFit: "contain" }}
