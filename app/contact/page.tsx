@@ -36,23 +36,18 @@ function ContactForm() {
       >
         Contact Information
       </motion.h2>
+
       <motion.p
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        info@parkingtechnicalservices.com
+        9851 1/2 Alburtis Ave. Santa Fe Springs, CA 90670
       </motion.p>
       <motion.p
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        123 Parking Lane, Suite 100, Parkville, USA
-      </motion.p>
-      <motion.p
-        className="text-lg text-gray-700 mb-6 font-medium"
-        variants={itemVariants}
-      >
-        Phone: (555) 123-4567
+        Toll Free 888-282-4506 Main Office 562-949-5227 Fax 562-949-5857
       </motion.p>
       <Link
         href="/"
