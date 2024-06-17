@@ -241,7 +241,7 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
-        ```
+
         {/* Testimonials Section */}
         <VerticalAccordion />
         {/* Call-to-Action Section */}

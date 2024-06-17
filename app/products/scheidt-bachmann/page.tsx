@@ -1,8 +1,10 @@
 "use client";
 
 import { title } from "@/components/primitives";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
 
 const container = {
@@ -27,18 +29,31 @@ const listItem = {
   visible: { opacity: 1, x: 0 },
 };
 
-const hoverEffect = {
-  hover: {
-    scale: 1.05,
-    rotate: 2,
-    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
-
 export default function AboutPage() {
+  const controlsHardware = useAnimation();
+  const [refHardware, inViewHardware] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const controlsSoftware = useAnimation();
+  const [refSoftware, inViewSoftware] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    if (inViewHardware) {
+      controlsHardware.start("visible");
+    }
+  }, [controlsHardware, inViewHardware]);
+
+  useEffect(() => {
+    if (inViewSoftware) {
+      controlsSoftware.start("visible");
+    }
+  }, [controlsSoftware, inViewSoftware]);
+
   return (
     <div className="min-h-screen flex flex-col w-full bg-gradient-to-r">
       <motion.div
@@ -83,9 +98,10 @@ export default function AboutPage() {
           heading="Hardware"
         />
         <motion.div
+          ref={refHardware}
           className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg min-h-screen flex flex-col w-full bg-gray-50 shadow-lg"
           initial="hidden"
-          animate="visible"
+          animate={controlsHardware}
           variants={container}
         >
           <div className="max-w-6xl mx-auto">
@@ -151,9 +167,10 @@ export default function AboutPage() {
           heading="Software"
         />
         <motion.div
+          ref={refSoftware}
           className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg min-h-screen flex flex-col w-full bg-gray-50 shadow-lg"
           initial="hidden"
-          animate="visible"
+          animate={controlsSoftware}
           variants={container}
         >
           <div className="max-w-6xl mx-auto">
@@ -161,26 +178,51 @@ export default function AboutPage() {
               Software Solutions
             </h2>
             <motion.ul
-              className="list-disc pl-6 text-xl md:text-2xl lg:text-3xl text-gray-700 space-y-6 leading-relaxed"
+              className="list-none pl-0 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-6 leading-relaxed"
               initial="hidden"
               animate="visible"
               variants={container}
             >
               {[
-                "Product Integration",
-                "Cloud Solutions",
-                "Mobile Access",
-                "User Management",
-                "Analytics and Reporting",
-                "Technical Support",
+                {
+                  title: "Product Integration",
+                  description:
+                    "Seamlessly integrate various parking management products for a unified solution.",
+                },
+                {
+                  title: "Cloud Solutions",
+                  description:
+                    "Utilize cloud technology for efficient and scalable parking management.",
+                },
+                {
+                  title: "Mobile Access",
+                  description:
+                    "Enable users to access and manage parking facilities through mobile devices.",
+                },
+                {
+                  title: "User Management",
+                  description:
+                    "Efficiently manage user profiles, access rights, and permissions.",
+                },
+                {
+                  title: "Analytics and Reporting",
+                  description:
+                    "Gain insights into parking usage and performance with detailed analytics and reports.",
+                },
+                {
+                  title: "Technical Support",
+                  description:
+                    "Receive dedicated technical support for seamless parking operations.",
+                },
               ].map((item, index) => (
                 <motion.li
                   key={index}
-                  className="flex items-start"
+                  className="flex flex-col items-start bg-gray-100 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                   variants={listItem}
                 >
-                  <span className="text-2xl text-blue-500 mr-2">✓</span>
-                  {item}
+                  <span className="text-2xl text-blue-500 mb-2">✓</span>
+                  <h3 className="font-semibold text-xl mb-1">{item.title}</h3>
+                  <p>{item.description}</p>
                 </motion.li>
               ))}
             </motion.ul>
