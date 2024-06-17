@@ -7,9 +7,7 @@ const VerticalAccordion = () => {
   const [open, setOpen] = useState(items[0].id);
 
   return (
-    <section className="p-4 bg-cover" style={{
-      backgroundImage: "url('https://i.imgur.com/1YbLl5R.jpeg')",
-    }}>
+    <section className="p-4 bg-white" >
       <div className="flex flex-col lg:flex-row h-fit lg:h-[450px] w-full max-w-6xl mx-auto shadow-lg rounded-lg overflow-hidden">
         {items.map((item) => (
           <Panel

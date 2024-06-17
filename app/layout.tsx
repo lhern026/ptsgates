@@ -43,7 +43,7 @@ export default function RootLayout({
           backgroundImage: "url('https://i.imgur.com/1YbLl5R.jpeg')",
         }}
       >
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen w-full">
           <Navbar />
 
           <main className="flex-grow container mx-auto max-w-full ">

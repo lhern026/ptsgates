@@ -55,7 +55,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ">
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-screen w-full text-white">
@@ -182,7 +182,7 @@ export default function Home() {
                 variants={itemVariants}
               >
                 <Image
-                  src="https://source.unsplash.com/random/400x400?parking"
+                  src="https://i.imgur.com/JW8eKw2.jpeg"
                   alt="Parking Technical Services"
                   width={403}
                   height={303}
@@ -203,7 +203,7 @@ export default function Home() {
                 variants={itemVariants}
               >
                 <Image
-                  src="https://source.unsplash.com/random/400x400?goal"
+                  src="https://i.imgur.com/uKEyZSe.jpeg"
                   alt="Our Goal"
                   width={404}
                   height={304}
@@ -223,7 +223,7 @@ export default function Home() {
                 variants={itemVariants}
               >
                 <Image
-                  src="https://source.unsplash.com/random/400x400?expertise"
+                  src="https://i.imgur.com/Zw3NNCa.jpeg"
                   alt="Our Expertise"
                   width={405}
                   height={305}
