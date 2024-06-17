@@ -9,6 +9,11 @@ import {
   FaClock,
   FaWrench,
   FaClipboardCheck,
+  FaCheckCircle,
+  FaShieldAlt,
+  FaRocket,
+  FaHandsHelping,
+  FaLightbulb,
 } from "react-icons/fa";
 
 const containerVariants = {
@@ -23,6 +28,15 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const hoverEffect = {
+  scale: 1.05,
+  rotate: 2,
+  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+  transition: {
+    duration: 0.3,
+  },
 };
 
 export default function PricingPage() {
@@ -101,8 +115,9 @@ export default function PricingPage() {
           ].map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white p-6 rounded-lg shadow-lg transform transition duration-300"
               variants={itemVariants}
+              whileHover={hoverEffect}
             >
               <div className="flex items-center justify-center mb-4">
                 {service.icon}
@@ -118,22 +133,55 @@ export default function PricingPage() {
         </motion.div>
 
         <motion.div className="max-w-4xl mx-auto mt-16" variants={itemVariants}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
             Why Choose Us?
           </h2>
-          <ul className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-600 space-y-4">
-            <li className="mb-4">Experienced and professional technicians</li>
-            <li className="mb-4">
-              Comprehensive maintenance and support plans
-            </li>
-            <li className="mb-4">Rapid response to emergency repair needs</li>
-            <li className="mb-4">
-              Customized solutions to meet your specific requirements
-            </li>
-            <li className="mb-4">
-              Up-to-date with the latest technology advancements
-            </li>
-          </ul>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
+            {[
+              {
+                icon: <FaCheckCircle className="text-5xl text-blue-500 mb-4" />,
+                title: "Experienced Technicians",
+                description:
+                  "Our team consists of skilled professionals with years of experience in the industry.",
+              },
+              {
+                icon: <FaShieldAlt className="text-5xl text-blue-500 mb-4" />,
+                title: "Comprehensive Support",
+                description:
+                  "We offer 24/7 support to ensure your systems are always running smoothly.",
+              },
+              {
+                icon: <FaRocket className="text-5xl text-blue-500 mb-4" />,
+                title: "Cutting-Edge Technology",
+                description:
+                  "We stay up-to-date with the latest advancements to provide you with the best solutions.",
+              },
+              {
+                icon: (
+                  <FaHandsHelping className="text-5xl text-blue-500 mb-4" />
+                ),
+                title: "Customer Focused",
+                description:
+                  "Our services are tailored to meet your specific needs and exceed your expectations.",
+              },
+              {
+                icon: <FaLightbulb className="text-5xl text-blue-500 mb-4" />,
+                title: "Innovative Solutions",
+                description:
+                  "We provide creative and efficient solutions to enhance your operations.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center text-center"
+                variants={itemVariants}
+              >
+                {item.icon}
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-md text-gray-600">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
