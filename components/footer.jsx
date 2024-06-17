@@ -6,7 +6,9 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-10">
+    <footer className="bg-white text-black py-10 bg-cover bg-center" style={{
+        backgroundImage: "url('https://i.imgur.com/1YbLl5R.jpeg')",
+      }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           <div className="flex items-center gap-3 mb-4 md:mb-0">
@@ -22,13 +24,13 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex flex-col md:flex-row gap-6 text-center md:text-left">
-            <Link href="/about" className="hidden md:block text-gray-400 hover:text-white transition duration-300">
+            <Link href="/about" className="hidden md:block text-black hover:text-white transition duration-300">
               About
             </Link>
-            <Link href="/services" className="hidden md:block text-gray-400 hover:text-blue transition duration-300">
+            <Link href="/services" className="hidden md:block text-white hover:text-blue transition duration-300">
               Services
             </Link>
-            <Link href="/contact" className="text-gray-400 hover:text-red-100 transition duration-300">
+            <Link href="/contact" className="text-black hover:text-red-100 transition duration-300">
               Contact
             </Link>
           </div>

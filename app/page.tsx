@@ -163,7 +163,7 @@ export default function Home() {
           </motion.div>
         </section>
         {/* How It Works Section */}
-        <section className="py-16 bg-gray-100">
+        <section className="py-16 bg-gray-100 bg-cover bg-center">
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
             initial="hidden"
@@ -245,12 +245,17 @@ export default function Home() {
         {/* Testimonials Section */}
         <VerticalAccordion />
         {/* Call-to-Action Section */}
-        <section className="py-16 bg-primary text-white">
+        <section
+          className="py-16 bg-primary text-white bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://i.imgur.com/B4cShUu.jpeg')",
+          }}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Upgrade Your Parking?
             </h2>
-            <p className="text-lg md:text-xl mb-6">
+            <p className="text-lg md:text-xl mb-6 text-black">
               Contact us today to learn more about our advanced parking gate
               solutions.
             </p>
