@@ -79,7 +79,11 @@ export const Navbar = () => {
   };
 
   return (
-    <NextUINavbar isBordered className="flex" style={{ height: "7.5rem" }}>
+    <NextUINavbar
+      isBordered
+      className="flex justify-between"
+      style={{ height: "7.5rem" }}
+    >
       <div
         className="flex flex-row items-center
        w-full  h-2 start-px   "
