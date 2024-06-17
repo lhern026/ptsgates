@@ -10,7 +10,6 @@ import {
   FaWrench,
   FaClipboardCheck,
 } from "react-icons/fa";
-import Image from "next/image";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -102,12 +101,18 @@ export default function PricingPage() {
           ].map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               variants={itemVariants}
             >
-              {service.icon}
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-lg text-gray-600">{service.description}</p>
+              <div className="flex items-center justify-center mb-4">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-center">
+                {service.title}
+              </h3>
+              <p className="text-lg text-gray-600 text-center">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -116,7 +121,7 @@ export default function PricingPage() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Why Choose Us?
           </h2>
-          <ul className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-600">
+          <ul className="list-disc pl-6 text-lg md:text-xl lg:text-2xl text-gray-600 space-y-4">
             <li className="mb-4">Experienced and professional technicians</li>
             <li className="mb-4">
               Comprehensive maintenance and support plans
@@ -132,37 +137,6 @@ export default function PricingPage() {
         </motion.div>
 
         <motion.div
-          className="bg-white py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800"
-          variants={containerVariants}
-        >
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Client Testimonials
-            </h2>
-            <div className="flex flex-col md:flex-row gap-12">
-              <motion.div className="flex-1" variants={itemVariants}>
-                <p className="text-lg md:text-xl lg:text-2xl italic">
-                  &quot;PTS has been an invaluable partner in our journey. Their
-                  expertise and dedication have transformed our operations,
-                  allowing us to deliver superior service to our clients.&quot;
-                  <br />
-                  <span className="font-bold">- Scheidt-Bachmann</span>
-                </p>
-              </motion.div>
-              <motion.div className="flex-1" variants={itemVariants}>
-                <Image
-                  src="https://source.unsplash.com/random/400x400"
-                  alt="Client Image"
-                  width={400}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
           className="max-w-4xl mx-auto mt-16 text-center"
           variants={itemVariants}
         >
@@ -175,7 +149,7 @@ export default function PricingPage() {
           </p>
           <a
             href="/contact"
-            className="inline-block bg-primary text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-primary-dark transition duration-300"
+            className="inline-block bg-blue-500 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition duration-300"
           >
             Contact Us
           </a>
