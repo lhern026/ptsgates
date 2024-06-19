@@ -96,6 +96,14 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
+
+          <Image
+            src="https://i.imgur.com/wgwkHab.jpeg"
+            alt="Our Expertise"
+            width={500}
+            height={500}
+            className="rounded-lg lg:w-1/3 lg:ml-auto"
+          />
         </div>
       </div>
     </div>

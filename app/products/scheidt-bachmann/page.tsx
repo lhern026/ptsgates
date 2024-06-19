@@ -120,7 +120,7 @@ export default function AboutPage() {
             <motion.div className="space-y-8" variants={container}>
               {[
                 {
-                  title: "Barrier",
+                  title: "Barrier Gate",
                   description:
                     "Scheidt & Bachmann prioritizes reliable gate barrier systems to prevent operational failures and liability issues. They employ brushless DC motors for low-maintenance, energy-efficient operation in their entervo.barrier systems. The gate arm, constructed from lightweight aluminum profiles, withstands wind loads up to six meters long and detaches on contact with a vehicle to prevent damage and minimize inconvenience to drivers. Advanced sensor technology ensures timely stopping to avoid vehicle roof impacts, with cushioning to protect pedestrians. Laser scanners control longer barrier arms, optionally equipped with license plate recognition cameras for enhanced functionality.",
                   image: "https://i.imgur.com/6cu5yEj.jpg",

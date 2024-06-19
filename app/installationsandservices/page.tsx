@@ -127,9 +127,8 @@ export default function PastInstallationsPage() {
               <li className="text-left">Secura Key</li>
             </ul>
             PTS is equipped and ready to install and maintain your preferred
-            choice of equipment. PTS is equipped and ready to install and
-            maintain your preferred choice of equipment. We customize solutions
-            to meet your specific requirements, offering:
+            choice of equipment. We customize solutions to meet your specific
+            requirements, offering:
             <ul className="list-disc pl-0 ml-8 mt-8 mb-8">
               <li className="text-left">Barcode Technology</li>
               <li className="text-left">Proximity and/or RFID</li>
@@ -151,7 +150,7 @@ export default function PastInstallationsPage() {
               </li>
               <li className="text-left">Concrete Islands</li>
               <li className="text-left">
-                Provide speed bumps and traffic control spike units
+                Speed bumps and traffic control spike units
               </li>
             </ul>
             We handle both installation and sales services in-house, ensuring
