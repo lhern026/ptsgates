@@ -139,13 +139,9 @@ export const Navbar = () => {
                   label={item.label}
                 />
               ) : (
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-1 py-1 font-medium bg-blue-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none"
-                >
+                <button className="px-2 py-1.5 font-small bg-white text-black rounded-md border hover:bg-gray-100">
                   <NextLink href={item.href}>{item.label}</NextLink>
-                </motion.div>
+                </button>
               )}
             </NavbarItem>
           ))}

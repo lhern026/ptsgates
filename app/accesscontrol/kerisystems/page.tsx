@@ -69,10 +69,12 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          We are proud to have a longstanding partnership with Keri Systems, a
-          leader in access control and integrated security solutions. Together,
-          we leverage cutting-edge technology to deliver exceptional security
-          and convenience for our clients.
+          As a trusted dealership of Keri Systems, a distinguished leader in
+          access control and integrated security solutions, we take pride in
+          offering advanced technology to enhance security and convenience for
+          our clients. Our dealership enables us to deliver superior products
+          and comprehensive solutions that meet the evolving needs of modern
+          access control security.
         </motion.p>
       </motion.div>
       <TextParallaxContent
@@ -114,7 +116,7 @@ export default function AboutPage() {
           ].map((item, index) => (
             <motion.li
               key={index}
-              className="flex items-start space-x-4"
+              className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
               variants={listItem}
             >
               <FaCheckCircle className="text-blue-500 mt-1" />

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
+import { FaCheckCircle } from "react-icons/fa";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -188,7 +189,7 @@ export default function AboutPage() {
               Software Solutions
             </h2>
             <motion.ul
-              className="list-none pl-0 text-lg md:text-xl lg:text-2xl text-gray-700 space-y-6 leading-relaxed"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg md:text-xl lg:text-2xl text-gray-700"
               initial="hidden"
               animate="visible"
               variants={container}
@@ -227,11 +228,13 @@ export default function AboutPage() {
               ].map((item, index) => (
                 <motion.li
                   key={index}
-                  className="flex flex-col items-start bg-gray-100 p-4 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                  className="flex flex-col items-start bg-gray-100 p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                   variants={listItem}
                 >
-                  <span className="text-2xl text-blue-500 mb-2">✓</span>
-                  <h3 className="font-semibold text-xl mb-1">{item.title}</h3>
+                  <div className="flex items-center mb-4">
+                    <FaCheckCircle className="text-blue-500 mr-2" />
+                    <h3 className="font-semibold text-xl">{item.title}</h3>
+                  </div>
                   <p>{item.description}</p>
                 </motion.li>
               ))}

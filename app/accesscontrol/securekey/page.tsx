@@ -60,8 +60,15 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          DF Supply, Inc. is the Leading SecuraKey Access Control Systems and
-          Accessories Distributor.
+          As a trusted dealership of SecuraKey, a renowned leader in access
+          control and RFID solutions, we are dedicated to providing cutting-edge
+          technology that enhances security and convenience for our clients. Our
+          partnership allows us to deliver top-tier products and comprehensive
+          solutions, ensuring we meet the evolving needs of modern access
+          control systems. With offerings such as the NOVA.16 multi-reader
+          access control system and the eACCESS entry control systems, SecuraKey
+          consistently sets the standard for reliability and performance in the
+          industry​
         </motion.p>
       </motion.div>
       <TextParallaxContent
@@ -70,13 +77,13 @@ export default function AboutPage() {
         heading="SecuraKey: Leading the Way in Access Control and RFID Solutions"
       />
       <motion.div
-        className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg"
+        className="bg-white max-w-full md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg"
         initial="hidden"
         animate="visible"
         variants={container}
       >
         <motion.div
-          className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg"
+          className="bg-white max-w-full py-2 px-6 md:px-12  mt-16 text-gray-800 rounded-lg shadow-lg"
           initial="hidden"
           animate="visible"
           variants={container}
@@ -110,10 +117,10 @@ export default function AboutPage() {
             ].map((item, index) => (
               <motion.li
                 key={index}
-                className="flex items-start space-x-4"
+                className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
                 variants={listItem}
               >
-                <FaCheckCircle className="text-blue-500 mt-1 " />
+                <FaCheckCircle className="text-blue-500" />
                 <span>{item}</span>
               </motion.li>
             ))}
