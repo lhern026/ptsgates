@@ -109,57 +109,56 @@ export default function AboutPage() {
           variants={container}
         >
           <div className="max-w-6xl mx-auto">
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-              variants={container}
-            >
+            <motion.div className="space-y-8" variants={container}>
               {[
                 {
                   title: "Barrier",
                   description:
-                    "The entervo.barrier gate is used for the access control of car parks.",
-                  image: "https://i.imgur.com/uZ2x2rY.jpeg",
+                    "Scheidt & Bachmann prioritizes reliable gate barrier systems to prevent operational failures and liability issues. They employ brushless DC motors for low-maintenance, energy-efficient operation in their entervo.barrier systems. The gate arm, constructed from lightweight aluminum profiles, withstands wind loads up to six meters long and detaches on contact with a vehicle to prevent damage and minimize inconvenience to drivers. Advanced sensor technology ensures timely stopping to avoid vehicle roof impacts, with cushioning to protect pedestrians. Laser scanners control longer barrier arms, optionally equipped with license plate recognition cameras for enhanced functionality.",
+                  image: "https://i.imgur.com/6cu5yEj.jpg",
                   alt: "Parking Barrier",
                 },
                 {
                   title: "Pay Station",
                   description:
-                    "Pay stations are the most direct point of contact between parking management and the end customer. They give the entire parking system a face.",
+                    "Scheidt & Bachmann's automated pay stations serve as the pivotal interface between parking management and customers, defining the user experience with their modern design and user-centric functionality. These stations support diverse payment options including conventional tickets, 2D barcodes, RFID, and touchscreen input for license plates. They accommodate cash and card payments, including contactless and chip transactions, alongside mobile payments for convenience and reduced cash handling. Engineered for robust security against vandalism and theft, they feature secure cassettes for cash transport and efficient accounting systems. Additionally, their 'Green Efficiency' technology reduces power consumption by up to 70%, promoting both appeal and environmental sustainability.",
                   image: "https://i.imgur.com/nyS7Nmx.jpeg",
                   alt: "Parking Pay Station",
                 },
                 {
                   title: "Control Devices",
                   description:
-                    "The entervo.entry for entry lanes and entervo.exit for exit and transit lanes are characterized by their broad range of applications, simple operation, reliability, and maintenance-friendly technology.",
+                    "The entervo.entry and entervo.exit control devices by Scheidt & Bachmann are renowned for their versatility, user-friendly operation, reliability, and ease of maintenance.Key functionalities include:-Issuance of short-term parking tickets (barcode or magstripe) at entry points.-Verification of Scheidt & Bachmann system cards and third-party cards at both entry and exit points.-Control of barrier operations to manage vehicle access.-Capability to process various media types such as QR codes, UHF tags, RFID, and payment cards, reflecting evolving preferences alongside traditional paper tickets.",
                   image: "https://i.imgur.com/5Vu0XgO.jpeg",
                   alt: "Control Devices",
                 },
                 {
                   title: "Camera",
                   description:
-                    "Advanced camera systems to enhance security and monitoring in parking areas.",
+                    "Scheidt & Bachmann revolutionizes parking convenience with smart solutions that eliminate tickets, leveraging advanced camera technology and artificial intelligence. Our systems employ deep learning for precise number plate recognition, allowing seamless entry and exit without physical tickets. Customers can pay effortlessly via cash, credit/debit card, or app, using their number plate for verification.Upon entry, state-of-the-art cameras capture the license plate, acting as a virtual ticket. Payment can be made at a pay station or via smartphone. At exit, LPR cameras recognize the plate, automatically opening the barrier once the fee is paid.",
                   image: "https://i.imgur.com/4Y4MP1L.jpeg",
                   alt: "Camera",
                 },
               ].map((product, index) => (
                 <motion.div
                   key={index}
-                  className="p-6 bg-gray-100 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:rotate-1 hover:shadow-2xl"
+                  className="flex flex-col lg:flex-row items-center lg:items-start bg-gray-100 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:rotate-1 hover:shadow-2xl"
                   variants={item}
                 >
                   <Image
                     src={product.image}
                     alt={product.alt}
                     width={600}
-                    height={100}
+                    height={400}
                     quality={100}
-                    className="w-full h-80 object-cover rounded-lg"
+                    className="w-full lg:w-1/3 h-80 object-cover rounded-lg lg:rounded-none lg:rounded-l-lg"
                   />
-                  <h3 className="text-2xl font-semibold mb-2 mt-4">
-                    {product.title}
-                  </h3>
-                  <p className="text-gray-600">{product.description}</p>
+                  <div className="p-6 flex flex-col justify-center w-full lg:w-2/3">
+                    <h3 className="text-2xl font-semibold mb-2 mt-4 lg:mt-0">
+                      {product.title}
+                    </h3>
+                    <p className="text-gray-600">{product.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
