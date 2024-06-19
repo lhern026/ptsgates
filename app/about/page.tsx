@@ -1,14 +1,7 @@
 "use client";
 import { title } from "@/components/primitives";
-import {
-  FaHistory,
-  FaBullseye,
-  FaCogs,
-  FaUsers,
-  FaThumbsUp,
-} from "react-icons/fa";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -48,118 +41,63 @@ export default function AboutPage() {
 
       <div className="bg-white py-16 px-6 md:px-12 lg:px-24 w-full">
         <div className="max-w-6xl mx-auto text-gray-700 leading-loose">
-          {sections.map((section, index) => (
-            <Section
-              key={index}
-              icon={section.icon}
-              title={section.title}
-              imageSrc={section.imageSrc}
-              altText={section.altText}
-              description={section.description}
-            />
-          ))}
+          <motion.section
+            className="bg-gray-100 p-8 rounded-lg shadow-lg"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+          >
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              <motion.div
+                className="w-full lg:w-1/2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={imageVariants}
+              >
+                <Image
+                  src="https://i.imgur.com/u1fiTYz.png"
+                  alt="Parking Technical Services"
+                  width={800}
+                  height={600}
+                  className="rounded-lg shadow-lg"
+                />
+              </motion.div>
+              <motion.div
+                className="text-lg w-full lg:w-1/2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariants}
+              >
+                <p className="mb-4">
+                  Parking Technical Services, established in 1990 and
+                  headquartered in Riverside, California, has distinguished
+                  itself as a premier provider of the most Modern Revenue and
+                  Access Control systems with dependable installations and
+                  services. Throughout its history, the company has maintained a
+                  strong reputation for professionalism and customer
+                  satisfaction. Under the leadership of its founder and Chairman
+                  of the Board, Armando Castro, Parking Technical Services
+                  remains committed to achieving its corporate objectives.
+                </p>
+              </motion.div>
+            </div>
+          </motion.section>
+          <div className="mt-16 text-center">
+            <p className="text-3xl font-bold mb-4">Parking Associations:</p>
+            <ul className="list-disc pl-5 inline-block text-left">
+              <li className="text-lg md:text-xl lg:text-2xl mb-2">
+                NPA (National Parking Association)
+              </li>
+              <li className="text-lg md:text-xl lg:text-2xl">
+                LAPA (Los Angeles Parking Association)
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-const sections = [
-  {
-    icon: <FaHistory className="text-4xl text-primary mr-4" />,
-    title: "History of Parking Technical Services",
-    imageSrc: "https://source.unsplash.com/random/400x400?parking",
-    altText: "Parking Technical Services",
-    description:
-      "Located in Santa Fe Springs, California, Parking Technical Services (PTS) was founded over twenty years ago, as a result of an increasing demand for qualified personnel in the booming parking industry. Today, it is a well-established company with an impressive record in terms of professionalism, reliability, and quality of services. Through the years, PTS has lived up to the goal set by its founder and current Chairman of the Board, Armando Castro.",
-  },
-  {
-    icon: <FaBullseye className="text-4xl text-primary mr-4" />,
-    title: "Our Goal",
-    imageSrc: "https://source.unsplash.com/random/400x400?goal",
-    altText: "Our Goal",
-    description:
-      "Our goal is to provide excellent service at the most affordable prices, with a quick response to clients' requests and versatility. PTS takes great pride in being one of the very few, if not the only company that services every type of parking equipment, regardless of make, model, date of manufacture, and time of installation. From Amano, Falcon Omnihost, and Keri Systems to the modern and more recent WPS parking systems, PTS installs and services them all.",
-  },
-  {
-    icon: <FaCogs className="text-4xl text-primary mr-4" />,
-    title: "Our Expertise",
-    imageSrc: "https://source.unsplash.com/random/400x400?expertise",
-    altText: "Our Expertise",
-    description:
-      "What makes PTS your 'number one option' whenever your parking facility needs either service or an upgrade, is our highly qualified workforce that consists of technicians and engineers ready to address and resolve any problem, no matter how complex it may be.",
-  },
-  {
-    icon: <FaUsers className="text-4xl text-primary mr-4" />,
-    title: "Our Services",
-    imageSrc: "https://source.unsplash.com/random/400x400?services",
-    altText: "Our Services",
-    description:
-      "From electro-mechanical to sophisticated computerized equipment, PTS provides service, installation, and tech support in a manner unequaled by other companies in the parking industry.",
-  },
-  {
-    icon: <FaThumbsUp className="text-4xl text-primary mr-4" />,
-    title: "Our Guarantee",
-    imageSrc: "https://source.unsplash.com/random/400x400?guarantee",
-    altText: "Our Guarantee",
-    description:
-      "The concept is, in essence, quite simple: You need our service, you get it! Satisfaction guaranteed!",
-  },
-];
-
-interface SectionProps {
-  icon: React.ReactNode;
-  title: string;
-  imageSrc: string;
-  altText: string;
-  description: string;
-}
-
-const Section: React.FC<SectionProps> = ({
-  icon,
-  title,
-  imageSrc,
-  altText,
-  description,
-}) => {
-  return (
-    <motion.section
-      className="mb-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={sectionVariants}
-    >
-      <div className="flex items-center mb-6">
-        {icon}
-        <h2 className="text-3xl font-semibold">{title}</h2>
-      </div>
-      <div className="flex flex-col lg:flex-row items-center gap-8 bg-gray-100 p-6 rounded-lg shadow-lg">
-        <motion.div
-          className="w-full lg:w-1/2"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={imageVariants}
-        >
-          <Image
-            src={imageSrc}
-            alt={altText}
-            width={400}
-            height={400}
-            className="rounded-lg shadow-lg"
-          />
-        </motion.div>
-        <motion.p
-          className="text-lg w-full lg:w-1/2"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={sectionVariants}
-        >
-          {description}
-        </motion.p>
-      </div>
-    </motion.section>
-  );
-};

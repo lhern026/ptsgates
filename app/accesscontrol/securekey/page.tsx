@@ -91,21 +91,6 @@ export default function AboutPage() {
             variants={container}
           >
             {[
-              "Overview",
-              "Solutions Overview",
-              "NXT Hardware Platform",
-              "Management Software",
-              "Doors.NET™ Platform",
-              "Borealis Cloud Solution",
-              "Doors32 Software",
-              "Hardware",
-              "Controllers",
-              "Credentials",
-              "Readers",
-              "Product Integrations",
-              "Telephone Entry Panels",
-              "Wireless Locks",
-              "Mobile Access",
               "Proximity Readers",
               "Contactless Readers",
               "Touch Readers",
@@ -128,7 +113,7 @@ export default function AboutPage() {
                 className="flex items-start space-x-4"
                 variants={listItem}
               >
-                <FaCheckCircle className="text-blue-500 mt-1" />
+                <FaCheckCircle className="text-blue-500 mt-1 " />
                 <span>{item}</span>
               </motion.li>
             ))}
@@ -143,8 +128,9 @@ export default function AboutPage() {
             Contact Us
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl mb-8">
-            Ready to enhance your security with SecuraKey? Get in touch with us
-            today to learn more about our tailored solutions.
+            Need assistance with your parking equipment? Contact Parking
+            Technical Services today to request service and ensure your systems
+            are running smoothly.
           </p>
           <a
             href="/contact"

@@ -126,9 +126,9 @@ export const Navbar = () => {
       </div>
 
       <NavbarContent className="hidden lg:flex  h-1">
-        <ul className="flex gap-6">
+        <ul className="flex gap-6 ">
           {navItems.map((item) => (
-            <NavbarItem key={item.href} className="relative group">
+            <NavbarItem key={item.href} className="relative group ">
               {item.subitems ? (
                 <Dropdown
                   items={item.subitems.map((subitem) => ({
