@@ -37,7 +37,7 @@ export default function Home() {
   const imageUrls = [
     "https://i.imgur.com/0epHULV.jpeg",
     "https://i.imgur.com/XULqRUX.jpeg",
-    "blob:https://imgur.com/06efa6e2-c132-4ad5-9f3f-81d8c2f13a16",
+    "https://i.imgur.com/m7sAthF.jpeg",
     "https://i.imgur.com/PA7Jl6K.jpeg",
   ];
 
