@@ -51,7 +51,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          SecuraKey Superstore
+          SecuraKey Store
         </motion.h1>
 
         <motion.p
@@ -68,7 +68,7 @@ export default function AboutPage() {
           control systems. With offerings such as the NOVA.16 multi-reader
           access control system and the eACCESS entry control systems, SecuraKey
           consistently sets the standard for reliability and performance in the
-          industry​
+          industry​.
         </motion.p>
       </motion.div>
       <TextParallaxContent
