@@ -3,6 +3,7 @@
 import { title } from "@/components/primitives";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
@@ -62,13 +63,19 @@ export default function AboutPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <Image
-          src={"https://i.imgur.com/XDEdW4c.jpeg"}
-          alt={"Keri Systems Logo"}
-          width={200}
-          height={200}
-          className="w-1/3 h-1/3 rounded-lg"
-        />
+        <Link
+          href="https://www.scheidt-bachmann-usa.com/en/"
+          target="_blank"
+          className="flex justify-center w-full"
+        >
+          <Image
+            src={"https://i.imgur.com/XDEdW4c.jpeg"}
+            alt={"Keri Systems Logo"}
+            width={200}
+            height={200}
+            className="w-1/3 h-1/3 rounded-lg"
+          />
+        </Link>
         <motion.h1
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
           initial={{ opacity: 0, y: -20 }}
@@ -231,6 +238,25 @@ export default function AboutPage() {
             </motion.ul>
           </div>
         </motion.div>
+        <div className="flex justify-center py-12">
+          <Link
+            href="https://www.scheidt-bachmann-usa.com/en/"
+            passHref
+            target="_blank"
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+                backgroundColor: "#1E40AF",
+                transition: { duration: 0.3, yoyo: Infinity },
+              }}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg cursor-pointer"
+            >
+              Check out Scheidt & Bachmann
+            </motion.div>
+          </Link>
+        </div>
       </div>
     </div>
   );

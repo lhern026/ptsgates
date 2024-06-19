@@ -41,13 +41,13 @@ function ContactForm() {
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        9851 1/2 Alburtis Ave. Santa Fe Springs, CA 90670
+        Address: 16226 Suttles Drive Riverside, CA 92504
       </motion.p>
       <motion.p
         className="text-lg text-gray-700 mb-6 font-medium"
         variants={itemVariants}
       >
-        Toll Free 888-282-4506 Main Office 562-949-5227 Fax 562-949-5857
+        Toll Free 888-282-4506 Main Office: (951) 840-4324
       </motion.p>
       <Link
         href="/"
@@ -187,7 +187,7 @@ function ContactForm() {
             htmlFor="message"
             className="block text-gray-700 mb-2 font-medium"
           >
-            Message
+            Services Needed:
           </label>
           <textarea
             id="message"
