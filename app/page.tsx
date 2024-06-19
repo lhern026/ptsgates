@@ -35,9 +35,10 @@ export default function Home() {
   };
 
   const imageUrls = [
-    "https://i.imgur.com/PA7Jl6K.jpeg",
+    "https://i.imgur.com/0epHULV.jpeg",
     "https://i.imgur.com/XULqRUX.jpeg",
-    "https://i.imgur.com/LVRajBQ_d.webp?maxwidth=760&fidelity=grand",
+    "blob:https://imgur.com/06efa6e2-c132-4ad5-9f3f-81d8c2f13a16",
+    "https://i.imgur.com/PA7Jl6K.jpeg",
   ];
 
   const containerVariants = {
@@ -125,7 +126,7 @@ export default function Home() {
                   Professionalism & Reliability
                 </h3>
                 <p className="text-gray-600">
-                  With over twenty years of experience, our team is known for
+                  With over thirty years of experience, our team is known for
                   its professionalism, reliability, and quality of services. We
                   address and resolve any problem, no matter how complex.
                 </p>
@@ -243,7 +244,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <VerticalAccordion />
+
         {/* Call-to-Action Section */}
         <section
           className="py-16 bg-primary text-white bg-cover bg-center"
