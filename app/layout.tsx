@@ -39,9 +39,6 @@ export default function RootLayout({
           "min-h-screen bg-white text-gray-900 font-sans antialiased bg-cover bg-center",
           fontSans.variable
         )}
-        style={{
-          backgroundImage: "url('https://i.imgur.com/1YbLl5R.jpeg')",
-        }}
       >
         <div className="flex flex-col min-h-screen w-full">
           <Navbar />
