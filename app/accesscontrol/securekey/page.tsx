@@ -63,7 +63,7 @@ export default function AboutPage() {
           As a trusted dealership of SecuraKey, a renowned leader in access
           control and RFID solutions, we are dedicated to providing cutting-edge
           technology that enhances security and convenience for our clients. Our
-          partnership allows us to deliver top-tier products and comprehensive
+          dealership allows us to deliver top-tier products and comprehensive
           solutions, ensuring we meet the evolving needs of modern access
           control systems. With offerings such as the NOVA.16 multi-reader
           access control system and the eACCESS entry control systems, SecuraKey

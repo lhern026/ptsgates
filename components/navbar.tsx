@@ -22,7 +22,7 @@ const navItems = [
     href: "/accesscontrol",
     subitems: [
       { label: "KERI SYSTEMS", href: "/accesscontrol/kerisystems" },
-      { label: "SECURE KEY", href: "/accesscontrol/securekey" },
+      { label: "SECURA KEY", href: "/accesscontrol/securekey" },
     ],
   },
   {
