@@ -128,7 +128,8 @@ export default function Home() {
                 <p className="text-gray-600">
                   With over thirty years of experience, our team is known for
                   its professionalism, reliability, and quality of services. We
-                  address and resolve any problem, no matter how complex.
+                  address and resolve parking revenue control system issues, no
+                  matter how complex.
                 </p>
               </motion.div>
               <motion.div
@@ -142,7 +143,7 @@ export default function Home() {
                 <p className="text-gray-600">
                   Our advanced security features prevent unauthorized access and
                   ensure the safety of parked vehicles, making us a reliable
-                  choice for all your parking needs.
+                  choice for all your parking system needs.
                 </p>
               </motion.div>
               <motion.div
@@ -156,8 +157,7 @@ export default function Home() {
                 <p className="text-gray-600">
                   We provide excellent service at the most affordable prices,
                   with a quick response to clients' requests and versatility,
-                  servicing all types of parking equipment regardless of make,
-                  model, or installation date.
+                  servicing most types of parking revenue control systems.
                 </p>
               </motion.div>
             </div>
@@ -193,10 +193,10 @@ export default function Home() {
                   Service & Installation
                 </h3>
                 <p className="text-gray-700">
-                  From electro-mechanical to sophisticated computerized
-                  equipment, we provide service, installation, and tech support
-                  in a manner unequaled by other companies in the parking
-                  industry.
+                  From electro-mechanical to sophisticated computerized access
+                  control and parking equipment, we provide service,
+                  installation, and tech support in a manner unequaled by other
+                  companies in the parking industry.
                 </p>
               </motion.div>
               <motion.div
@@ -216,7 +216,8 @@ export default function Home() {
                 <p className="text-gray-700">
                   We aim to provide excellent service at the most affordable
                   prices, with quick responses to client requests and
-                  versatility in servicing every type of parking equipment.
+                  versatility in servicing most types of parking equipment to
+                  prevent revenue loss.
                 </p>
               </motion.div>
               <motion.div
@@ -235,8 +236,8 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-700">
                   Our highly qualified workforce consists of technicians and
-                  engineers ready to address and resolve any problem, no matter
-                  how complex it may be.
+                  engineers ready to address and resolve most parking issues in
+                  a timely manner, no matter how complex it may be.
                 </p>
               </motion.div>
             </div>
@@ -253,12 +254,12 @@ export default function Home() {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Upgrade Your Parking?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
+              Ready to Upgrade Your Parking and Access Control System?
             </h2>
             <p className="text-lg md:text-xl mb-6 text-black">
-              Contact us today to learn more about our advanced parking gate
-              solutions.
+              Contact us today to learn more about our advanced parking revenue
+              control solutions.
             </p>
             <Link
               href="/contact"

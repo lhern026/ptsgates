@@ -94,13 +94,13 @@ export default function AboutPage() {
           Parking Technical Services proudly serves as a Channel Partner of
           Scheidt & Bachmann, renowned for their extensive expertise in service
           and cutting-edge parking equipment. This strategic alliance allows us
-          to integrate their state-of-the-art technologies and innovative
-          solutions into our service offerings throughout all of Southern
-          California. By combining Scheidt & Bachmann's industry-leading
-          products with our commitment to exceptional service, we ensure that
-          our clients receive reliable, efficient, and forward-thinking parking
-          systems tailored to meet their needs and enhance overall operational
-          efficiency and Parking Revenue.
+          to integrate their state-of-the-art parking systems and innovative
+          solutions to our customer base throughout all of Southern California.
+          By combining Scheidt & Bachmann's industry-leading products with our
+          commitment to exceptional service, we ensure that our clients receive
+          reliable, efficient, and forward-thinking parking systems tailored to
+          meet their needs and enhance overall operational efficiency and
+          Parking Revenue.
         </motion.p>
       </motion.div>
       <div className="flex-grow">

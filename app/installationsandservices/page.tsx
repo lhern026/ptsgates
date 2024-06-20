@@ -53,12 +53,12 @@ export default function PastInstallationsPage() {
         <motion.div className="max-w-4xl mx-auto mb-16" variants={itemVariants}>
           <section className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed">
             Our dedication ensures timely and dependable installations and
-            maintenance for all your parking equipment needs. We are committed
-            to offering cost-effective solutions without sacrificing quality.
-            Our mission is to exceed expectations by delivering exceptional
-            service, responding swiftly to your needs, and providing unmatched
-            expertise across various parking technologies. Trust PTS for
-            reliable installations that seamlessly enhance your parking
+            maintenance for most of your parking equipment needs. We are
+            committed to offering cost-effective solutions without sacrificing
+            quality. Our mission is to exceed expectations by delivering
+            exceptional service, responding swiftly to your needs, and providing
+            unmatched expertise across various parking technologies. Trust PTS
+            for reliable installations that seamlessly enhance your parking
             operations.
           </section>
         </motion.div>
@@ -72,8 +72,7 @@ export default function PastInstallationsPage() {
               Parking Technical Services has been dedicated to delivering
               installations and services to the Jamison Area in Koreatown for
               over 12 years. Our commitment to excellence remains steadfast as
-              we continue to provide outstanding service to our clients in this
-              area.
+              we continue to provide outstanding service to our customer base.
             </p>
           </div>
           <Image
@@ -127,17 +126,19 @@ export default function PastInstallationsPage() {
               <li className="text-left">Secura Key</li>
             </ul>
             PTS is equipped and ready to install and maintain your preferred
-            choice of equipment. We customize solutions to meet your specific
-            requirements, offering:
+            choice of parking and access control equipment. We customize
+            solutions to meet your specific requirements, offering:
             <ul className="list-disc pl-0 ml-8 mt-8 mb-8">
-              <li className="text-left">Barcode Technology</li>
+              <li className="text-left">License Plate Recognition (LPR)</li>
               <li className="text-left">Proximity and/or RFID</li>
               <li className="text-left">
                 Integration with Hotel PMS/Keycard (RFID and Magstripe)
               </li>
               <li className="text-left">License Plate Recognition (LPR)</li>
+
               <li className="text-left">Mobile Payment Applications</li>
               <li className="text-left">Pre-paid Reservations</li>
+              <li className="text-left">Barcode Technology</li>
               <li className="text-left">
                 Building Access Control, including elevator and after-hours
                 door/grille control
@@ -152,11 +153,14 @@ export default function PastInstallationsPage() {
               <li className="text-left">
                 Speed bumps and traffic control spike units
               </li>
+              <li className="text-left">Vehicle Loop Ground Sensors</li>
+              <li className="text-left">Parking Garage Lighting</li>
             </ul>
             We handle both installation and sales services in-house, ensuring
             your satisfaction is our primary focus. When you choose our expert
             team, you can expect top-notch workmanship at competitive rates.
-            Rely on us for all your integrated building system needs.
+            Rely on us for all your integrated parking and acccess control
+            system needs.
           </section>
         </motion.div>
       </motion.div>

@@ -48,13 +48,6 @@ export default function AboutPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <Image
-          src={"https://i.imgur.com/BKudomG.png"}
-          alt={"Keri Systems Logo"}
-          width={200}
-          height={200}
-          className="w-1/3 h-1/3 rounded-lg"
-        />
         <motion.h1
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
           initial={{ opacity: 0, y: -20 }}
@@ -140,8 +133,9 @@ export default function AboutPage() {
               Contact Us
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl mb-8">
-              Ready to enhance your security with Keri Systems? Get in touch
-              with us today to learn more about our tailored solutions.
+              Need assistance with your building access control equipment?
+              Contact Parking Technical Services today for a free consultation
+              and quote.
             </p>
             <a
               href="/contact"
