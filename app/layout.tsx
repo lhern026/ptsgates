@@ -7,6 +7,7 @@ import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
 import Image from "next/image";
+import { GoogleReCaptchaProvider } from "../node_modules/react-google-recaptcha-v3";
 
 export const metadata: Metadata = {
   title: {

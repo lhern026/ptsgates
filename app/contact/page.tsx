@@ -21,7 +21,7 @@ const itemVariants = {
 };
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("xqkrrkro");
+  const [state, handleSubmit] = useForm("xvgpppye");
 
   const Card = () => (
     <motion.div
@@ -92,29 +92,31 @@ function ContactForm() {
   if (state.succeeded) {
     return (
       <motion.div
-        className="bg-white p-8 rounded-lg shadow-md text-center max-w-lg flex-1"
+        className="flex items-center justify-center h-screen bg-white p-8 rounded-lg shadow-md text-center max-w-lg mx-auto"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl font-extrabold mb-4 text-gray-800">
-          Thank You!
-        </h2>
-        <p className="text-lg text-gray-700 mb-6 font-medium">
-          Your message has been successfully sent. We will get back to you
-          shortly.
-        </p>
-        <Link
-          href="/"
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-            className: "px-6 py-3 text-lg font-semibold",
-          })}
-        >
-          Go to Home
-        </Link>
+        <div>
+          <h2 className="text-2xl font-extrabold mb-4 text-gray-800">
+            Thank You!
+          </h2>
+          <p className="text-lg text-gray-700 mb-6 font-medium">
+            Your message has been successfully sent. We will get back to you
+            shortly.
+          </p>
+          <Link
+            href="/"
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+              className: "px-6 py-3 text-lg font-semibold",
+            })}
+          >
+            Go to Home
+          </Link>
+        </div>
       </motion.div>
     );
   }
