@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -22,12 +21,7 @@ const itemVariants = {
 };
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("xrgnwdnb");
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-
-  const handleRecaptchaVerify = (token: string | null) => {
-    setRecaptchaToken(token);
-  };
+  const [state, handleSubmit] = useForm("xpwaawqr");
 
   const Card = () => (
     <motion.div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1 mt-0">
@@ -131,14 +125,7 @@ function ContactForm() {
     >
       <Card />
       <motion.form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (recaptchaToken) {
-            handleSubmit(e);
-          } else {
-            alert("Please complete the reCAPTCHA verification");
-          }
-        }}
+        onSubmit={handleSubmit}
         className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
         variants={containerVariants}
       >
@@ -239,11 +226,6 @@ function ContactForm() {
             className="text-red-500 text-sm mt-2"
           />
         </motion.div>
-
-        <ReCAPTCHA
-          sitekey="6Ld0Lv0pAAAAALbu0FnmCKuaZapY5CSWPAdvSIsR"
-          onChange={handleRecaptchaVerify}
-        />
 
         <motion.button
           type="submit"

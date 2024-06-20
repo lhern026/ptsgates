@@ -241,7 +241,7 @@ function ContactForm() {
         </motion.div>
 
         <ReCAPTCHA
-          sitekey="6Ld0Lv0pAAAAALbu0FnmCKuaZapY5CSWPAdvSIsR"
+          sitekey="6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva"
           onChange={handleRecaptchaVerify}
         />
 
