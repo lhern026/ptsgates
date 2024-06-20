@@ -87,7 +87,7 @@ export const Navbar = () => {
           <NextLink className=" " href="/">
             <Image
               alt="logo"
-              className="h-60 w-60" // Adjusted height
+              className="h-80 w-60" // Adjusted height
               height={104} // Adjusted height
               src="https://i.imgur.com/CPqYkhH.png"
               width={174} // Adjusted width
@@ -98,7 +98,7 @@ export const Navbar = () => {
         </NavbarBrand>
         <button
           aria-label="Toggle menu"
-          className="md:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-solid border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+          className="lg:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-solid border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <div className="flex flex-col items-center justify-center space-y-1">
@@ -144,7 +144,7 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex gap-1">
+      <NavbarContent className="hidden lg:flex gap-1 ">
         <NextLink
           className={buttonStyles({
             color: "primary",
@@ -160,7 +160,7 @@ export const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="flex flex-col md:hidden bg-white p-6 shadow-lg w-full absolute top-16 left-0 z-50"
+            className="flex flex-col lg:hidden bg-white p-6 shadow-lg w-full absolute top-16 left-0 z-50"
             initial="hidden"
             animate="visible"
             exit="hidden"
