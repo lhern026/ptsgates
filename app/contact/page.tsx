@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { button as buttonStyles } from "@nextui-org/theme";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Dialog, Transition } from "@headlessui/react";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -22,20 +22,11 @@ const itemVariants = {
 };
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("xvgpppye");
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [state, handleSubmit] = useForm("xrgnwdnb");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const handleRecaptchaVerify = (token: string | null) => {
     setRecaptchaToken(token);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  const openModal = () => {
-    setIsOpen(true);
   };
 
   const Card = () => (
@@ -85,70 +76,49 @@ function ContactForm() {
         Main Office: (951) 840-4324
       </motion.p>
 
-      <Link href="/">
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-          Go to Home
-        </button>
+      <Link
+        href="/"
+        className={buttonStyles({
+          color: "primary",
+          radius: "full",
+          variant: "shadow",
+          className: "px-6 py-3 text-lg font-semibold mt-6",
+        })}
+      >
+        Go to Home
       </Link>
     </motion.div>
   );
 
   if (state.succeeded) {
     return (
-      <Transition appear show={isOpen} as={React.Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-10 overflow-y-auto"
-          onClose={closeModal}
-        >
-          <div className="min-h-screen px-4 text-center">
-            <div className="fixed inset-0 bg-black opacity-30" />
-
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
-            >
-              &#8203;
-            </span>
-            <Transition.Child
-              as={React.Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title
-                  as="h2"
-                  className="text-2xl font-extrabold mb-4 text-gray-800"
-                >
-                  Thank You!
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-lg text-gray-700 mb-6 font-medium">
-                    Your message has been successfully sent. We will get back to
-                    you shortly.
-                  </p>
-                </div>
-
-                <div className="mt-4">
-                  <Link href="/">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                      onClick={closeModal}
-                    >
-                      Go to Home
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </Transition.Child>
-          </div>
-        </Dialog>
-      </Transition>
+      <motion.div
+        className="flex items-center justify-center h-screen bg-white p-8 rounded-lg shadow-md text-center max-w-lg mx-auto"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div>
+          <h2 className="text-2xl font-extrabold mb-4 text-gray-800">
+            Thank You!
+          </h2>
+          <p className="text-lg text-gray-700 mb-6 font-medium">
+            Your message has been successfully sent. We will get back to you
+            shortly.
+          </p>
+          <Link
+            href="/"
+            className={buttonStyles({
+              color: "primary",
+              radius: "full",
+              variant: "shadow",
+              className: "px-6 py-3 text-lg font-semibold",
+            })}
+          >
+            Go to Home
+          </Link>
+        </div>
+      </motion.div>
     );
   }
 
@@ -165,7 +135,6 @@ function ContactForm() {
           e.preventDefault();
           if (recaptchaToken) {
             handleSubmit(e);
-            openModal();
           } else {
             alert("Please complete the reCAPTCHA verification");
           }
@@ -191,7 +160,7 @@ function ContactForm() {
             id="name"
             type="text"
             name="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your name"
             required
           />
@@ -214,7 +183,7 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your email"
             required
           />
@@ -237,7 +206,7 @@ function ContactForm() {
             id="phone"
             type="tel"
             name="phone"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your phone number"
             required
           />
@@ -259,7 +228,7 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             placeholder="Your message"
             required
           />
@@ -272,14 +241,14 @@ function ContactForm() {
         </motion.div>
 
         <ReCAPTCHA
-          sitekey="6LcYMf0pAAAAABaVTpm-AcPHqTo1IEvtQN8qjsGn"
+          sitekey="6Ld0Lv0pAAAAALbu0FnmCKuaZapY5CSWPAdvSIsR"
           onChange={handleRecaptchaVerify}
         />
 
         <motion.button
           type="submit"
-          disabled={state.submitting || !recaptchaToken}
-          className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 mt-4"
+          disabled={state.submitting}
+          className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
           variants={itemVariants}
         >
           Submit
