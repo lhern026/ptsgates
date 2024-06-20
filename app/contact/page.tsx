@@ -25,7 +25,7 @@ function ContactForm() {
 
   const Card = () => (
     <motion.div
-      className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md"
+      className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
@@ -38,24 +38,50 @@ function ContactForm() {
       </motion.h2>
 
       <motion.p
-        className="text-lg text-gray-700 mb-6 font-medium"
+        className="text-base text-gray-700 mb-2 font-medium"
         variants={itemVariants}
       >
-        Address: 16226 Suttles Drive Riverside, CA 92504
+        <span className="text-lg font-bold">Address</span>
       </motion.p>
       <motion.p
-        className="text-lg text-gray-700 mb-6 font-medium"
+        className="text-base text-gray-700 font-medium"
         variants={itemVariants}
       >
-        Toll Free 888-282-4506 Main Office: (951) 840-4324
+        16226 Suttles Drive
       </motion.p>
+      <motion.p
+        className="text-base text-gray-700 font-medium"
+        variants={itemVariants}
+      >
+        Riverside, CA 92504
+      </motion.p>
+
+      <motion.p
+        className="text-base text-gray-700 mb-2 font-medium mt-6"
+        variants={itemVariants}
+      >
+        <span className="text-lg font-bold">Phone Numbers</span>
+      </motion.p>
+      <motion.p
+        className="text-base text-gray-700 font-medium"
+        variants={itemVariants}
+      >
+        Toll Free: 888-282-4506
+      </motion.p>
+      <motion.p
+        className="text-base text-gray-700 font-medium"
+        variants={itemVariants}
+      >
+        Main Office: (951) 840-4324
+      </motion.p>
+
       <Link
         href="/"
         className={buttonStyles({
           color: "primary",
           radius: "full",
           variant: "shadow",
-          className: "px-6 py-3 text-lg font-semibold",
+          className: "px-6 py-3 text-lg font-semibold mt-6",
         })}
       >
         Go to Home
@@ -66,7 +92,7 @@ function ContactForm() {
   if (state.succeeded) {
     return (
       <motion.div
-        className="bg-white p-8 rounded-lg shadow-md text-center max-w-full"
+        className="bg-white p-8 rounded-lg shadow-md text-center max-w-lg flex-1"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -103,7 +129,7 @@ function ContactForm() {
       <Card />
       <motion.form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg"
+        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
         variants={containerVariants}
       >
         <motion.h2
