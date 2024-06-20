@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -22,6 +23,11 @@ const itemVariants = {
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xvgpppye");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
+
+  const handleRecaptchaVerify = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
 
   const Card = () => (
     <motion.div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1 mt-0">
@@ -125,7 +131,14 @@ function ContactForm() {
     >
       <Card />
       <motion.form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (recaptchaToken) {
+            handleSubmit(e);
+          } else {
+            alert("Please complete the reCAPTCHA verification");
+          }
+        }}
         className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
         variants={containerVariants}
       >
@@ -227,10 +240,15 @@ function ContactForm() {
           />
         </motion.div>
 
+        <ReCAPTCHA
+          sitekey="6LcYMf0pAAAAABaVTpm-AcPHqTo1IEvtQN8qjsGn"
+          onChange={handleRecaptchaVerify}
+        />
+
         <motion.button
           type="submit"
-          disabled={state.submitting}
-          className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary"
+          disabled={state.submitting || !recaptchaToken}
+          className="w-full py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mt-4"
           variants={itemVariants}
         >
           Submit

@@ -186,7 +186,14 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button className="w-full text-left text-gray-700 hover:text-primary py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300">
+                      <button
+                        className={`w-full text-left text-gray-700 py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300 ${
+                          item.isDisabled
+                            ? "cursor-not-allowed text-gray-400"
+                            : "hover:text-primary"
+                        }`}
+                        disabled={item.isDisabled}
+                      >
                         {item.label}
                       </button>
                       <div className="ml-4 mt-2">
@@ -217,7 +224,11 @@ export const Navbar = () => {
                     </>
                   ) : (
                     <NextLink
-                      className="block w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
+                      className={`block w-full text-left px-4 py-2 rounded-md ${
+                        item.isDisabled
+                          ? "cursor-not-allowed text-gray-400"
+                          : "hover:bg-gray-100 transition-colors duration-300"
+                      }`}
                       href={item.href}
                     >
                       {item.label}
