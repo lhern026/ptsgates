@@ -6,14 +6,12 @@ import {
   NavbarContent,
   NavbarBrand,
   NavbarItem,
-  NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/config/site";
 import Dropdown from "../components/dropdown";
 
 const navItems = [
@@ -84,15 +82,12 @@ export const Navbar = () => {
       className="flex justify-between"
       style={{ height: "7.5rem" }}
     >
-      <div
-        className="flex flex-row items-center
-       w-full  h-2 start-px   "
-      >
+      <div className="flex flex-row items-center w-full h-2 start-px">
         <NavbarBrand as="li" className="flex size-max">
           <NextLink className=" " href="/">
             <Image
               alt="logo"
-              className="h-60 w-60 " // Adjusted height
+              className="h-60 w-60" // Adjusted height
               height={104} // Adjusted height
               src="https://i.imgur.com/CPqYkhH.png"
               width={174} // Adjusted width
@@ -106,7 +101,7 @@ export const Navbar = () => {
           className="md:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-solid border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className="flex flex-col items-center  justify-center space-y-1">
+          <div className="flex flex-col items-center justify-center space-y-1">
             <span
               className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
                 isMenuOpen ? "transform rotate-45 translate-y-1.5" : ""
@@ -126,10 +121,10 @@ export const Navbar = () => {
         </button>
       </div>
 
-      <NavbarContent className="hidden lg:flex  h-1">
-        <ul className="flex gap-6 ">
+      <NavbarContent className="hidden lg:flex h-1">
+        <ul className="flex gap-6">
           {navItems.map((item) => (
-            <NavbarItem key={item.href} className="relative group ">
+            <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
                 <Dropdown
                   items={item.subitems.map((subitem) => ({
@@ -186,16 +181,9 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button
-                        className={`w-full text-left text-gray-700 py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300 ${
-                          item.isDisabled
-                            ? "cursor-not-allowed text-gray-400"
-                            : "hover:text-primary"
-                        }`}
-                        disabled={item.isDisabled}
-                      >
+                      <span className="w-full text-left text-gray-700 py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300">
                         {item.label}
-                      </button>
+                      </span>
                       <div className="ml-4 mt-2">
                         {item.subitems.map((subitem) => (
                           <div
@@ -224,11 +212,7 @@ export const Navbar = () => {
                     </>
                   ) : (
                     <NextLink
-                      className={`block w-full text-left px-4 py-2 rounded-md ${
-                        item.isDisabled
-                          ? "cursor-not-allowed text-gray-400"
-                          : "hover:bg-gray-100 transition-colors duration-300"
-                      }`}
+                      className="block w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
                       href={item.href}
                     >
                       {item.label}
