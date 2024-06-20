@@ -24,12 +24,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex flex-col md:flex-row gap-6 text-center md:text-left">
-            <Link href="/about" className="hidden md:block text-black hover:text-white transition duration-300">
-              About
-            </Link>
-            <Link href="/services" className="hidden md:block text-white hover:text-blue transition duration-300">
-              Services
-            </Link>
+            
             <Link href="/contact" className="text-black hover:text-red-100 transition duration-300">
               Contact
             </Link>
