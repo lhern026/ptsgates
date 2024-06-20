@@ -57,9 +57,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col w-full ">
-      <main className="flex-grow">
+      <main className="flex-grow w-full">
         {/* Hero Section */}
-        <section className="relative h-screen w-full text-white">
+        <section className="relative h-screen text-white w-full">
           <Slider {...sliderSettings}>
             {imageUrls.map((image, index) => (
               <div key={index}>

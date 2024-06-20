@@ -92,11 +92,12 @@ export const Navbar = () => {
           <NextLink className=" " href="/">
             <Image
               alt="logo"
-              className="h-79 w-80 " // Adjusted height
+              className="h-60 w-60 " // Adjusted height
               height={104} // Adjusted height
-              src="https://i.imgur.com/u1fiTYz.png"
+              src="https://i.imgur.com/CPqYkhH.png"
               width={174} // Adjusted width
               style={{ objectFit: "contain" }}
+              quality={100}
             />
           </NextLink>
         </NavbarBrand>
@@ -174,7 +175,7 @@ export const Navbar = () => {
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-solid border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
+                  className="relative group text-gray-700 hover:text-primary py-4 rounded-xl border border-gray-200 bg-white px-4 font-semibold text-black transition-transform duration-300 hover:scale-105"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
@@ -185,26 +186,26 @@ export const Navbar = () => {
                 >
                   {item.subitems ? (
                     <>
-                      <button className="text-gray-700 hover:text-primary py-4 rounded-2xl border-2 border-dashed border-black bg-white px-8 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                      <button className="w-full text-left text-gray-700 hover:text-primary py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300">
                         {item.label}
                       </button>
-                      <div className="ml-4">
+                      <div className="ml-4 mt-2">
                         {item.subitems.map((subitem) => (
                           <div
                             key={subitem.href}
-                            className={`py-4 ${
+                            className={`py-2 ${
                               subitem.isDisabled
                                 ? "cursor-not-allowed text-gray-400"
-                                : "cursor-pointer"
+                                : "cursor-pointer text-gray-700 hover:text-primary"
                             }`}
                           >
                             {subitem.isDisabled ? (
-                              <span className="px-6 py-2 font-medium bg-indigo-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
+                              <span className="block px-4 py-2 font-medium bg-indigo-500 text-white rounded-md transition-all shadow-lg">
                                 {subitem.label}
                               </span>
                             ) : (
                               <NextLink
-                                className="text-gray-700 hover:text-primary hover:bg-red-100 py-4 cursor-pointer"
+                                className="block px-4 py-2 transition-colors duration-300 rounded-md hover:bg-gray-100"
                                 href={subitem.href}
                               >
                                 {subitem.label}
@@ -215,14 +216,12 @@ export const Navbar = () => {
                       </div>
                     </>
                   ) : (
-                    <NavbarMenuItem key={item.href}>
-                      <NextLink
-                        className="text-gray-700 hover:text-primary hover:bg-red-100 py-4 cursor-pointer"
-                        href={item.href}
-                      >
-                        {item.label}
-                      </NextLink>
-                    </NavbarMenuItem>
+                    <NextLink
+                      className="block w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </NextLink>
                   )}
                 </motion.div>
               ))}

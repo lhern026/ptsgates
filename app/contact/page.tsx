@@ -24,12 +24,7 @@ function ContactForm() {
   const [state, handleSubmit] = useForm("xvgpppye");
 
   const Card = () => (
-    <motion.div
-      className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6 }}
-    >
+    <motion.div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1 mt-0">
       <motion.h2
         className="text-2xl font-extrabold mb-4 text-gray-800"
         variants={itemVariants}

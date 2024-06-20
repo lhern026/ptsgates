@@ -14,11 +14,11 @@ const Footer = () => {
           <div className="flex items-center gap-3 mb-4 md:mb-0">
             <Link href="/" className="flex items-center gap-1">
               <Image
-                src="https://i.imgur.com/u1fiTYz.png"
-                width={220}
-                height={220}
+                src="https://i.imgur.com/CPqYkhH.png"
+                width={200}
+                height={200}
                 alt="logo"
-                className="rounded-full"
+               
               />
              
             </Link>
