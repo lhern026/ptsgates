@@ -56,7 +56,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className="min-h-screen flex flex-col w-full ">
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-screen w-full text-white">
