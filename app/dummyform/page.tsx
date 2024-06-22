@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
-import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Dialog, Transition } from "@headlessui/react";
+import emailjs from "@emailjs/browser";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -22,9 +22,10 @@ const itemVariants = {
 };
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("xvgpppye");
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleRecaptchaVerify = (token: string | null) => {
     setRecaptchaToken(token);
@@ -36,6 +37,38 @@ function ContactForm() {
 
   const openModal = () => {
     setIsOpen(true);
+  };
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA verification");
+      return;
+    }
+    setIsSubmitting(true);
+
+    emailjs
+      .sendForm(
+        "service_jjeh3hd",
+        "template_el8alqm",
+        formRef.current!,
+        "-MDsWiebq2dSU-Wll"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          openModal();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert(
+            "An error occurred while sending the message. Please try again."
+          );
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const Card = () => (
@@ -93,8 +126,108 @@ function ContactForm() {
     </motion.div>
   );
 
-  if (state.succeeded) {
-    return (
+  return (
+    <motion.div
+      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6 gap-8"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <Card />
+      <motion.form
+        ref={formRef}
+        onSubmit={sendEmail}
+        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
+        variants={containerVariants}
+      >
+        <motion.h2
+          className="text-2xl font-extrabold mb-6 text-center text-gray-800"
+          variants={itemVariants}
+        >
+          Contact Us
+        </motion.h2>
+
+        <motion.div className="mb-4" variants={itemVariants}>
+          <label
+            htmlFor="name"
+            className="block text-gray-700 mb-2 font-medium"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            name="user_name"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Your name"
+            required
+          />
+        </motion.div>
+
+        <motion.div className="mb-4" variants={itemVariants}>
+          <label
+            htmlFor="email"
+            className="block text-gray-700 mb-2 font-medium"
+          >
+            Email Address
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="user_email"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Your email"
+            required
+          />
+        </motion.div>
+
+        <motion.div className="mb-4" variants={itemVariants}>
+          <label
+            htmlFor="phone"
+            className="block text-gray-700 mb-2 font-medium"
+          >
+            Phone Number
+          </label>
+          <input
+            id="phone"
+            type="tel"
+            name="user_phone"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Your phone number"
+            required
+          />
+        </motion.div>
+
+        <motion.div className="mb-6" variants={itemVariants}>
+          <label
+            htmlFor="message"
+            className="block text-gray-700 mb-2 font-medium"
+          >
+            Services Needed:
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Your message"
+            required
+          />
+        </motion.div>
+
+        <ReCAPTCHA
+          sitekey="6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva"
+          onChange={handleRecaptchaVerify}
+        />
+
+        <motion.button
+          type="submit"
+          disabled={isSubmitting || !recaptchaToken}
+          className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 mt-4"
+          variants={itemVariants}
+        >
+          Submit
+        </motion.button>
+      </motion.form>
       <Transition appear show={isOpen} as={React.Fragment}>
         <Dialog
           as="div"
@@ -149,142 +282,6 @@ function ContactForm() {
           </div>
         </Dialog>
       </Transition>
-    );
-  }
-
-  return (
-    <motion.div
-      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6 gap-8"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <Card />
-      <motion.form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (recaptchaToken) {
-            handleSubmit(e);
-            openModal();
-          } else {
-            alert("Please complete the reCAPTCHA verification");
-          }
-        }}
-        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
-        variants={containerVariants}
-      >
-        <motion.h2
-          className="text-2xl font-extrabold mb-6 text-center text-gray-800"
-          variants={itemVariants}
-        >
-          Contact Us
-        </motion.h2>
-
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="name"
-            className="block text-gray-700 mb-2 font-medium"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your name"
-            required
-          />
-          <ValidationError
-            prefix="Name"
-            field="name"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
-
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="email"
-            className="block text-gray-700 mb-2 font-medium"
-          >
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your email"
-            required
-          />
-          <ValidationError
-            prefix="Email"
-            field="email"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
-
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="phone"
-            className="block text-gray-700 mb-2 font-medium"
-          >
-            Phone Number
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your phone number"
-            required
-          />
-          <ValidationError
-            prefix="Phone"
-            field="phone"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
-
-        <motion.div className="mb-6" variants={itemVariants}>
-          <label
-            htmlFor="message"
-            className="block text-gray-700 mb-2 font-medium"
-          >
-            Services Needed:
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your message"
-            required
-          />
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
-
-        <ReCAPTCHA
-          sitekey="6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva"
-          onChange={handleRecaptchaVerify}
-        />
-
-        <motion.button
-          type="submit"
-          disabled={state.submitting || !recaptchaToken}
-          className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 mt-4"
-          variants={itemVariants}
-        >
-          Submit
-        </motion.button>
-      </motion.form>
     </motion.div>
   );
 }

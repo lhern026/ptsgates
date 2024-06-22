@@ -9,6 +9,8 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@emailjs/browser": "^4.3.3",
+		"@fontsource/inter": "^5.0.18",
 		"@formspree/react": "^2.5.1",
 		"@headlessui/react": "^2.0.4",
 		"@nextui-org/button": "^2.0.32",
@@ -23,6 +25,8 @@
 		"@nextui-org/theme": "2.2.4",
 		"@react-aria/ssr": "^3.9.2",
 		"@react-aria/visually-hidden": "^3.8.10",
+		"@react-three/drei": "^9.107.0",
+		"@react-three/fiber": "^8.16.8",
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/vision": "^3.47.1",
 		"@types/node": "20.5.7",
@@ -31,8 +35,10 @@
 		"@typescript-eslint/eslint-plugin": "^7.10.0",
 		"@typescript-eslint/parser": "^7.10.0",
 		"autoprefixer": "10.4.19",
+		"axios": "^1.7.2",
 		"clsx": "^2.0.0",
 		"dotenv": "^16.4.5",
+		"emailjs-com": "^3.2.0",
 		"eslint": "^8.56.0",
 		"eslint-config-next": "14.2.1",
 		"eslint-config-prettier": "^8.2.0",
@@ -48,7 +54,7 @@
 		"next": "14.2.3",
 		"next-sanity": "^9.3.10",
 		"next-themes": "^0.2.1",
-		"nodemailer": "^6.9.13",
+		"nodemailer": "^6.9.14",
 		"postcss": "8.4.38",
 		"react": "^18.3.1",
 		"react-dom": "18.3.1",
@@ -63,9 +69,11 @@
 		"styled-components": "^6.1.11",
 		"tailwind-variants": "^0.1.20",
 		"tailwindcss": "3.4.3",
+		"three": "^0.165.0",
 		"typescript": "5.0.4"
 	},
 	"devDependencies": {
+		"@types/axios": "^0.14.0",
 		"@types/nodemailer": "^6.4.15",
 		"@types/react-google-recaptcha": "^2.1.9",
 		"@types/react-slick": "^0.23.13"

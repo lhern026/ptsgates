@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import React from 'react';
 
 const Dropdown = ({ label, items }) => {
@@ -15,14 +16,14 @@ const Dropdown = ({ label, items }) => {
       >
         <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
           {items.map((item, index) => (
-            <a
+            <Link
               key={index}
               href={item.href}
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

@@ -79,7 +79,7 @@ export const Navbar = () => {
   return (
     <NextUINavbar
       isBordered
-      className="flex justify-between"
+      className="flex justify-stretch"
       style={{ height: "7.5rem" }}
     >
       <div className="flex flex-row items-center w-full h-2 start-px">
@@ -144,7 +144,7 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex gap-1 ">
+      <NavbarContent className="hidden lg:flex gap-10 justify-end ">
         <NextLink
           className={buttonStyles({
             color: "primary",

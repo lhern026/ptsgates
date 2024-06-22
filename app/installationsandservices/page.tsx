@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { title } from "@/components/primitives";
 import Image from "next/image";
+import Link from "next/link";
 
 const containerVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -176,12 +177,12 @@ export default function PastInstallationsPage() {
           Services today to request service and ensure your systems are running
           smoothly.
         </p>
-        <a
+        <Link
           href="/contact"
           className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
         >
           Contact Us
-        </a>
+        </Link>
       </motion.div>
     </motion.div>
   );

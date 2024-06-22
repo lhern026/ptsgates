@@ -16,19 +16,20 @@ const container = {
     y: 0,
     transition: {
       delay: 0.2,
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
+      duration: 0.8,
     },
   },
 };
 
 const item = {
   hidden: { opacity: 0, y: 20, scale: 0.9 },
-  visible: { opacity: 1, y: 0, scale: 1 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8 } },
 };
 
 const listItem = {
   hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
 export default function AboutPage() {
@@ -59,10 +60,10 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gradient-to-r">
       <motion.div
-        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to--500 text-white text-shadow-lg animate-gradient"
+        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-blue-500 text-white text-shadow-lg animate-gradient"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8 }}
       >
         <Link
           href="https://www.scheidt-bachmann-usa.com/en/"
@@ -71,7 +72,7 @@ export default function AboutPage() {
         >
           <Image
             src={"https://i.imgur.com/XDEdW4c.jpeg"}
-            alt={"Keri Systems Logo"}
+            alt={"Scheidt & Bachmann Logo"}
             width={200}
             height={200}
             className="w-1/3 h-1/3 rounded-lg"
@@ -81,7 +82,7 @@ export default function AboutPage() {
           className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
           Scheidt & Bachmann
         </motion.h1>
@@ -89,7 +90,7 @@ export default function AboutPage() {
           className="text-xl md:text-2xl lg:text-3xl text-center text-black max-w-3xl mx-auto mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           Parking Technical Services proudly serves as a Channel Partner of
           Scheidt & Bachmann, renowned for their extensive expertise in service

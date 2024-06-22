@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
 const imageVariants = {
@@ -13,9 +13,15 @@ const imageVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
 };
 
+const fontFamily =
+  "Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji";
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-gray-50">
+    <div
+      className="min-h-screen flex flex-col w-full bg-gray-50"
+      style={{ fontFamily }}
+    >
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 opacity-75"></div>
         <div className="relative py-24 px-6 md:px-12 lg:px-24 w-full text-white text-center">
@@ -97,13 +103,21 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <Image
-            src="https://i.imgur.com/wgwkHab.jpeg"
-            alt="Our Expertise"
-            width={500}
-            height={500}
-            className="rounded-lg lg:w-1/3 lg:ml-auto"
-          />
+          <motion.div
+            className="mt-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={imageVariants}
+          >
+            <Image
+              src="https://i.imgur.com/wgwkHab.jpeg"
+              alt="Our Expertise"
+              width={500}
+              height={500}
+              className="rounded-lg lg:w-1/3 lg:ml-auto"
+            />
+          </motion.div>
         </div>
       </div>
     </div>
