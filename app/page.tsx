@@ -81,10 +81,13 @@ const howItWorksItems: HowItWorksItem[] = [
 
 const Home: React.FC = () => {
   const imageUrls = [
-    "https://i.imgur.com/0epHULV.jpeg",
-    "https://i.imgur.com/XULqRUX.jpeg",
-    "https://i.imgur.com/m7sAthF.jpeg",
-    "https://i.imgur.com/PA7Jl6K.jpeg",
+    "https://i.imgur.com/aTB62po.jpeg",
+    "https://i.imgur.com/j3Obu3L.jpeg",
+
+    "https://i.imgur.com/w1hU99Y.jpeg",
+    "https://i.imgur.com/kxqa6u1.jpeg",
+    "https://i.imgur.com/YmeLknf.jpeg",
+    "https://i.imgur.com/9b2dKhr.jpeg",
   ];
 
   const containerVariants = {
