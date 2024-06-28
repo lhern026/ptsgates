@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                   className="flex items-center justify-center h-screen bg-cover bg-center relative"
                   style={{ backgroundImage: `url(${image})` }}
                 >
-                  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                  <div className="absolute inset-0  bg-opacity-50"></div>
                   <div className="relative z-10 p-8 rounded-lg text-center max-w-2xl mx-auto">
                     <motion.h1
                       className="text-4xl md:text-6xl font-bold mb-4"
