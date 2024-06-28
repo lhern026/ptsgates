@@ -106,13 +106,13 @@ const Home: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col w-full bg-gray-100"
+      className=" flex flex-col "
       style={{
         fontFamily:
           'Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       }}
     >
-      <main className="flex-grow w-full">
+      <main className=" w-full">
         {/* Hero Section */}
         <section className="relative h-screen text-white w-full">
           <Slider {...sliderSettings}>
