@@ -18,10 +18,7 @@ const fontFamily =
 
 export default function AboutPage() {
   return (
-    <div
-      className="min-h-screen flex flex-col w-full bg-gray-50"
-      style={{ fontFamily }}
-    >
+    <div className="min-h-screen flex flex-col w-full " style={{ fontFamily }}>
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-500 to-red-500 opacity-75"></div>
         <div className="relative py-24 px-6 md:px-12 lg:px-24 w-full text-white text-center">

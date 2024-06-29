@@ -1,14 +1,13 @@
 "use client";
 
 import React from "react";
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
-import Image from "next/image";
-import Slider from "react-slick";
-import { FaCheckCircle, FaLock, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { FaCheckCircle, FaLock, FaClock } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const sliderSettings = {
   dots: true,
@@ -21,20 +20,7 @@ const sliderSettings = {
   arrows: false,
 };
 
-interface Feature {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-}
-
-interface HowItWorksItem {
-  imageUrl: string;
-  alt: string;
-  title: string;
-  description: string;
-}
-
-const features: Feature[] = [
+const features = [
   {
     icon: <FaCheckCircle className="text-4xl text-blue-500 mb-4 mx-auto" />,
     title: "Professionalism & Reliability",
@@ -55,7 +41,7 @@ const features: Feature[] = [
   },
 ];
 
-const howItWorksItems: HowItWorksItem[] = [
+const howItWorksItems = [
   {
     imageUrl: "https://i.imgur.com/JW8eKw2.jpeg",
     alt: "Service & Installation",
@@ -79,11 +65,10 @@ const howItWorksItems: HowItWorksItem[] = [
   },
 ];
 
-const Home: React.FC = () => {
+const Home = () => {
   const imageUrls = [
     "https://i.imgur.com/aTB62po.jpeg",
     "https://i.imgur.com/j3Obu3L.jpeg",
-
     "https://i.imgur.com/w1hU99Y.jpeg",
     "https://i.imgur.com/kxqa6u1.jpeg",
     "https://i.imgur.com/YmeLknf.jpeg",
@@ -106,13 +91,13 @@ const Home: React.FC = () => {
 
   return (
     <div
-      className=" flex flex-col "
+      className="flex flex-col"
       style={{
         fontFamily:
           'Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       }}
     >
-      <main className=" w-full">
+      <main className="w-full">
         {/* Hero Section */}
         <section className="relative h-screen text-white w-full">
           <Slider {...sliderSettings}>
@@ -122,7 +107,7 @@ const Home: React.FC = () => {
                   className="flex items-center justify-center h-screen bg-cover bg-center relative"
                   style={{ backgroundImage: `url(${image})` }}
                 >
-                  <div className="absolute inset-0  bg-opacity-50"></div>
+                  <div className="absolute inset-0 opacity-50"></div>
                   <div className="relative z-10 p-8 rounded-lg text-center max-w-2xl mx-auto">
                     <motion.h1
                       className="text-4xl md:text-6xl font-bold mb-4"
@@ -138,19 +123,24 @@ const Home: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
                     >
-                      Innovative solutions for modern parking needs.
+                      Innovative solutions for Modern parking needs.
                     </motion.p>
-                    <Link href="/contact">
-                      <p className="px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300 rounded-full shadow-lg text-white">
+                    <Link href="/contact" passHref>
+                      <motion.a
+                        className="px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300 rounded-full shadow-lg text-white"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                      >
                         Get Started
-                      </p>
+                      </motion.a>
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
           </Slider>
-        </section>{" "}
+        </section>
+
         {/* Features Section */}
         <section className="py-16 bg-gray-50">
           <motion.div
@@ -182,6 +172,7 @@ const Home: React.FC = () => {
             </div>
           </motion.div>
         </section>
+
         {/* How It Works Section */}
         <section className="py-16 bg-gray-100">
           <motion.div
@@ -219,32 +210,30 @@ const Home: React.FC = () => {
             </div>
           </motion.div>
         </section>
+
         {/* Call-to-Action Section */}
         <section
-          className="py-16 bg-primary text-white bg-cover bg-center"
+          className="py-16 bg-cover bg-center text-white"
           style={{
             backgroundImage: "url('https://i.imgur.com/B4cShUu.jpeg')",
           }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black bg-opacity-50 rounded-lg py-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Upgrade Your Parking and Access Control System?
             </h2>
-            <p className="text-lg md:text-xl mb-6 text-black">
+            <p className="text-lg md:text-xl mb-6 text-white">
               Contact us today to learn more about our advanced parking revenue
               control solutions.
             </p>
-            <Link
-              href="/contact"
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "shadow",
-                className:
-                  "px-6 py-3 text-lg font-semibold bg-white text-primary",
-              })}
-            >
-              Contact Us
+            <Link href="/contact" passHref>
+              <motion.a
+                className="px-6 py-3 text-lg font-semibold bg-white text-primary rounded-full shadow-lg transition duration-300"
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                Contact Us
+              </motion.a>
             </Link>
           </div>
         </section>

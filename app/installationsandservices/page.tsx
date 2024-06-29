@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { title } from "@/components/primitives";
 import Image from "next/image";
@@ -29,9 +29,13 @@ const hoverEffect = {
 };
 
 export default function PastInstallationsPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div
-      className=" flex flex-col w-full "
+      className="flex flex-col w-full"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -162,13 +166,13 @@ export default function PastInstallationsPage() {
             We handle both installation and sales services in-house, ensuring
             your satisfaction is our primary focus. When you choose our expert
             team, you can expect top-notch workmanship at competitive rates.
-            Rely on us for all your integrated parking and acccess control
-            system needs.
+            Rely on us for all your integrated parking and access control system
+            needs.
           </section>
         </motion.div>
       </motion.div>
       <motion.div
-        className="max-w-6xl mx-auto mt-16 text-center"
+        className="max-w-6xl mx-auto mt-16 text-center py-8"
         variants={containerVariants}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
