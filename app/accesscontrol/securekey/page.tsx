@@ -115,7 +115,7 @@ export default function AboutPage() {
       </motion.div>
 
       <motion.div
-        className="max-w-6xl mx-auto mt-16 text-center"
+        className="max-w-6xl mx-auto mt-16 text-center my-8"
         variants={container}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">

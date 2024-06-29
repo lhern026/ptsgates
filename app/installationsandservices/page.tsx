@@ -31,7 +31,7 @@ const hoverEffect = {
 export default function PastInstallationsPage() {
   return (
     <motion.div
-      className="min-h-screen flex flex-col w-full bg-gray-50"
+      className=" flex flex-col w-full "
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -71,9 +71,11 @@ export default function PastInstallationsPage() {
             <h3 className="text-3xl font-semibold mb-4">Jamison Properties</h3>
             <p className="text-gray-600 text-lg md:text-xl lg:text-2xl">
               Parking Technical Services has been dedicated to delivering
-              installations and services to the Jamison Area in Koreatown for
-              over 12 years. Our commitment to excellence remains steadfast as
-              we continue to provide outstanding service to our customer base.
+              Automated revenue control parking and access control systems
+              installations and services to Jamison Properties area in Korea
+              town for over 15 years. Our commitment to excellence remains
+              steadfast as we continue to provide outstanding service to our
+              customer base.
             </p>
           </div>
           <Image

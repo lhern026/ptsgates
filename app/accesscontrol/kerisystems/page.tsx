@@ -45,7 +45,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col w-full bg-gray-50">
       <motion.div
-        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-blue-500 text-white text-shadow-lg animate-gradient"
+        className="flex flex-col items-center py-16 px-6 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-blue-500 text-white text-shadow-lg animate-gradient"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
