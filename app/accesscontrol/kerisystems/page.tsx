@@ -140,7 +140,7 @@ export default function AboutPage() {
               and quote.
             </p>
             <Link
-              href="/contact"
+              href="/contact-2"
               className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
             >
               Contact Us

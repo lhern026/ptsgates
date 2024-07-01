@@ -261,6 +261,34 @@ export default function AboutPage() {
             </motion.div>
           </Link>
         </div>
+        <motion.div
+          className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg mt-8"
+          initial="hidden"
+          animate="visible"
+          variants={container}
+        >
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              className="max-w-6xl mx-auto mt-16 text-center"
+              variants={container}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Contact Us
+              </h2>
+              <p className="text-lg md:text-xl lg:text-2xl mb-8">
+                Need assistance with your building access control equipment?
+                Contact Parking Technical Services today for a free consultation
+                and quote.
+              </p>
+              <Link
+                href="/contact-2"
+                className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+              >
+                Contact Us
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

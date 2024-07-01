@@ -126,13 +126,13 @@ const Home = () => {
                       Innovative solutions for Modern parking needs.
                     </motion.p>
                     <Link href="/contact" passHref>
-                      <motion.a
-                        className="px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300 rounded-full shadow-lg text-white"
+                      <motion.span
+                        className="px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300 rounded-full shadow-lg text-white cursor-pointer"
                         initial={{ scale: 1 }}
                         whileHover={{ scale: 1.1 }}
                       >
                         Get Started
-                      </motion.a>
+                      </motion.span>
                     </Link>
                   </div>
                 </div>
@@ -226,14 +226,14 @@ const Home = () => {
               Contact us today to learn more about our advanced parking revenue
               control solutions.
             </p>
-            <Link href="/contact" passHref>
-              <motion.a
-                className="px-6 py-3 text-lg font-semibold bg-white text-primary rounded-full shadow-lg transition duration-300"
+            <Link href="/contact-2" passHref>
+              <motion.span
+                className="px-6 py-3 text-lg font-semibold bg-white text-primary rounded-full shadow-lg transition duration-300 cursor-pointer"
                 initial={{ scale: 1 }}
                 whileHover={{ scale: 1.1 }}
               >
                 Contact Us
-              </motion.a>
+              </motion.span>
             </Link>
           </div>
         </section>
