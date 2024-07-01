@@ -125,7 +125,7 @@ const Home = () => {
                     >
                       Innovative solutions for Modern parking needs.
                     </motion.p>
-                    <Link href="/contact" passHref>
+                    <Link href="/contact-2" passHref>
                       <motion.span
                         className="px-6 py-3 text-lg font-semibold bg-blue-500 hover:bg-blue-700 transition duration-300 rounded-full shadow-lg text-white cursor-pointer"
                         initial={{ scale: 1 }}
