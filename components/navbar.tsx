@@ -151,7 +151,7 @@ export const Navbar = () => {
             radius: "full",
             variant: "shadow",
           })}
-          href="/contact"
+          href="/contact-2"
         >
           Request Quote
         </NextLink>
