@@ -32,7 +32,7 @@ const navItems = [
     ],
   },
   {
-    label: "INSTALLATIONS AND SERVICES",
+    label: "INSTALLATIONS & SERVICES",
     href: "/installationsandservices",
   },
   {
@@ -122,7 +122,7 @@ export const Navbar = () => {
       </div>
 
       <NavbarContent className="hidden lg:flex h-1">
-        <ul className="flex gap-2">
+        <ul className="flex gap-1">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
