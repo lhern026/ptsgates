@@ -141,7 +141,6 @@ export default function PastInstallationsPage() {
               <li className="text-left">
                 Integration with Hotel PMS/Keycard (RFID and Magstripe)
               </li>
-              <li className="text-left">License Plate Recognition (LPR)</li>
 
               <li className="text-left">Mobile Payment Applications</li>
               <li className="text-left">Pre-paid Reservations</li>

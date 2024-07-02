@@ -16,7 +16,7 @@ import Dropdown from "../components/dropdown";
 
 const navItems = [
   {
-    label: "ACCESS CONTROL",
+    label: "SECURITY ACCESS CONTROL",
     href: "/accesscontrol",
     subitems: [
       { label: "KERI SYSTEMS", href: "/accesscontrol/kerisystems" },
@@ -24,7 +24,7 @@ const navItems = [
     ],
   },
   {
-    label: "PRODUCTS",
+    label: "PARKING REVENUE CONTROL PRODUCTS",
     href: "/products",
     subitems: [
       { label: "SCHEIDT-BACHMANN", href: "/products/scheidt-bachmann/" },
