@@ -122,7 +122,7 @@ export const Navbar = () => {
       </div>
 
       <NavbarContent className="hidden lg:flex h-1">
-        <ul className="flex gap-6">
+        <ul className="flex gap-2">
           {navItems.map((item) => (
             <NavbarItem key={item.href} className="relative group">
               {item.subitems ? (
@@ -166,11 +166,11 @@ export const Navbar = () => {
             exit="hidden"
             variants={mobileMenuVariants}
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <motion.div
                   key={item.href}
-                  className="relative group text-gray-700 hover:text-primary py-4 rounded-xl border border-gray-200 bg-white px-4 font-semibold text-black transition-transform duration-300 hover:scale-105"
+                  className="relative group  hover:text-primary py-4 rounded-xl border border-gray-200 bg-white px-4 font-semibold text-black transition-transform duration-300 hover:scale-105"
                   onClick={handleLinkClick}
                   role="button"
                   tabIndex={0}
