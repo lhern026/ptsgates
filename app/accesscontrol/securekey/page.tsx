@@ -1,137 +1,150 @@
 "use client";
 
-import { title } from "@/components/primitives";
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+import Link from "next/link";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
 import { FaCheckCircle } from "react-icons/fa";
-import Link from "next/link";
 
-const container: Variants = {
-  hidden: { opacity: 0, y: 20 },
+// Motion
+const sectionContainer: Variants = {
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.2,
-      staggerChildren: 0.1,
+      duration: 0.45,
+      when: "beforeChildren",
+      staggerChildren: 0.06,
     },
   },
 };
-
 const item: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.9 },
-  visible: { opacity: 1, y: 0, scale: 1 },
+  hidden: { opacity: 0, y: 8 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+};
+const heroText: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const listItem: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0 },
-};
+// Data
+const securaKeySolutions = [
+  "Proximity Readers",
+  "Contactless Readers",
+  "Touch Readers",
+  "Low Frequency (Radio Key) Cards & Keytags",
+  "High Frequency (e*Tag) Cards & Keytags",
+  "Barium Ferrite Cards & Keytags",
+  "Wiegand Cards & Keytags",
+  "Select Engineered Systems Cards & Keytags",
+  "Modern Electronics Systems Cards & Keytags",
+  "Touchcard / e*Tag Custom Options",
+  "Programming Tools",
+  "Wiegand Interface Products",
+  "Wireless Accessories",
+  "Parts",
+  "OEM Products",
+  "Card Finder",
+];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-gray-50">
-      <motion.div
-        className="flex flex-col items-center py-16 px-6 md:px-12 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-blue-500 text-white text-shadow-lg animate-gradient"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.h1
-          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          SecuraKey
-        </motion.h1>
+    <div className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 antialiased">
+      {/* HERO */}
+      <header className="w-full border-b border-neutral-300 bg-gradient-to-b from-neutral-50 to-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 text-center">
+          <motion.h1
+            className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase"
+            variants={heroText}
+            initial="hidden"
+            animate="visible"
+          >
+            SecuraKey
+          </motion.h1>
+          <div className="mx-auto mt-4 h-[2px] w-12 bg-blue-700" />
+          <motion.p
+            className="mt-4 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-neutral-700"
+            variants={heroText}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.15 }}
+          >
+            Trusted dealership delivering SecuraKey access control and RFID
+            solutions with reliable performance and clean operations.
+          </motion.p>
+          <motion.p
+            className="mt-3 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700"
+            variants={heroText}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.3 }}
+          >
+            From NOVA.16 multi-reader systems to eACCESS entry platforms, we
+            help you deploy secure, scalable infrastructure.
+          </motion.p>
+        </div>
+      </header>
 
-        <motion.p
-          className="text-xl md:text-2xl lg:text-3xl text-center text-black max-w-3xl mx-auto mt-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          As a trusted dealership of SecuraKey, a renowned leader in access
-          control and RFID solutions, we are dedicated to providing cutting-edge
-          technology that enhances security and convenience for our clients. Our
-          dealership allows us to deliver top-tier products and comprehensive
-          solutions, ensuring we meet the evolving needs of modern access
-          control systems. With offerings such as the NOVA.16 multi-reader
-          access control system and the eACCESS entry control systems, SecuraKey
-          consistently sets the standard for reliability and performance in the
-          industry.
-        </motion.p>
-      </motion.div>
+      {/* PARALLAX STRIPE */}
       <TextParallaxContent
         imgUrl="https://i.imgur.com/54Qw4zx.jpeg"
-        subheading="Providing Innovative and Reliable Security Systems for Over 38 Years"
-        heading="SecuraKey: Leading the Way in Access Control and RFID Solutions"
+        subheading="Innovative and reliable security systems for modern facilities"
+        heading="SecuraKey: Access Control, Simplified"
       />
-      <motion.div
-        className="bg-white max-w-full py-12 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-t-lg shadow-lg"
-        initial="hidden"
-        animate="visible"
-        variants={container}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
-          Solutions Overview
-        </h2>
-        <motion.ul
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-lg md:text-xl lg:text-2xl text-gray-700"
-          initial="hidden"
-          animate="visible"
-          variants={container}
-        >
-          {[
-            "Proximity Readers",
-            "Contactless Readers",
-            "Touch Readers",
-            "Low Frequency (Radio Key) Cards & Keytags",
-            "High Frequency (e*Tag) Cards & Keytags",
-            "Barium Ferrite Cards & Keytags",
-            "Wiegand Cards & Keytags",
-            "Select Engineered Systems Cards & Keytags",
-            "Modern Electronics Systems Cards & Keytags",
-            "Touchcard, e*Tag Custom Options",
-            "Programming Tools",
-            "Wiegand Interface Products",
-            "Wireless Accessories",
-            "Parts",
-            "OEM Products",
-            "Card Finder",
-          ].map((item, index) => (
-            <motion.li
-              key={index}
-              className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-              variants={listItem}
-            >
-              <FaCheckCircle className="text-blue-500" />
-              <span>{item}</span>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
 
-      <motion.div
-        className="max-w-6xl mx-auto mt-16 text-center my-8"
-        variants={container}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          Contact Us
-        </h2>
-        <p className="text-lg md:text-xl lg:text-2xl mb-8">
-          Need assistance with your building access control equipment? Contact
-          Parking Technical Services today for a free consultation and quote.
-        </p>
-        <Link
-          href="/contact-2"
-          className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+      {/* SOLUTIONS */}
+      <section className="bg-white">
+        <motion.div
+          className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20"
+          variants={sectionContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          Contact Us
-        </Link>
-      </motion.div>
+          <h2 className="text-2xl sm:text-3xl font-bold uppercase text-center">
+            Our SecuraKey Solutions
+          </h2>
+          <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+
+          <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {securaKeySolutions.map((label) => (
+              <motion.li
+                key={label}
+                className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-4"
+                variants={item}
+              >
+                <FaCheckCircle className="mt-0.5 shrink-0 text-blue-700" />
+                <span className="leading-snug">{label}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-neutral-100 border-t border-neutral-300">
+        <motion.div
+          className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 text-center"
+          variants={sectionContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold uppercase">
+            Ready to Enhance Security?
+          </h3>
+          <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+          <p className="mt-4 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700">
+            Get a free consultation and quote for your building access control.
+          </p>
+          <Link
+            href="/contact-2"
+            className="mt-8 inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+          >
+            Request a Consultation
+          </Link>
+        </motion.div>
+      </section>
     </div>
   );
 }

@@ -5,27 +5,23 @@ import { motion } from "framer-motion";
 import { title } from "@/components/primitives";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCheckCircle } from "react-icons/fa";
 
-const containerVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+const container = {
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, staggerChildren: 0.2 },
+    y: 0,
+    transition: {
+      duration: 0.45,
+      when: "beforeChildren",
+      staggerChildren: 0.06,
+    },
   },
 };
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const hoverEffect = {
-  scale: 1.05,
-  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-  transition: {
-    duration: 0.3,
-  },
+const item = {
+  hidden: { opacity: 0, y: 8 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
 };
 
 export default function PastInstallationsPage() {
@@ -35,160 +31,166 @@ export default function PastInstallationsPage() {
 
   return (
     <motion.div
-      className="flex flex-col w-full"
+      className="flex flex-col w-full bg-neutral-50 text-neutral-900"
       initial="hidden"
       animate="visible"
-      variants={containerVariants}
+      variants={container}
     >
-      <motion.div
-        className="bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white"
-        variants={itemVariants}
-      >
-        <h1
-          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
-        >
-          Installations
-        </h1>
-      </motion.div>
+      {/* INSTALLATIONS HERO */}
+      <header className="w-full border-b border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-14 text-center">
+          <h1
+            className={`${title?.() ?? ""} text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight`}
+          >
+            Installations
+          </h1>
+          <div className="mx-auto mt-4 h-[2px] w-12 bg-blue-700" />
+        </div>
+      </header>
 
-      <motion.div
-        className="py-12 px-6 md:px-12 lg:px-24 w-full text-gray-800"
-        variants={containerVariants}
-      >
-        <motion.div className="max-w-4xl mx-auto mb-16" variants={itemVariants}>
-          <section className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed">
-            Our dedication ensures timely and dependable installations and
-            maintenance for most of your parking equipment needs. We are
-            committed to offering cost-effective solutions without sacrificing
-            quality. Our mission is to exceed expectations by delivering
-            exceptional service, responding swiftly to your needs, and providing
-            unmatched expertise across various parking technologies. Trust PTS
-            for reliable installations that seamlessly enhance your parking
-            operations.
-          </section>
+      {/* INTRO */}
+      <section className="py-12 px-6 sm:px-10 lg:px-16">
+        <motion.div className="max-w-4xl mx-auto" variants={item}>
+          <p className="text-lg md:text-xl leading-relaxed text-neutral-700 text-center">
+            Timely, dependable installations and maintenance across modern
+            parking systems. Cost-effective without cutting corners. Disciplined
+            service, fast response, and broad vendor coverage so your operations
+            stay reliable.
+          </p>
         </motion.div>
-        <motion.div
-          className="bg-white rounded-lg shadow-md p-8 flex flex-col lg:flex-row items-center lg:items-start transition duration-300 hover:shadow-lg h-auto lg:h-96"
-          variants={itemVariants}
+
+        {/* FEATURED INSTALLATION */}
+        <motion.article
+          className="mt-10 max-w-7xl mx-auto grid lg:grid-cols-5 border border-neutral-200 bg-white rounded-[6px] overflow-hidden"
+          variants={item}
         >
-          <div className="lg:w-2/3 mb-4 lg:mb-0">
-            <h3 className="text-3xl font-semibold mb-4">Jamison Properties</h3>
-            <p className="text-gray-600 text-lg md:text-xl lg:text-2xl">
-              Parking Technical Services has been dedicated to delivering
-              Automated revenue control parking and access control systems
-              installations and services to Jamison Properties area in Korea
-              town for over 15 years. Our commitment to excellence remains
-              steadfast as we continue to provide outstanding service to our
-              customer base.
+          <div className="lg:col-span-3 p-6 md:p-8">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-3">
+              Jamison Properties
+            </h3>
+            <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
+              For 15+ years we’ve delivered automated revenue control and access
+              control installations and service for Jamison Properties in
+              Koreatown. Consistent quality, clear communication, and
+              on-schedule delivery for a demanding urban portfolio.
             </p>
           </div>
-          <Image
-            src="https://i.imgur.com/zOCQkdP.jpeg"
-            alt="Our Expertise"
-            width={500}
-            height={400}
-            className="rounded-lg lg:w-1/3"
-          />
-        </motion.div>
-      </motion.div>
+          <div className="relative lg:col-span-2 min-h-[240px]">
+            <Image
+              src="https://i.imgur.com/zOCQkdP.jpeg"
+              alt="Jamison Properties parking installation"
+              fill
+              className="object-cover"
+              sizes="(max-width:1024px) 100vw, 40vw"
+              priority
+            />
+          </div>
+        </motion.article>
+      </section>
 
-      <motion.div
-        className="bg-gradient-to-r from-blue-400 via-blue-500 to-red-500 py-12 px-6 md:px-12 lg:px-24 w-full text-white"
-        variants={itemVariants}
-      >
-        <h1
-          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8`}
-        >
-          Service
-        </h1>
-      </motion.div>
+      {/* SERVICE HERO */}
+      <header className="w-full border-t border-b border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-14 text-center">
+          <h2
+            className={`${title?.() ?? ""} text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight`}
+          >
+            Service
+          </h2>
+          <div className="mx-auto mt-4 h-[2px] w-12 bg-blue-700" />
+        </div>
+      </header>
 
-      <motion.div
-        className="py-12 px-6 md:px-12 lg:px-24 w-full text-gray-800"
-        variants={containerVariants}
-      >
-        <motion.div
-          className="max-w-full mx-auto mb-16"
-          variants={itemVariants}
-        >
-          <section className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed">
-            At Parking Technical Services, we recognize the critical importance
-            of parking revenue. We are deeply committed to delivering
-            exceptional service, drawing on over 30 years of industry experience
-            across Southern California. Our dedication ensures that we
-            consistently meet our goal of providing prompt and outstanding
-            service at competitive rates. PTS guarantees thorough maintenance
-            and reliable operation of your parking equipment. Our mission is to
-            deliver outstanding service at affordable rates, offering prompt
-            responses to client needs and unparalleled versatility. PTS takes
-            pride in their unique ability to service a comprehensive range of
-            parking equipment brands, including:
-            <ul className="list-disc pl-0 ml-8 mt-8 mb-8">
-              <li className="text-left">Scheidt & Bachmann</li>
-              <li className="text-left">Amano</li>
-              <li className="text-left">Federal APD</li>
-              <li className="text-left">SysParc</li>
-              <li className="text-left">Parking Boxx</li>
-              <li className="text-left">Keri Systems</li>
-              <li className="text-left">Secura Key</li>
+      {/* SERVICE CONTENT */}
+      <section className="py-12 px-6 sm:px-10 lg:px-16">
+        <motion.div className="max-w-6xl mx-auto" variants={item}>
+          <p className="text-lg md:text-xl leading-relaxed text-neutral-700 text-center">
+            Over 30 years across Southern California. Fast, disciplined support
+            at competitive rates. Thorough maintenance and reliable operation to
+            protect revenue.
+          </p>
+
+          {/* Brands */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold uppercase tracking-wide text-center">
+              Brands We Service
+            </h3>
+            <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {[
+                "Scheidt & Bachmann",
+                "Amano",
+                "Federal APD",
+                "SysParc",
+                "Parking Boxx",
+                "Keri Systems",
+                "Secura Key",
+              ].map((brand) => (
+                <li
+                  key={brand}
+                  className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-3"
+                >
+                  <FaCheckCircle className="text-blue-700 mt-0.5" aria-hidden />
+                  <span>{brand}</span>
+                </li>
+              ))}
             </ul>
-            PTS is equipped and ready to install and maintain your preferred
-            choice of parking and access control equipment. We customize
-            solutions to meet your specific requirements, offering:
-            <ul className="list-disc pl-0 ml-8 mt-8 mb-8">
-              <li className="text-left">License Plate Recognition (LPR)</li>
-              <li className="text-left">Proximity and/or RFID</li>
-              <li className="text-left">
-                Integration with Hotel PMS/Keycard (RFID and Magstripe)
-              </li>
+          </div>
 
-              <li className="text-left">Mobile Payment Applications</li>
-              <li className="text-left">Pre-paid Reservations</li>
-              <li className="text-left">Barcode Technology</li>
-              <li className="text-left">
-                Building Access Control, including elevator and after-hours
-                door/grille control
-              </li>
-              <li className="text-left">Remote Monitoring</li>
-              <li className="text-left">Phone Entry Systems</li>
-              <li className="text-left">Protection Bollards</li>
-              <li className="text-left">
-                Trenching for running electrical and data conduit
-              </li>
-              <li className="text-left">Concrete Islands</li>
-              <li className="text-left">
-                Speed bumps and traffic control spike units
-              </li>
-              <li className="text-left">Vehicle Loop Ground Sensors</li>
-              <li className="text-left">Parking Garage Lighting</li>
+          {/* Capabilities */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold uppercase tracking-wide text-center">
+              Capabilities
+            </h3>
+            <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                "License Plate Recognition (LPR)",
+                "Proximity / RFID",
+                "Hotel PMS / Keycard integration",
+                "Mobile payment apps",
+                "Pre-paid reservations",
+                "Barcode technology",
+                "Building access control incl. elevators and after-hours",
+                "Remote monitoring",
+                "Phone entry systems",
+                "Protection bollards",
+                "Electrical/data trenching",
+                "Concrete islands",
+                "Speed bumps and spike units",
+                "Vehicle loop ground sensors",
+                "Garage lighting",
+              ].map((cap) => (
+                <li
+                  key={cap}
+                  className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-3"
+                >
+                  <FaCheckCircle className="text-blue-700 mt-0.5" aria-hidden />
+                  <span>{cap}</span>
+                </li>
+              ))}
             </ul>
-            We handle both installation and sales services in-house, ensuring
-            your satisfaction is our primary focus. When you choose our expert
-            team, you can expect top-notch workmanship at competitive rates.
-            Rely on us for all your integrated parking and access control system
-            needs.
-          </section>
+          </div>
         </motion.div>
-      </motion.div>
-      <motion.div
-        className="max-w-6xl mx-auto mt-16 text-center py-8"
-        variants={containerVariants}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-          Service Requests
-        </h2>
-        <p className="text-lg md:text-xl lg:text-2xl mb-8">
-          Need assistance with your parking equipment? Contact Parking Technical
-          Services today to request service and ensure your systems are running
-          smoothly.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
-        >
-          Contact Us
-        </Link>
-      </motion.div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-12 px-6 sm:px-10 lg:px-16">
+        <motion.div className="max-w-6xl mx-auto text-center" variants={item}>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            Service Requests
+          </h3>
+          <p className="text-lg md:text-xl mb-8 text-neutral-700">
+            Need assistance with your parking equipment? Request service and
+            keep systems running.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+      </section>
     </motion.div>
   );
 }

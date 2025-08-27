@@ -1,150 +1,104 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Link from "next/link";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Dialog, Transition } from "@headlessui/react";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
-const containerVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+// Motion
+const container = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, staggerChildren: 0.2 },
+    y: 0,
+    transition: {
+      duration: 0.5,
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
   },
 };
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
+
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+  "6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("meojqgzk");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [botField, setBotField] = useState(""); // honeypot
 
-  const handleRecaptchaVerify = (token: string | null) => {
-    setRecaptchaToken(token);
+  useEffect(() => {
+    if (state.succeeded) setOpen(true);
+  }, [state.succeeded]);
+
+  const onVerify = (token: string | null) => setRecaptchaToken(token);
+  const closeModal = () => setOpen(false);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (botField) return;
+    if (!recaptchaToken) return alert("Complete reCAPTCHA.");
+    await handleSubmit(e);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const Card = () => (
-    <motion.div
-      className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg flex-1"
-      variants={itemVariants}
-    >
-      <motion.h2
-        className="text-2xl font-extrabold mb-4 text-gray-800"
-        variants={itemVariants}
-      >
-        Contact Information
-      </motion.h2>
-
-      <motion.p
-        className="text-base text-gray-700 mb-2 font-medium"
-        variants={itemVariants}
-      >
-        <span className="text-lg font-bold">Address</span>
-      </motion.p>
-      <motion.p
-        className="text-base text-gray-700 font-medium"
-        variants={itemVariants}
-      >
-        16226 Suttles Drive
-      </motion.p>
-      <motion.p
-        className="text-base text-gray-700 font-medium"
-        variants={itemVariants}
-      >
-        Riverside, CA 92504
-      </motion.p>
-
-      <motion.p
-        className="text-base text-gray-700 mb-2 font-medium mt-6"
-        variants={itemVariants}
-      >
-        <span className="text-lg font-bold">Phone Numbers</span>
-      </motion.p>
-      <motion.p
-        className="text-base text-gray-700 font-medium"
-        variants={itemVariants}
-      >
-        Toll Free: 888-282-4506
-      </motion.p>
-      <motion.p
-        className="text-base text-gray-700 font-medium"
-        variants={itemVariants}
-      >
-        Main Office: (951) 840-4324
-      </motion.p>
-
-      <Link href="/">
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-          Go to Home
-        </button>
-      </Link>
-    </motion.div>
-  );
-
-  if (state.succeeded) {
-    return (
-      <Transition appear show={isOpen} as={React.Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-10 overflow-y-auto"
-          onClose={closeModal}
-        >
+  return (
+    <>
+      {/* Success modal */}
+      <Transition appear show={open} as={Fragment}>
+        <Dialog as="div" className="fixed inset-0 z-50" onClose={closeModal}>
           <div className="min-h-screen px-4 text-center">
-            <div className="fixed inset-0 bg-black opacity-30" />
-
-            <span
-              className="inline-block h-screen align-middle"
-              aria-hidden="true"
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-200"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-150"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
+              <Dialog.Overlay className="fixed inset-0 bg-black/40" />
+            </Transition.Child>
+            <span className="inline-block h-screen align-middle" aria-hidden>
               &#8203;
             </span>
             <Transition.Child
-              as={React.Fragment}
-              enter="ease-out duration-300"
+              as={Fragment}
+              enter="ease-out duration-200"
               enterFrom="opacity-0 scale-95"
               enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
+              leave="ease-in duration-150"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title
-                  as="h2"
-                  className="text-2xl font-extrabold mb-4 text-gray-800"
-                >
-                  Thank You!
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-lg text-gray-700 mb-6 font-medium">
-                    Your message has been successfully sent. We will get back to
-                    you shortly.
+              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle bg-white border border-neutral-200 rounded-[6px]">
+                <div className="flex flex-col items-center text-center">
+                  <CheckCircleIcon className="h-14 w-14 text-green-600 mb-3" />
+                  <Dialog.Title className="text-2xl font-bold text-neutral-900 uppercase tracking-wide">
+                    Thank You
+                  </Dialog.Title>
+                  <p className="mt-3 text-neutral-600">
+                    Your message was sent. We will respond shortly.
                   </p>
-                </div>
-
-                <div className="mt-4">
-                  <Link href="/">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                      onClick={closeModal}
-                    >
-                      Go to Home
-                    </button>
+                  <Link
+                    href="/"
+                    className="mt-6 inline-block px-5 py-2.5 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+                    onClick={closeModal}
+                  >
+                    Go to Home
                   </Link>
                 </div>
               </div>
@@ -152,143 +106,212 @@ function ContactForm() {
           </div>
         </Dialog>
       </Transition>
-    );
-  }
 
-  return (
-    <motion.div
-      className="flex flex-col lg:flex-row max-w-full justify-center items-center lg:items-start bg-gradient-to-r from-blue-400 via-blue-500 to-red-100 py-16 px-6 gap-8"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <Card />
-      <motion.form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (recaptchaToken) {
-            handleSubmit(e);
-            openModal();
-          } else {
-            alert("Please complete the reCAPTCHA verification");
-          }
-        }}
-        className="w-full max-w-lg p-9 bg-white rounded-lg shadow-lg flex-1"
-        variants={containerVariants}
+      {/* Page */}
+      <motion.div
+        className="min-h-screen w-full bg-neutral-50 py-14 px-4 sm:px-6"
+        initial="hidden"
+        animate="visible"
+        variants={container}
       >
-        <motion.h2
-          className="text-2xl font-extrabold mb-6 text-center text-gray-800"
-          variants={itemVariants}
-        >
-          Contact Us
-        </motion.h2>
-
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="name"
-            className="block text-gray-700 mb-2 font-medium"
+        {/* Header */}
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h1
+            className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-neutral-900"
+            variants={item}
           >
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your name"
-            required
-          />
-          <ValidationError
-            prefix="Name"
-            field="name"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
-
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="email"
-            className="block text-gray-700 mb-2 font-medium"
+            Contact Us
+          </motion.h1>
+          <div className="mx-auto mt-3 h-[2px] w-12 bg-blue-700" />
+          <motion.p
+            className="mt-4 text-neutral-700"
+            variants={item}
+            aria-live="polite"
           >
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your email"
-            required
-          />
-          <ValidationError
-            prefix="Email"
-            field="email"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
+            Get a response within one business day.
+          </motion.p>
+        </div>
 
-        <motion.div className="mb-4" variants={itemVariants}>
-          <label
-            htmlFor="phone"
-            className="block text-gray-700 mb-2 font-medium"
+        {/* Grid */}
+        <div className="mt-12 max-w-6xl mx-auto grid gap-8 lg:gap-12 justify-items-center lg:justify-items-stretch lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          {/* Info card */}
+          <motion.section
+            className="bg-white border border-neutral-200 rounded-[6px] p-8 text-center w-full max-w-lg"
+            variants={item}
           >
-            Phone Number
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your phone number"
-            required
-          />
-          <ValidationError
-            prefix="Phone"
-            field="phone"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
+            <h2 className="text-xl font-bold uppercase tracking-wide text-neutral-900">
+              Contact Information
+            </h2>
+            <div className="mt-4 h-px w-full bg-neutral-200" />
+            <ul className="mt-6 space-y-5 text-neutral-700">
+              <li className="flex items-start justify-center gap-3">
+                <MapPinIcon className="h-6 w-6 text-blue-700 mt-0.5 shrink-0" />
+                <div className="text-center">
+                  <div className="font-semibold">Address</div>
+                  <div>16226 Suttles Drive</div>
+                  <div>Riverside, CA 92504</div>
+                </div>
+              </li>
+              <li className="flex items-start justify-center gap-3">
+                <PhoneIcon className="h-6 w-6 text-blue-700 mt-0.5 shrink-0" />
+                <div className="text-center">
+                  <div className="font-semibold">Phone</div>
+                  <div>
+                    Toll Free:{" "}
+                    <a
+                      href="tel:8882824506"
+                      className="hover:text-blue-700 underline-offset-2 hover:underline"
+                    >
+                      888-282-4506
+                    </a>
+                  </div>
+                  <div>
+                    Main Office:{" "}
+                    <a
+                      href="tel:9518404324"
+                      className="hover:text-blue-700 underline-offset-2 hover:underline"
+                    >
+                      (951) 840-4324
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li className="flex items-start justify-center gap-3">
+                <EnvelopeIcon className="h-6 w-6 text-blue-700 mt-0.5 shrink-0" />
+                <div className="text-center">
+                  <div className="font-semibold">Email</div>
+                  <a
+                    href="mailto:info@parkingtechnicalservices.com"
+                    className="hover:text-blue-700 underline-offset-2 hover:underline"
+                  >
+                    info@parkingtechnicalservices.com
+                  </a>
+                </div>
+              </li>
+            </ul>
 
-        <motion.div className="mb-6" variants={itemVariants}>
-          <label
-            htmlFor="message"
-            className="block text-gray-700 mb-2 font-medium"
+            <Link
+              href="/"
+              className="mt-8 inline-flex w-full sm:w-auto justify-center px-5 py-2.5 text-sm font-semibold bg-neutral-900 text-white rounded-[4px] hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400"
+            >
+              Home
+            </Link>
+          </motion.section>
+
+          {/* Form */}
+          <motion.form
+            onSubmit={onSubmit}
+            className="bg-white border border-neutral-200 rounded-[6px] p-8 w-full max-w-lg"
+            variants={item}
           >
-            Services Needed:
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            placeholder="Your message"
-            required
-          />
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-            className="text-red-500 text-sm mt-2"
-          />
-        </motion.div>
+            <h2 className="text-xl font-bold uppercase tracking-wide text-neutral-900 text-center">
+              Send a Message
+            </h2>
+            <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
 
-        <ReCAPTCHA
-          sitekey="6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva"
-          onChange={handleRecaptchaVerify}
-        />
+            {/* Honeypot */}
+            <input
+              type="text"
+              name="company"
+              value={botField}
+              onChange={(e) => setBotField(e.target.value)}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+            />
 
-        <motion.button
-          type="submit"
-          disabled={state.submitting || !recaptchaToken}
-          className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 mt-4"
-          variants={itemVariants}
-        >
-          Submit
-        </motion.button>
-      </motion.form>
-    </motion.div>
+            <div className="mt-8 grid grid-cols-1 gap-5">
+              {[
+                {
+                  id: "name",
+                  label: "Full Name",
+                  type: "text",
+                  placeholder: "John Doe",
+                },
+                {
+                  id: "email",
+                  label: "Email Address",
+                  type: "email",
+                  placeholder: "you@example.com",
+                },
+                {
+                  id: "phone",
+                  label: "Phone Number",
+                  type: "tel",
+                  placeholder: "(555) 123-4567",
+                },
+              ].map((f) => (
+                <div key={f.id}>
+                  <label
+                    htmlFor={f.id}
+                    className="block text-sm font-medium text-neutral-800 mb-1"
+                  >
+                    {f.label}
+                  </label>
+                  <input
+                    id={f.id}
+                    name={f.id}
+                    type={f.type}
+                    placeholder={f.placeholder}
+                    required
+                    className="w-full px-3.5 py-2.5 border border-neutral-300 rounded-[4px] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 placeholder-neutral-400"
+                    aria-required="true"
+                  />
+                  <ValidationError
+                    prefix={f.label}
+                    field={f.id}
+                    errors={state.errors}
+                    className="text-red-600 text-xs mt-1"
+                  />
+                </div>
+              ))}
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-neutral-800 mb-1"
+                >
+                  Services Needed / Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Briefly describe what you need…"
+                  className="w-full px-3.5 py-2.5 border border-neutral-300 rounded-[4px] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 placeholder-neutral-400"
+                />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                  className="text-red-600 text-xs mt-1"
+                />
+              </div>
+
+              <div className="flex justify-center">
+                <ReCAPTCHA sitekey={RECAPTCHA_SITE_KEY} onChange={onVerify} />
+              </div>
+
+              <button
+                type="submit"
+                disabled={state.submitting || !recaptchaToken}
+                className="w-full py-3 px-4 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-live="polite"
+              >
+                {state.submitting ? "Submitting…" : "Send Message"}
+              </button>
+
+              {state.errors?.length ? (
+                <p className="text-sm text-red-600" role="status">
+                  Please fix the errors above and try again.
+                </p>
+              ) : null}
+            </div>
+          </motion.form>
+        </div>
+      </motion.div>
+    </>
   );
 }
 

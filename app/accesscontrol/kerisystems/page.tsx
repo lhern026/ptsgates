@@ -1,153 +1,131 @@
 "use client";
 
-import { title } from "@/components/primitives";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Link from "next/link";
 import { TextParallaxContent } from "../../../components/TextParallalContext";
 import { FaCheckCircle } from "react-icons/fa";
-import Link from "next/link";
 
 const container = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.2,
-      staggerChildren: 0.15,
-      duration: 0.8,
+      duration: 0.45,
+      when: "beforeChildren",
+      staggerChildren: 0.06,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20, scale: 0.9 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8 } },
-};
-
-const listItem = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-};
-
-const hoverEffect = {
-  hover: {
-    scale: 1.05,
-    rotate: 2,
-    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
-    transition: {
-      duration: 0.3,
-    },
-  },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
 };
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-gray-50">
-      <motion.div
-        className="flex flex-col items-center py-16 px-6 lg:px-24 w-full bg-gradient-to-r from-gray-100 via-blue-100 to-blue-500 text-white text-shadow-lg animate-gradient"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.h1
-          className={`${title()} text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black mt-8`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          Keri Systems
-        </motion.h1>
-        <motion.p
-          className="text-xl md:text-2xl lg:text-3xl text-center text-black max-w-3xl mx-auto mt-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          As a trusted dealership of Keri Systems, a distinguished leader in
-          access control and integrated security solutions, we take pride in
-          offering advanced technology to enhance security and convenience for
-          our clients. Our dealership enables us to deliver superior products
-          and comprehensive solutions that meet the evolving needs of modern
-          access control security.
-        </motion.p>
-      </motion.div>
-      <TextParallaxContent
-        imgUrl="https://i.imgur.com/lxsoWhI.jpeg"
-        subheading="Empowering Security with Innovative Technology for Unmatched Safety and Convenience"
-        heading="Redefining Access Control Solutions"
-      />
-      <motion.div
-        className="bg-white py-16 px-6 md:px-12 lg:px-24 mt-16 text-gray-800 rounded-lg shadow-lg"
-        initial="hidden"
-        animate="visible"
-        variants={container}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center text-blue-600">
-          Solutions Overview
-        </h2>
-        <motion.ul
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-lg md:text-xl lg:text-2xl text-gray-700"
-          initial="hidden"
-          animate="visible"
-          variants={container}
-        >
-          {[
-            "Overview",
-            "Solutions Overview",
-            "NXT Hardware Platform",
-            "Management Software",
-            "Doors.NET™ Platform",
-            "Borealis Cloud Solution",
-            "Doors32 Software",
-            "Hardware",
-            "Controllers",
-            "Credentials",
-            "Readers",
-            "Product Integrations",
-            "Telephone Entry Panels",
-            "Wireless Locks",
-            "Mobile Access",
-          ].map((item, index) => (
-            <motion.li
-              key={index}
-              className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-              variants={listItem}
-            >
-              <FaCheckCircle className="text-blue-500 mt-1" />
-              <span>{item}</span>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
-      <motion.div
-        className="bg-white py-12 px-6 md:px-12 lg:px-24 text-gray-800 rounded-t-lg shadow-lg mt-8"
-        initial="hidden"
-        animate="visible"
-        variants={container}
-      >
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="max-w-6xl mx-auto mt-16 text-center"
+    <div className="min-h-screen flex flex-col w-full bg-neutral-50 text-neutral-900">
+      {/* HERO */}
+      <header className="w-full border-b border-neutral-300 bg-gradient-to-b from-neutral-50 to-neutral-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 text-center">
+          <motion.h1
+            className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase"
+            initial="hidden"
+            animate="visible"
             variants={container}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Contact Us
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl mb-8">
-              Need assistance with your building access control equipment?
-              Contact Parking Technical Services today for a free consultation
-              and quote.
-            </p>
-            <Link
-              href="/contact-2"
-              className="inline-block bg-blue-600 text-white text-lg md:text-xl lg:text-2xl px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
-            >
-              Contact Us
-            </Link>
-          </motion.div>
+            Keri Systems
+          </motion.h1>
+          <div className="mx-auto mt-4 h-[2px] w-12 bg-blue-700" />
+          <motion.p
+            className="mt-4 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-neutral-700"
+            initial="hidden"
+            animate="visible"
+            variants={item}
+          >
+            As a trusted dealership of Keri Systems we deliver integrated access
+            control built for reliability, security, and clean operations.
+          </motion.p>
         </div>
-      </motion.div>
+      </header>
+
+      {/* PARALLAX STRIPE */}
+      <TextParallaxContent
+        imgUrl="https://i.imgur.com/lxsoWhI.jpeg"
+        subheading="Empowering security with precise, modern control"
+        heading="Redefining Access Control"
+      />
+
+      {/* SOLUTIONS OVERVIEW */}
+      <section className="bg-white">
+        <motion.div
+          className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={container}
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold uppercase text-center">
+            Solutions Overview
+          </h2>
+          <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              "Overview",
+              "NXT Hardware Platform",
+              "Management Software",
+              "Doors.NET™ Platform",
+              "Borealis Cloud Solution",
+              "Doors32 Software",
+              "Hardware",
+              "Controllers",
+              "Credentials",
+              "Readers",
+              "Product Integrations",
+              "Telephone Entry Panels",
+              "Wireless Locks",
+              "Mobile Access",
+            ].map((label) => (
+              <motion.li
+                key={label}
+                className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-4"
+                variants={item}
+              >
+                <FaCheckCircle className="mt-0.5 shrink-0 text-blue-700" />
+                <span className="leading-snug">{label}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-neutral-100 border-t border-neutral-300">
+        <motion.div
+          className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={container}
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold uppercase">
+            Contact Us
+          </h3>
+          <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
+          <p className="mt-4 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700">
+            Need help with building access control? Get a free consultation and
+            quote.
+          </p>
+          <Link
+            href="/contact-2"
+            className="mt-8 inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+      </section>
     </div>
   );
 }
