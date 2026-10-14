@@ -44,17 +44,21 @@ export default function AboutPage() {
             animate="visible"
             variants={item}
           >
-            As a trusted dealership of Keri Systems we deliver integrated access
-            control built for reliability, security, and clean operations.
-          </motion.p>
+          As a trusted dealership of Keri Systems, a distinguished leader in
+          access control and integrated security solutions, we take pride in
+          offering advanced technology to enhance security and convenience for
+          our clients. Our dealership enables us to deliver superior products
+          and comprehensive solutions that meet the evolving needs of modern
+          access control security.
+        </motion.p>
         </div>
       </header>
 
       {/* PARALLAX STRIPE */}
       <TextParallaxContent
         imgUrl="https://i.imgur.com/lxsoWhI.jpeg"
-        subheading="Empowering security with precise, modern control"
-        heading="Redefining Access Control"
+        subheading="Empowering Security with Innovative Technology for Unmatched Safety and Convenience"
+        heading="Redefining Access Control Solutions"
       />
 
       {/* SOLUTIONS OVERVIEW */}
@@ -115,9 +119,10 @@ export default function AboutPage() {
           </h3>
           <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
           <p className="mt-4 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700">
-            Need help with building access control? Get a free consultation and
-            quote.
-          </p>
+              Need assistance with your building access control equipment?
+              Contact Parking Technical Services today for a free consultation
+              and quote.
+            </p>
           <Link
             href="/contact-2"
             className="mt-8 inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"

@@ -52,10 +52,14 @@ export default function PastInstallationsPage() {
       <section className="py-12 px-6 sm:px-10 lg:px-16">
         <motion.div className="max-w-4xl mx-auto" variants={item}>
           <p className="text-lg md:text-xl leading-relaxed text-neutral-700 text-center">
-            Timely, dependable installations and maintenance across modern
-            parking systems. Cost-effective without cutting corners. Disciplined
-            service, fast response, and broad vendor coverage so your operations
-            stay reliable.
+            Our dedication ensures timely and dependable installations and
+            maintenance for most of your parking equipment needs. We are
+            committed to offering cost-effective solutions without sacrificing
+            quality. Our mission is to exceed expectations by delivering
+            exceptional service, responding swiftly to your needs, and providing
+            unmatched expertise across various parking technologies. Trust PTS
+            for reliable installations that seamlessly enhance your parking
+            operations.
           </p>
         </motion.div>
 
@@ -69,10 +73,12 @@ export default function PastInstallationsPage() {
               Jamison Properties
             </h3>
             <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
-              For 15+ years we’ve delivered automated revenue control and access
-              control installations and service for Jamison Properties in
-              Koreatown. Consistent quality, clear communication, and
-              on-schedule delivery for a demanding urban portfolio.
+              Parking Technical Services has been dedicated to delivering
+              Automated revenue control parking and access control systems
+              installations and services to Jamison Properties area in Korea
+              town for over 15 years. Our commitment to excellence remains
+              steadfast as we continue to provide outstanding service to our
+              customer base.
             </p>
           </div>
           <div className="relative lg:col-span-2 min-h-[240px]">
@@ -104,27 +110,33 @@ export default function PastInstallationsPage() {
       <section className="py-12 px-6 sm:px-10 lg:px-16">
         <motion.div className="max-w-6xl mx-auto" variants={item}>
           <p className="text-lg md:text-xl leading-relaxed text-neutral-700 text-center">
-            Over 30 years across Southern California. Fast, disciplined support
-            at competitive rates. Thorough maintenance and reliable operation to
-            protect revenue.
-          </p>
+            At Parking Technical Services, we recognize the critical importance
+            of parking revenue. We are deeply committed to delivering
+            exceptional service, drawing on over 30 years of industry experience
+            across Southern California. Our dedication ensures that we
+            consistently meet our goal of providing prompt and outstanding
+            service at competitive rates. PTS guarantees thorough maintenance
+            and reliable operation of your parking equipment. Our mission is to
+            deliver outstanding service at affordable rates, offering prompt
+            responses to client needs and unparalleled versatility. PTS takes
+            pride in their unique ability to service a comprehensive range of
+            parking equipment brands, including:
+            </p>
 
           {/* Brands */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold uppercase tracking-wide text-center">
-              Brands We Service
-            </h3>
+
             <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
             <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {[
-                "Scheidt & Bachmann",
-                "Amano",
-                "Federal APD",
-                "SysParc",
-                "Parking Boxx",
-                "Keri Systems",
-                "Secura Key",
-              ].map((brand) => (
+  "Scheidt & Bachmann",
+  "Amano",
+  "Federal APD",
+  "SysParc",
+  "Parking Boxx",
+  "Keri Systems",
+  "Secura Key"
+].map((brand) => (
                 <li
                   key={brand}
                   className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-3"
@@ -138,28 +150,30 @@ export default function PastInstallationsPage() {
 
           {/* Capabilities */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold uppercase tracking-wide text-center">
-              Capabilities
-            </h3>
+            <p className="text-lg leading-relaxed text-neutral-700">
+            PTS is equipped and ready to install and maintain your preferred
+            choice of parking and access control equipment. We customize
+            solutions to meet your specific requirements, offering:
+            </p>
             <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
             <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                "License Plate Recognition (LPR)",
-                "Proximity / RFID",
-                "Hotel PMS / Keycard integration",
-                "Mobile payment apps",
-                "Pre-paid reservations",
-                "Barcode technology",
-                "Building access control incl. elevators and after-hours",
-                "Remote monitoring",
-                "Phone entry systems",
-                "Protection bollards",
-                "Electrical/data trenching",
-                "Concrete islands",
-                "Speed bumps and spike units",
-                "Vehicle loop ground sensors",
-                "Garage lighting",
-              ].map((cap) => (
+  "License Plate Recognition (LPR)",
+  "Proximity and/or RFID",
+  "Integration with Hotel PMS/Keycard (RFID and Magstripe)",
+  "Mobile Payment Applications",
+  "Pre-paid Reservations",
+  "Barcode Technology",
+  "Building Access Control, including elevator and after-hours door/grille control",
+  "Remote Monitoring",
+  "Phone Entry Systems",
+  "Protection Bollards",
+  "Trenching for running electrical and data conduit",
+  "Concrete Islands",
+  "Speed bumps and traffic control spike units",
+  "Vehicle Loop Ground Sensors",
+  "Parking Garage Lighting"
+].map((cap) => (
                 <li
                   key={cap}
                   className="flex items-start gap-3 bg-white border border-neutral-200 rounded-[6px] p-3"
@@ -170,6 +184,13 @@ export default function PastInstallationsPage() {
               ))}
             </ul>
           </div>
+          <p className="mt-8 text-lg leading-relaxed text-neutral-700">
+            We handle both installation and sales services in-house, ensuring
+            your satisfaction is our primary focus. When you choose our expert
+            team, you can expect top-notch workmanship at competitive rates.
+            Rely on us for all your integrated parking and access control system
+            needs.
+          </p>
         </motion.div>
       </section>
 
@@ -180,9 +201,10 @@ export default function PastInstallationsPage() {
             Service Requests
           </h3>
           <p className="text-lg md:text-xl mb-8 text-neutral-700">
-            Need assistance with your parking equipment? Request service and
-            keep systems running.
-          </p>
+          Need assistance with your parking equipment? Contact Parking Technical
+          Services today to request service and ensure your systems are running
+          smoothly.
+        </p>
           <Link
             href="/contact"
             className="inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"

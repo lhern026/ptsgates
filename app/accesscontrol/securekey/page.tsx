@@ -69,27 +69,25 @@ export default function AboutPage() {
             animate="visible"
             transition={{ delay: 0.15 }}
           >
-            Trusted dealership delivering SecuraKey access control and RFID
-            solutions with reliable performance and clean operations.
-          </motion.p>
-          <motion.p
-            className="mt-3 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700"
-            variants={heroText}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.3 }}
-          >
-            From NOVA.16 multi-reader systems to eACCESS entry platforms, we
-            help you deploy secure, scalable infrastructure.
-          </motion.p>
+          As a trusted dealership of SecuraKey, a renowned leader in access
+          control and RFID solutions, we are dedicated to providing cutting-edge
+          technology that enhances security and convenience for our clients. Our
+          dealership allows us to deliver top-tier products and comprehensive
+          solutions, ensuring we meet the evolving needs of modern access
+          control systems. With offerings such as the NOVA.16 multi-reader
+          access control system and the eACCESS entry control systems, SecuraKey
+          consistently sets the standard for reliability and performance in the
+          industry.
+        </motion.p>
+
         </div>
       </header>
 
       {/* PARALLAX STRIPE */}
       <TextParallaxContent
         imgUrl="https://i.imgur.com/54Qw4zx.jpeg"
-        subheading="Innovative and reliable security systems for modern facilities"
-        heading="SecuraKey: Access Control, Simplified"
+        subheading="Providing Innovative and Reliable Security Systems for Over 38 Years"
+        heading="SecuraKey: Leading the Way in Access Control and RFID Solutions"
       />
 
       {/* SOLUTIONS */}
@@ -102,8 +100,8 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="text-2xl sm:text-3xl font-bold uppercase text-center">
-            Our SecuraKey Solutions
-          </h2>
+          Solutions Overview
+        </h2>
           <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
 
           <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -131,18 +129,19 @@ export default function AboutPage() {
           viewport={{ once: true, amount: 0.25 }}
         >
           <h3 className="text-2xl sm:text-3xl font-bold uppercase">
-            Ready to Enhance Security?
-          </h3>
+          Contact Us
+        </h3>
           <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
           <p className="mt-4 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700">
-            Get a free consultation and quote for your building access control.
-          </p>
+          Need assistance with your building access control equipment? Contact
+          Parking Technical Services today for a free consultation and quote.
+        </p>
           <Link
             href="/contact-2"
             className="mt-8 inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
           >
-            Request a Consultation
-          </Link>
+          Contact Us
+        </Link>
         </motion.div>
       </section>
     </div>

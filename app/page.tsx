@@ -15,43 +15,43 @@ const features = [
     icon: <FaCheckCircle className="text-4xl text-slate-800 mb-4 mx-auto" />,
     title: "Professionalism & Reliability",
     description:
-      "Thirty-plus years. Consistent delivery. We resolve complex revenue control issues with disciplined process.",
+      "With over thirty years of experience, our team is known for its professionalism, reliability, and quality of services. We address and resolve parking revenue control system issues, no matter how complex.",
   },
   {
     icon: <FaLock className="text-4xl text-slate-800 mb-4 mx-auto" />,
     title: "Enhanced Security",
     description:
-      "Hardened access, audited flows, and exception handling to reduce loss and downtime.",
+      "Our advanced security features prevent unauthorized access and ensure the safety of parked vehicles, making us a reliable choice for all your parking system needs.",
   },
   {
     icon: <FaClock className="text-4xl text-slate-800 mb-4 mx-auto" />,
     title: "Cost-Effective Solutions",
     description:
-      "Lean service model. Fast response. Broad equipment coverage to keep TCO low.",
+      "We provide excellent service at the most affordable prices, with a quick response to clients' requests and versatility, servicing most types of parking revenue control systems.",
   },
 ];
 
 const howItWorksItems = [
   {
     imageUrl: "https://i.imgur.com/JW8eKw2.jpeg",
-    alt: "Service & Installation for parking systems",
+    alt: "Service & Installation",
     title: "Service & Installation",
     description:
-      "From electro-mechanical to computerized systems. Precise install. Clear documentation. Reliable support.",
+      "From electro-mechanical to sophisticated computerized access control and parking equipment, we provide service, installation, and tech support in a manner unequaled by other companies in the parking industry.",
   },
   {
     imageUrl: "https://i.imgur.com/uKEyZSe.jpeg",
-    alt: "Our goal for parking technical services",
+    alt: "Our Goal",
     title: "Our Goal",
     description:
-      "Deliver excellent service at fair prices. Respond fast. Protect revenue with preventative practice.",
+      "We aim to provide excellent service at the most affordable prices, with quick responses to client requests and versatility in servicing most types of parking equipment to prevent revenue loss.",
   },
   {
     imageUrl: "https://i.imgur.com/Zw3NNCa.jpeg",
-    alt: "Our expertise in parking solutions",
+    alt: "Our Expertise",
     title: "Our Expertise",
     description:
-      "Technicians and engineers with deep vendor coverage. We solve hard problems quickly.",
+      "Our highly qualified workforce consists of technicians and engineers ready to address and resolve most parking issues in a timely manner, no matter how complex it may be.",
   },
 ];
 
@@ -130,7 +130,7 @@ const Home = () => {
         Skip to content
       </a>
 
-      <main id="main" className="flex-grow">
+      <div id="main" className="flex-grow">
         {/* Hero */}
         <section className="relative h-screen w-full text-white overflow-hidden">
           <Slider {...sliderSettings}>
@@ -160,8 +160,7 @@ const Home = () => {
                       animate="visible"
                       transition={{ delay: 0.12 }}
                     >
-                      Modern parking systems and access control. Built for
-                      uptime.
+                      Innovative solutions for Modern parking needs.
                     </motion.p>
                     <Link
                       href="/contact-2"
@@ -199,7 +198,7 @@ const Home = () => {
               className="text-2xl sm:text-3xl font-bold tracking-tight text-center mb-12 sm:mb-16"
               variants={itemVariants}
             >
-              Why Choose Us
+              Why Choose Parking Technical Services?
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -239,7 +238,7 @@ const Home = () => {
               className="text-2xl sm:text-3xl font-bold tracking-tight text-center mb-12 sm:mb-16"
               variants={itemVariants}
             >
-              Our Approach
+              How It Works
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -293,11 +292,12 @@ const Home = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight text-slate-900">
-                Modernize Your Parking System
-              </h2>
+              Ready to Upgrade Your Parking and Access Control System?
+            </h2>
               <p className="text-lg md:text-xl mb-8 text-slate-700">
-                Reliable revenue control and access infrastructure.
-              </p>
+              Contact us today to learn more about our advanced parking revenue
+              control solutions.
+            </p>
               <Link
                 href="/contact-2"
                 aria-label="Contact us now for parking solutions"
@@ -310,7 +310,7 @@ const Home = () => {
             </motion.div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 };

@@ -83,7 +83,7 @@ function ContactForm() {
 
   const ContactInfoCard = () => (
     <motion.div
-      className="w-full max-w-lg bg-white p-8 sm:p-10 rounded-xl shadow-2xl" // Enhanced shadow and padding
+      className="w-full max-w-lg bg-white p-8 sm:p-10 rounded-lg border border-slate-200" // Enhanced shadow and padding
       variants={cardItemVariants} // Use item variant for the card itself
     >
       <motion.h2
@@ -153,9 +153,7 @@ function ContactForm() {
         className="mt-10 text-center sm:text-left"
       >
         <Link href="/">
-          <button className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white transition-all duration-300">
-            Back to Home
-          </button>
+          <button className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white transition-all duration-300">Go to Home</button>
         </Link>
       </motion.div>
     </motion.div>
@@ -220,9 +218,7 @@ function ContactForm() {
                     type="button"
                     onClick={closeSuccessModal}
                     className="w-full sm:w-auto inline-flex justify-center px-8 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 transition-colors"
-                  >
-                    Return to Home
-                  </button>
+                  >Go to Home</button>
                 </Link>
               </DialogPanel>
             </Transition.Child>
@@ -234,8 +230,13 @@ function ContactForm() {
 
   // Main Contact Form and Card Layout
   return (
+    <section className="bg-slate-50 pt-12 sm:pt-16">
+      <div className="px-6 text-center">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Contact Us</h1>
+
+      </div>
     <motion.div
-      className="flex flex-col lg:flex-row min-h-screen w-full items-center lg:items-start justify-center bg-slate-100 py-12 px-4 sm:px-6 lg:px-8 gap-8 lg:gap-12"
+      className="flex flex-col lg:flex-row min-h-screen w-full items-center lg:items-start justify-center bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 gap-8 lg:gap-12"
       variants={pageContainerVariants}
       initial="hidden"
       animate="visible"
@@ -244,20 +245,15 @@ function ContactForm() {
 
       <motion.form
         onSubmit={handleFormSubmit}
-        className="w-full max-w-lg bg-white p-8 sm:p-10 rounded-xl shadow-2xl"
+        className="w-full max-w-lg bg-white p-8 sm:p-10 rounded-lg border border-slate-200"
         variants={cardItemVariants} // Animate the form card as an item
       >
-        <motion.h2
-          className="text-2xl sm:text-3xl font-bold mb-8 text-center text-slate-800"
-          variants={formItemVariants} // Animate heading
-        >
-          Send Us a Message
-        </motion.h2>
+
 
         {[
           {
             id: "name",
-            label: "Full Name",
+            label: "Name",
             type: "text",
             placeholder: "e.g., John Doe",
           },
@@ -306,9 +302,7 @@ function ContactForm() {
           <label
             htmlFor="message"
             className="block text-sm font-medium text-slate-700 mb-1.5"
-          >
-            Services Needed / Your Message
-          </label>
+          >Services Needed:</label>
           <textarea
             id="message"
             name="message"
@@ -350,10 +344,11 @@ function ContactForm() {
             scale: formState.submitting || !recaptchaToken ? 1 : 0.98,
           }}
         >
-          {formState.submitting ? "Sending..." : "Send Message"}
+          {formState.submitting ? "Sending..." : "Submit"}
         </motion.button>
       </motion.form>
     </motion.div>
+    </section>
   );
 }
 

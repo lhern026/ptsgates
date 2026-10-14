@@ -46,9 +46,9 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
-      <nav aria-label="Main navigation" className="relative mx-auto flex min-h-[7.5rem] max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6">
+      <nav aria-label="Main navigation" className="relative mx-auto flex min-h-[6rem] max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6">
         <NextLink href="/" onClick={closeMenu} className="shrink-0">
-          <Image alt="Parking Technical Services home" src="https://i.imgur.com/CPqYkhH.png" width={240} height={104} priority className="h-auto w-[200px] sm:w-[240px]" />
+          <Image alt="Parking Technical Services home" src="https://i.imgur.com/CPqYkhH.png" width={240} height={104} priority className="h-auto w-[190px] sm:w-[210px]" />
         </NextLink>
         <div className="hidden items-center gap-2 min-[1400px]:flex">
           {navItems.map((item) => item.subitems ? (
@@ -64,7 +64,7 @@ export const Navbar = () => {
           </svg>
         </button>
         {isMenuOpen && (
-          <div id="mobile-navigation" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-7.5rem)] overflow-y-auto border-b bg-white p-4 shadow-lg min-[1400px]:hidden">
+          <div id="mobile-navigation" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b bg-white p-4 shadow-lg min-[1400px]:hidden">
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.href} className="rounded-lg border border-gray-200 p-3">

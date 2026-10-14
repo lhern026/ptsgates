@@ -38,30 +38,30 @@ const hardwareProducts = [
   {
     title: "Barrier Gate",
     description:
-      "Brushless DC motors for low-maintenance, efficient operation. Aluminum gate arm withstands wind up to six meters and detaches on impact to minimize damage. Sensors stop in time to avoid roof strikes, with cushioning for pedestrians. Optional LPR cameras and laser scanners coordinate longer arms.",
+      "Scheidt & Bachmann prioritizes reliable gate barrier systems to prevent operational failures and liability issues. They employ brushless DC motors for low-maintenance, energy-efficient operation in their entervo.barrier systems. The gate arm, constructed from lightweight aluminum profiles, withstands wind loads up to six meters long and detaches on contact with a vehicle to prevent damage and minimize inconvenience to drivers. Advanced sensor technology ensures timely stopping to avoid vehicle roof impacts, with cushioning to protect pedestrians. Laser scanners control longer barrier arms, optionally equipped with license plate recognition cameras for enhanced functionality.",
     image: "https://i.imgur.com/6cu5yEj.jpg",
-    alt: "Parking barrier gate",
+    alt: "Parking Barrier",
   },
   {
     title: "Pay Station",
     description:
-      "Modern, secure pay stations with tickets, 2D barcodes, RFID, and plate entry. Cash and card, including contactless and mobile. Anti-tamper cassettes and accounting. Green Efficiency mode cuts power up to 70%.",
+      "Scheidt & Bachmann's automated pay stations serve as the pivotal interface between parking management and customers, defining the user experience with their modern design and user-centric functionality. These stations support diverse payment options including conventional tickets, 2D barcodes, RFID, and touchscreen input for license plates. They accommodate cash and card payments, including contactless and chip transactions, alongside mobile payments for convenience and reduced cash handling. Engineered for robust security against vandalism and theft, they feature secure cassettes for cash transport and efficient accounting systems. Additionally, their 'Green Efficiency' technology reduces power consumption by up to 70%, promoting both appeal and environmental sustainability.",
     image: "https://i.imgur.com/nyS7Nmx.jpeg",
-    alt: "Automated pay station",
+    alt: "Parking Pay Station",
   },
   {
     title: "Control Devices",
     description:
-      "entervo.entry and entervo.exit: issue tickets, validate cards, control barriers. Handle QR, UHF, RFID, and payment cards in addition to paper tickets.",
+      "The entervo.entry and entervo.exit control devices by Scheidt & Bachmann are renowned for their versatility, user-friendly operation, reliability, and ease of maintenance.Key functionalities include:-Issuance of short-term parking tickets (barcode or magstripe) at entry points.-Verification of Scheidt & Bachmann system cards and third-party cards at both entry and exit points.-Control of barrier operations to manage vehicle access.-Capability to process various media types such as QR codes, UHF tags, RFID, and payment cards, reflecting evolving preferences alongside traditional paper tickets.",
     image: "https://i.imgur.com/5Vu0XgO.jpeg",
-    alt: "Entry and exit control devices",
+    alt: "Control Devices",
   },
   {
-    title: "LPR Camera Systems",
+    title: "Camera",
     description:
-      "Ticketless flow using deep-learning plate recognition. Plate acts as the virtual ticket. Pay at station or phone; barrier opens automatically after payment.",
+      "Scheidt & Bachmann revolutionizes parking convenience with smart solutions that eliminate tickets, leveraging advanced camera technology and artificial intelligence. Our systems employ deep learning for precise number plate recognition, allowing seamless entry and exit without physical tickets. Customers can pay effortlessly via cash, credit/debit card, or app, using their number plate for verification.Upon entry, state-of-the-art cameras capture the license plate, acting as a virtual ticket. Payment can be made at a pay station or via smartphone. At exit, LPR cameras recognize the plate, automatically opening the barrier once the fee is paid.",
     image: "https://i.imgur.com/4Y4MP1L.jpeg",
-    alt: "License plate recognition camera",
+    alt: "Camera",
   },
 ];
 
@@ -69,29 +69,29 @@ const softwareSolutions = [
   {
     title: "Product Integration",
     description:
-      "Unify devices and subsystems for consistent operations and shared data.",
+      "Seamlessly integrate various parking management products for a unified solution.",
   },
   {
     title: "Cloud Solutions",
     description:
-      "Manage from anywhere. Scale without on-site servers to reduce cost.",
+      "Utilize cloud technology for efficient and scalable parking management.",
   },
   {
-    title: "Mobile Access & Payment",
-    description: "Entry, exit, and payment from intuitive mobile interfaces.",
+    title: "Mobile Access",
+    description: "Enable users to access and manage parking facilities through mobile devices.",
   },
   {
     title: "User Management",
-    description: "Roles, rights, and permissions with clear auditability.",
+    description: "Efficiently manage user profiles, access rights, and permissions.",
   },
   {
-    title: "Analytics & Reporting",
+    title: "Analytics and Reporting",
     description:
-      "Usage, revenue, and performance insights with configurable reports.",
+      "Gain insights into parking usage and performance with detailed analytics and reports.",
   },
   {
     title: "Technical Support",
-    description: "Expert assistance to minimize downtime and keep SLAs intact.",
+    description: "Receive dedicated technical support for seamless parking operations.",
   },
 ];
 
@@ -155,22 +155,25 @@ export default function AboutSAndBPage() {
           className="mt-4 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-neutral-700"
           variants={heroItem}
         >
-          Channel Partner for Southern California. We integrate entervo hardware
-          and software with disciplined service.
+          Parking Technical Services proudly serves as a Channel Partner of
+          Scheidt & Bachmann, renowned for their extensive expertise in service
+          and cutting-edge parking equipment. This strategic alliance allows us
+          to integrate their state-of-the-art parking systems and innovative
+          solutions to our customer base throughout all of Southern California.
+          By combining Scheidt & Bachmann's industry-leading products with our
+          commitment to exceptional service, we ensure that our clients receive
+          reliable, efficient, and forward-thinking parking systems tailored to
+          meet their needs and enhance overall operational efficiency and
+          Parking Revenue.
         </motion.p>
-        <motion.p
-          className="mt-3 text-lg max-w-3xl mx-auto leading-relaxed text-neutral-700"
-          variants={heroItem}
-        >
-          Reliable systems. Clear operations. Revenue protection.
-        </motion.p>
+
       </motion.section>
 
       {/* PARALLAX: HARDWARE */}
       <TextParallaxContent
         imgUrl="https://i.imgur.com/6wPwRJN.jpeg"
-        subheading="State-of-the-art parking systems"
-        heading="Innovative Hardware"
+        subheading=""
+        heading="Hardware"
       />
 
       {/* HARDWARE DETAILS */}
@@ -185,16 +188,16 @@ export default function AboutSAndBPage() {
           {hardwareProducts.map((p, i) => (
             <motion.article
               key={p.title}
-              className="grid lg:grid-cols-5 gap-0 overflow-hidden border border-neutral-200 rounded-[6px] bg-white"
+              className="grid lg:grid-cols-5 items-center overflow-hidden border border-neutral-200 rounded-xl bg-white"
               variants={item}
             >
-              <div className="relative lg:col-span-2 aspect-[16/9] lg:aspect-auto lg:h-full">
+              <div className="relative lg:col-span-2 h-64 sm:h-80 lg:h-72 bg-neutral-50 border-b lg:border-b-0 lg:border-r border-neutral-200">
                 <Image
                   src={p.image}
                   alt={p.alt}
                   fill
-                  className="object-cover"
-                  sizes="(max-width:1024px) 100vw, 40vw"
+                  className="object-contain p-6 sm:p-8"
+                  sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 40vw, 460px"
                   priority={i === 0}
                 />
               </div>
@@ -214,8 +217,8 @@ export default function AboutSAndBPage() {
       {/* PARALLAX: SOFTWARE */}
       <TextParallaxContent
         imgUrl="https://i.imgur.com/dgHPO4S.jpeg"
-        subheading="Intelligent and connected"
-        heading="Advanced Software"
+        subheading=""
+        heading="Software"
       />
 
       {/* SOFTWARE DETAILS */}
@@ -231,8 +234,8 @@ export default function AboutSAndBPage() {
             className="text-2xl sm:text-3xl font-bold uppercase text-center"
             variants={item}
           >
-            Comprehensive Software Features
-          </motion.h2>
+              Software Solutions
+            </motion.h2>
           <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
 
           <motion.ul
@@ -271,8 +274,8 @@ export default function AboutSAndBPage() {
           aria-label="Explore Scheidt & Bachmann solutions"
           className="inline-block px-8 py-3 text-sm font-semibold bg-neutral-900 text-white rounded-[4px] hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400"
         >
-          Explore Scheidt &amp; Bachmann
-        </Link>
+              Check out Scheidt & Bachmann
+            </Link>
       </section>
 
       {/* CTA */}
@@ -288,23 +291,24 @@ export default function AboutSAndBPage() {
             className="text-3xl sm:text-4xl font-bold mb-4"
             variants={item}
           >
-            Ready to Discuss Your Parking System?
-          </motion.h2>
+                Contact Us
+              </motion.h2>
           <motion.p
             className="text-lg sm:text-xl mb-8 opacity-95 leading-relaxed"
             variants={item}
           >
-            Get a complimentary consultation on Scheidt &amp; Bachmann
-            solutions.
-          </motion.p>
+                Need assistance with your building access control equipment?
+                Contact Parking Technical Services today for a free consultation
+                and quote.
+              </motion.p>
           <motion.div variants={item}>
             <Link
               href="/contact-2"
               aria-label="Get a free consultation"
               className="inline-block px-10 py-3 text-sm font-semibold bg-white text-blue-700 rounded-[4px] hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/70"
             >
-              Get a Free Consultation
-            </Link>
+                Contact Us
+              </Link>
           </motion.div>
         </div>
       </motion.section>

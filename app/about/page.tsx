@@ -34,7 +34,7 @@ export default function AboutUsPage() {
             animate="visible"
             variants={sectionVariants}
           >
-            Parking Technical Services
+            About Us
           </motion.h1>
           <div className="w-12 h-[2px] bg-blue-700 mt-4 mb-6"></div>
           <motion.p
@@ -44,8 +44,8 @@ export default function AboutUsPage() {
             transition={{ delay: 0.2 }}
             variants={sectionVariants}
           >
-            Since 1990, delivering precision-engineered parking and access
-            control systems with an uncompromising commitment to quality.
+            Learn more about Parking Technical Services and our commitment to
+            excellence in the parking industry.
           </motion.p>
         </div>
       </header>
@@ -76,18 +76,20 @@ export default function AboutUsPage() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="text-2xl font-bold uppercase mb-4">Our Story</h2>
+
               <div className="w-8 h-[2px] bg-blue-700 mb-6"></div>
               <p className="mb-4 leading-relaxed">
-                Headquartered in Riverside, California, Parking Technical
-                Services has set the standard in modern revenue and access
-                control systems.
-              </p>
-              <p className="leading-relaxed">
-                Under the leadership of founder Armando Castro, we remain
-                committed to technical excellence and uncompromising service for
-                our clients.
-              </p>
+                  Parking Technical Services, established in 1990 and
+                  headquartered in Riverside, California, has distinguished
+                  itself as a premier provider of the most Modern Revenue and
+                  Access Control systems with dependable installations and
+                  services. Throughout its history, the company has maintained a
+                  strong reputation for professionalism and customer
+                  satisfaction. Under the leadership of its founder and Chairman
+                  of the Board, Armando Castro, Parking Technical Services
+                  remains committed to achieving its corporate objectives.
+                </p>
+
             </motion.div>
           </div>
         </section>
@@ -101,9 +103,7 @@ export default function AboutUsPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-            >
-              Associations
-            </motion.h2>
+            >Parking Associations:</motion.h2>
             <div className="w-12 h-[2px] bg-blue-700 mx-auto mb-8"></div>
             <motion.ul
               className="space-y-3 text-lg"
@@ -114,10 +114,10 @@ export default function AboutUsPage() {
             >
               {[
                 {
-                  name: "National Parking Association",
+                  name: "NPA (National Parking Association)",
                   link: "https://weareparking.org/",
                 },
-                { name: "Los Angeles Parking Association", link: "#" },
+                { name: "LAPA (Los Angeles Parking Association)", link: "#" },
               ].map((assoc) => (
                 <li key={assoc.name}>
                   {assoc.link !== "#" ? (
@@ -141,15 +141,7 @@ export default function AboutUsPage() {
         {/* Expertise */}
         <section className="py-20">
           <div className="max-w-5xl mx-auto px-6 sm:px-10 text-center">
-            <motion.h2
-              className="text-2xl font-bold uppercase mb-4"
-              variants={sectionVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              Decades of Expertise
-            </motion.h2>
+
             <div className="w-12 h-[2px] bg-blue-700 mx-auto mb-10"></div>
             <motion.div
               className="max-w-3xl mx-auto"
@@ -165,10 +157,7 @@ export default function AboutUsPage() {
                 height={500}
                 className="w-full h-auto object-cover"
               />
-              <p className="mt-6 text-lg leading-relaxed">
-                Our workforce is built on precision, technical mastery, and the
-                discipline to solve complex challenges efficiently.
-              </p>
+
             </motion.div>
           </div>
         </section>

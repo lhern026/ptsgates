@@ -93,12 +93,8 @@ function ContactForm() {
               <DialogPanel className="inline-block w-full max-w-md p-8 my-8 text-left align-middle bg-white border border-neutral-200 rounded-[6px]">
                 <div className="flex flex-col items-center text-center">
                   <CheckCircleIcon className="h-14 w-14 text-green-600 mb-3" />
-                  <Dialog.Title className="text-2xl font-bold text-neutral-900 uppercase tracking-wide">
-                    Thank You
-                  </Dialog.Title>
-                  <p className="mt-3 text-neutral-600">
-                    Your message was sent. We will respond shortly.
-                  </p>
+                  <Dialog.Title className="text-2xl font-bold text-neutral-900 uppercase tracking-wide">Thank You!</Dialog.Title>
+                  <p className="mt-3 text-neutral-600">Your message has been successfully sent. We will get back to you shortly.</p>
                   <Link
                     href="/"
                     className="mt-6 inline-block px-5 py-2.5 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
@@ -129,13 +125,7 @@ function ContactForm() {
             Contact Us
           </motion.h1>
           <div className="mx-auto mt-3 h-[2px] w-12 bg-blue-700" />
-          <motion.p
-            className="mt-4 text-neutral-700"
-            variants={item}
-            aria-live="polite"
-          >
-            Get a response within one business day.
-          </motion.p>
+
         </div>
 
         {/* Grid */}
@@ -161,7 +151,7 @@ function ContactForm() {
               <li className="flex items-start justify-center gap-3">
                 <PhoneIcon className="h-6 w-6 text-blue-700 mt-0.5 shrink-0" />
                 <div className="text-center">
-                  <div className="font-semibold">Phone</div>
+                  <div className="font-semibold">Phone Numbers</div>
                   <div>
                     Toll Free:{" "}
                     <a
@@ -182,26 +172,13 @@ function ContactForm() {
                   </div>
                 </div>
               </li>
-              <li className="flex items-start justify-center gap-3">
-                <EnvelopeIcon className="h-6 w-6 text-blue-700 mt-0.5 shrink-0" />
-                <div className="text-center">
-                  <div className="font-semibold">Email</div>
-                  <a
-                    href="mailto:info@parkingtechnicalservices.com"
-                    className="hover:text-blue-700 underline-offset-2 hover:underline"
-                  >
-                    info@parkingtechnicalservices.com
-                  </a>
-                </div>
-              </li>
+
             </ul>
 
             <Link
               href="/"
               className="mt-8 inline-flex w-full sm:w-auto justify-center px-5 py-2.5 text-sm font-semibold bg-neutral-900 text-white rounded-[4px] hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400"
-            >
-              Home
-            </Link>
+            >Go to Home</Link>
           </motion.section>
 
           {/* Form */}
@@ -210,9 +187,7 @@ function ContactForm() {
             className="bg-white border border-neutral-200 rounded-[6px] p-8 w-full max-w-lg"
             variants={item}
           >
-            <h2 className="text-xl font-bold uppercase tracking-wide text-neutral-900 text-center">
-              Send a Message
-            </h2>
+
             <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
 
             {/* Honeypot */}
@@ -230,7 +205,7 @@ function ContactForm() {
               {[
                 {
                   id: "name",
-                  label: "Full Name",
+                  label: "Name",
                   type: "text",
                   placeholder: "John Doe",
                 },
@@ -276,9 +251,7 @@ function ContactForm() {
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-neutral-800 mb-1"
-                >
-                  Services Needed / Message
-                </label>
+                >Services Needed:</label>
                 <textarea
                   id="message"
                   name="message"
@@ -305,7 +278,7 @@ function ContactForm() {
                 className="w-full py-3 px-4 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-live="polite"
               >
-                {state.submitting ? "Submitting…" : "Send Message"}
+                {state.submitting ? "Submitting…" : "Submit"}
               </button>
 
               {(state.errors?.getFormErrors().length || state.errors?.getAllFieldErrors().length) ? (
