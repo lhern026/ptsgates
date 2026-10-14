@@ -206,7 +206,7 @@ export default function PastInstallationsPage() {
           smoothly.
         </p>
           <Link
-            href="/contact"
+            href="/contact#service-request"
             className="inline-block px-6 py-3 text-sm font-semibold bg-blue-600 text-white rounded-[4px] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
           >
             Contact Us

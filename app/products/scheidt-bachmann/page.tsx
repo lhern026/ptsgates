@@ -196,6 +196,7 @@ export default function AboutSAndBPage() {
                   src={p.image}
                   alt={p.alt}
                   fill
+                  quality={90}
                   className="object-contain p-6 sm:p-8"
                   sizes="(max-width: 1023px) 100vw, (max-width: 1440px) 40vw, 460px"
                   priority={i === 0}
