@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel, Transition } from "@headlessui/react";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -47,7 +47,7 @@ const RECAPTCHA_SITE_KEY =
   "6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva"; // Fallback if ENV var not set (not recommended for production)
 
 function ContactForm() {
-  const [formState, handleSubmitToFormspree] = useForm("mldreblg"); // Your Formspree form ID
+  const [formState, handleSubmitToFormspree, resetForm] = useForm("mldreblg"); // Your Formspree form ID
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
@@ -65,9 +65,7 @@ function ContactForm() {
 
   const closeSuccessModal = () => {
     setIsSuccessModalOpen(false);
-    // You might want to reset the form if the user could submit again without navigating
-    // For example, using formspree's reset method if available: formState.reset?.()
-    // Or simply rely on navigation to clear state.
+    resetForm();
   };
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -183,7 +181,7 @@ function ContactForm() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-black/50" />{" "}
+              <div aria-hidden="true" className="fixed inset-0 bg-black/50" />
               {/* Darker overlay */}
             </Transition.Child>
 
@@ -203,7 +201,7 @@ function ContactForm() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 sm:p-8 my-8 overflow-hidden text-center align-middle transition-all transform bg-white shadow-2xl rounded-2xl">
+              <DialogPanel className="inline-block w-full max-w-md p-6 sm:p-8 my-8 overflow-hidden text-center align-middle transition-all transform bg-white shadow-2xl rounded-2xl">
                 <Dialog.Title
                   as="div"
                   className="flex flex-col items-center mb-5"
@@ -226,7 +224,7 @@ function ContactForm() {
                     Return to Home
                   </button>
                 </Link>
-              </div>
+              </DialogPanel>
             </Transition.Child>
           </div>
         </Dialog>
@@ -337,6 +335,8 @@ function ContactForm() {
             // You can add size="normal" or "compact" if needed, or theme="light" / "dark"
           />
         </motion.div>
+
+        <ValidationError errors={formState.errors} className="mb-4 text-sm text-red-600" role="alert" />
 
         <motion.button
           type="submit"

@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Parking Technical Services",
-  description: "Parking Techinical Services",
+  description: "Parking Technical Services",
   navItems: [
     {
       label: "Access control",

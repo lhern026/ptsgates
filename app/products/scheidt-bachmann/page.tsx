@@ -145,7 +145,7 @@ export default function AboutSAndBPage() {
         </Link>
 
         <motion.h1
-          className={`${title?.({ size: "xl" }) ?? ""} text-4xl md:text-5xl font-extrabold tracking-tight`}
+          className={`${title?.({ size: "lg" }) ?? ""} text-4xl md:text-5xl font-extrabold tracking-tight`}
           variants={heroItem}
         >
           Scheidt & Bachmann

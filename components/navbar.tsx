@@ -1,18 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarBrand,
-  NavbarItem,
-} from "@nextui-org/navbar";
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
+import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import Dropdown from "../components/dropdown";
+import Dropdown from "./dropdown";
 
 const navItems = [
   {
@@ -41,189 +32,57 @@ const navItems = [
   },
 ];
 
-const menuVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-const mobileMenuVariants = {
-  hidden: { height: 0, opacity: 0 },
-  visible: {
-    height: "auto",
-    opacity: 1,
-    transition: { duration: 0.5, when: "beforeChildren", staggerChildren: 0.1 },
-  },
-};
-
-const mobileItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
-
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
+  const closeMenu = () => setIsMenuOpen(false);
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen]);
 
   return (
-    <NextUINavbar
-      isBordered
-      className="flex justify-stretch"
-      style={{ height: "7.5rem" }}
-    >
-      <div className="flex flex-row items-center w-full h-2 start-px">
-        <NavbarBrand as="li" className="flex size-max">
-          <NextLink className=" " href="/">
-            <Image
-              alt="logo"
-              className="h-80 w-60" // Adjusted height
-              height={104} // Adjusted height
-              src="https://i.imgur.com/CPqYkhH.png"
-              width={174} // Adjusted width
-              style={{ objectFit: "contain" }}
-              quality={100}
-            />
-          </NextLink>
-        </NavbarBrand>
-        <button
-          aria-label="Toggle menu"
-          className="lg:hidden text-3xl p-4 focus:outline-none rounded-2xl border-2 border-solid border-black bg-white px-8 py-4 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <div className="flex flex-col items-center justify-center space-y-1">
-            <span
-              className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
-                isMenuOpen ? "transform rotate-45 translate-y-1.5" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-8 h-0.5 bg-current transition-opacity duration-300 ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-8 h-0.5 bg-current transition-transform duration-300 ${
-                isMenuOpen ? "transform -rotate-45 -translate-y-1.5" : ""
-              }`}
-            ></span>
-          </div>
-        </button>
-      </div>
-
-      <NavbarContent className="hidden lg:flex h-1">
-        <ul className="flex gap-1">
-          {navItems.map((item) => (
-            <NavbarItem key={item.href} className="relative group">
-              {item.subitems ? (
-                <Dropdown
-                  items={item.subitems.map((subitem) => ({
-                    href: subitem.href,
-                    isDisabled: subitem.isDisabled,
-                    label: subitem.label,
-                  }))}
-                  label={item.label}
-                />
-              ) : (
-                <button className="px-2 py-1.5 font-small bg-white text-black rounded-md border hover:bg-gray-100">
-                  <NextLink href={item.href}>{item.label}</NextLink>
-                </button>
-              )}
-            </NavbarItem>
-          ))}
-        </ul>
-      </NavbarContent>
-
-      <NavbarContent className="hidden lg:flex gap-10 justify-end ">
-        <NextLink
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href="/contact-2"
-        >
-          Request Quote
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+      <nav aria-label="Main navigation" className="relative mx-auto flex min-h-[7.5rem] max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6">
+        <NextLink href="/" onClick={closeMenu} className="shrink-0">
+          <Image alt="Parking Technical Services home" src="https://i.imgur.com/CPqYkhH.png" width={240} height={104} priority className="h-auto w-[200px] sm:w-[240px]" />
         </NextLink>
-      </NavbarContent>
-
-      <AnimatePresence>
+        <div className="hidden items-center gap-2 min-[1400px]:flex">
+          {navItems.map((item) => item.subitems ? (
+            <Dropdown key={item.href} label={item.label} items={item.subitems} />
+          ) : (
+            <NextLink key={item.href} href={item.href} className="rounded-md border px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600">{item.label}</NextLink>
+          ))}
+          <NextLink href="/contact-2" className="whitespace-nowrap rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Request Quote</NextLink>
+        </div>
+        <button type="button" aria-label={isMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMenuOpen} aria-controls="mobile-navigation" onClick={() => setIsMenuOpen((open) => !open)} className="rounded-xl border-2 border-black px-4 py-3 text-black min-[1400px]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+          <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {isMenuOpen ? <path d="m6 6 12 12M6 18 18 6" /> : <path d="M3 6h18M3 12h18M3 18h18" />}
+          </svg>
+        </button>
         {isMenuOpen && (
-          <motion.div
-            className="flex flex-col lg:hidden bg-white p-6 shadow-lg w-full absolute top-16 left-0 z-50"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={mobileMenuVariants}
-          >
-            <div className="flex flex-col gap-1">
+          <div id="mobile-navigation" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-7.5rem)] overflow-y-auto border-b bg-white p-4 shadow-lg min-[1400px]:hidden">
+            <ul className="space-y-3">
               {navItems.map((item) => (
-                <motion.div
-                  key={item.href}
-                  className="relative group  hover:text-primary py-4 rounded-xl border border-gray-200 bg-white px-4 font-semibold text-black transition-transform duration-300 hover:scale-105"
-                  onClick={handleLinkClick}
-                  role="button"
-                  tabIndex={0}
-                  onKeyPress={(e) => {
-                    if (e.key === "Enter") handleLinkClick();
-                  }}
-                  variants={mobileItemVariants}
-                >
-                  {item.subitems ? (
-                    <>
-                      <span className="w-full text-left text-gray-700 py-2 rounded-md border-b border-gray-200 bg-white px-2 font-semibold transition-colors duration-300">
-                        {item.label}
-                      </span>
-                      <div className="ml-4 mt-2">
-                        {item.subitems.map((subitem) => (
-                          <div
-                            key={subitem.href}
-                            className={`py-2 ${
-                              subitem.isDisabled
-                                ? "cursor-not-allowed text-gray-400"
-                                : "cursor-pointer text-gray-700 hover:text-primary"
-                            }`}
-                          >
-                            {subitem.isDisabled ? (
-                              <span className="block px-4 py-2 font-medium bg-indigo-500 text-white rounded-md transition-all shadow-lg">
-                                {subitem.label}
-                              </span>
-                            ) : (
-                              <NextLink
-                                className="block px-4 py-2 transition-colors duration-300 rounded-md hover:bg-gray-100"
-                                href={subitem.href}
-                              >
-                                {subitem.label}
-                              </NextLink>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <NextLink
-                      className="block w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
-                      href={item.href}
-                    >
-                      {item.label}
-                    </NextLink>
-                  )}
-                </motion.div>
+                <li key={item.href} className="rounded-lg border border-gray-200 p-3">
+                  {item.subitems ? <>
+                    <p className="text-sm font-semibold text-gray-700">{item.label}</p>
+                    <ul className="mt-2 space-y-1">
+                      {item.subitems.map((subitem) => <li key={subitem.href}>
+                        {subitem.isDisabled ? <span className="block px-3 py-2 text-sm text-gray-500">{subitem.label}</span> : <NextLink href={subitem.href} onClick={closeMenu} className="block rounded-md px-3 py-2 text-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600">{subitem.label}</NextLink>}
+                      </li>)}
+                    </ul>
+                  </> : <NextLink href={item.href} onClick={closeMenu} className="block py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600">{item.label}</NextLink>}
+                </li>
               ))}
-            </div>
-          </motion.div>
+            </ul>
+            <NextLink href="/contact-2" onClick={closeMenu} className="mt-4 block rounded-lg bg-blue-600 px-4 py-3 text-center font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Request Quote</NextLink>
+          </div>
         )}
-      </AnimatePresence>
-    </NextUINavbar>
+      </nav>
+    </header>
   );
 };

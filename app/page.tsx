@@ -142,7 +142,6 @@ const Home = () => {
                 <div
                   className="flex items-center justify-center h-full bg-cover bg-center relative"
                   style={{ backgroundImage: `url(${image})` }}
-                  aria-hidden="true"
                 >
                   <div className="absolute inset-0 bg-black/65" />
                   <div className="relative z-10 px-4 sm:px-6 text-center max-w-3xl lg:max-w-4xl mx-auto">
@@ -184,18 +183,7 @@ const Home = () => {
             ))}
           </Slider>
 
-          <style jsx global>{`
-            .slick-dots {
-              position: absolute;
-            }
-            .slick-dots li.slick-active .slick-dot {
-              opacity: 1;
-              background: white;
-            }
-            .slick-dots li .slick-dot {
-              opacity: 0.6;
-            }
-          `}</style>
+
         </section>
 
         {/* Features */}

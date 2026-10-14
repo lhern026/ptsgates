@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, useRef, Fragment } from "react";
 import Link from "next/link";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel, Transition } from "@headlessui/react";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -36,7 +36,7 @@ const RECAPTCHA_SITE_KEY =
   "6LexwP0pAAAAAPBAgK2GNn_XBW-_WTsJ9f6yrlva";
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("meojqgzk");
+  const [state, handleSubmit, resetForm] = useForm("meojqgzk");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [botField, setBotField] = useState(""); // honeypot
@@ -46,7 +46,13 @@ function ContactForm() {
   }, [state.succeeded]);
 
   const onVerify = (token: string | null) => setRecaptchaToken(token);
-  const closeModal = () => setOpen(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const closeModal = () => {
+    setOpen(false);
+    resetForm();
+    setRecaptchaToken(null);
+    recaptchaRef.current?.reset();
+  };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,7 +76,7 @@ function ContactForm() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-black/40" />
+              <div aria-hidden="true" className="fixed inset-0 bg-black/40" />
             </Transition.Child>
             <span className="inline-block h-screen align-middle" aria-hidden>
               &#8203;
@@ -84,7 +90,7 @@ function ContactForm() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-8 my-8 text-left align-middle bg-white border border-neutral-200 rounded-[6px]">
+              <DialogPanel className="inline-block w-full max-w-md p-8 my-8 text-left align-middle bg-white border border-neutral-200 rounded-[6px]">
                 <div className="flex flex-col items-center text-center">
                   <CheckCircleIcon className="h-14 w-14 text-green-600 mb-3" />
                   <Dialog.Title className="text-2xl font-bold text-neutral-900 uppercase tracking-wide">
@@ -101,7 +107,7 @@ function ContactForm() {
                     Go to Home
                   </Link>
                 </div>
-              </div>
+              </DialogPanel>
             </Transition.Child>
           </div>
         </Dialog>
@@ -290,7 +296,7 @@ function ContactForm() {
               </div>
 
               <div className="flex justify-center">
-                <ReCAPTCHA sitekey={RECAPTCHA_SITE_KEY} onChange={onVerify} />
+                <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_SITE_KEY} onChange={onVerify} />
               </div>
 
               <button
@@ -302,7 +308,7 @@ function ContactForm() {
                 {state.submitting ? "Submitting…" : "Send Message"}
               </button>
 
-              {state.errors?.length ? (
+              {(state.errors?.getFormErrors().length || state.errors?.getAllFieldErrors().length) ? (
                 <p className="text-sm text-red-600" role="status">
                   Please fix the errors above and try again.
                 </p>
