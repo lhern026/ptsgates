@@ -19,7 +19,7 @@ const navItems = [
     href: "/products",
     subitems: [
       { label: "GET MY PARKING", href: "/products/get-my-parking" },
-      { label: "EV CHARGERS COMING SOON", href: "/products/ev-chargers", isDisabled: false },
+      { label: "EV CHARGERS", href: "/products/ev-chargers", isDisabled: false },
     ],
   },
   {
