@@ -48,24 +48,18 @@ export default function EVChargersPage() {
             <span>Parking Technical Services</span>
             <span className="text-blue-700">EV</span>
           </div>
-          <div className="relative flex min-h-[320px] items-center justify-center bg-gradient-to-b from-white to-blue-50 px-6 py-10 sm:min-h-[400px]">
-            <svg viewBox="0 0 360 340" className="h-auto w-full max-w-[350px]" fill="none" aria-hidden="true">
-              <ellipse cx="180" cy="310" rx="120" ry="14" fill="#dbeafe" />
-              <path d="M252 118h16c20 0 31 14 31 35v75c0 23-11 38-30 38s-30-15-30-36v-34" stroke="#334155" strokeWidth="9" strokeLinecap="round" />
-              <path d="M230 174h19v28h-19z" fill="#334155" />
-              <path d="M235 168v-10m9 10v-10" stroke="#334155" strokeWidth="5" strokeLinecap="round" />
-              <rect x="100" y="43" width="140" height="253" rx="17" fill="white" stroke="#94a3b8" strokeWidth="2" />
-              <path d="M116 43h108a16 16 0 0 1 16 16v18H100V59a16 16 0 0 1 16-16Z" fill="#1d4ed8" />
-              <rect x="121" y="96" width="98" height="92" rx="9" fill="#0f172a" />
-              <path d="m178 110-29 38h22l-8 28 30-40h-23l8-26Z" fill="#60a5fa" />
-              <rect x="145" y="209" width="50" height="7" rx="3.5" fill="#cbd5e1" />
-              <circle cx="170" cy="242" r="9" fill="#dbeafe" stroke="#2563eb" strokeWidth="2" />
-              <path d="M92 297h156v10H92z" fill="#334155" />
-              <path d="M71 107V86m-10 10h20m191-45v-16m-8 8h16" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </div>
+          <Image
+            src="/images/ev-chargers/chargepoint-stations.jpg"
+            width={1920}
+            height={1440}
+            alt="Two ChargePoint EV charging stations in an outdoor parking area"
+            className="block h-auto w-full"
+            sizes="(max-width: 1023px) 100vw, 600px"
+            quality={90}
+            priority
+          />
           <p className="border-t border-slate-200 px-6 py-4 text-center text-xs leading-relaxed text-slate-500">
-            Concept illustration. Product lineup to be announced.
+            ChargePoint charging stations shown for illustration. Equipment availability and configuration vary by project.
           </p>
         </div>
       </section>
