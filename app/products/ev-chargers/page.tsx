@@ -1,9 +1,10 @@
 import { pageMetadata } from "@/config/seo";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = pageMetadata(
   "EV Chargers — Coming Soon",
-  "EV charging products are coming to Parking Technical Services. Contact our team for updates on products and availability.",
+  "Explore upcoming ChargePoint EV charging options with PTS and ask about Get My Parking configurations for a connected parking and charging payment experience.",
   "/products/ev-chargers",
 );
 
@@ -17,13 +18,14 @@ export default function EVChargersPage() {
             Coming Soon
           </p>
           <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            EV charging.<br />
-            <span className="text-blue-700">The next addition.</span>
+            Park. Charge.<br />
+            <span className="text-blue-700">Pay together.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-            We’re preparing to add EV charging products to the Parking Technical
-            Services lineup. This page will be updated with product details,
-            specifications, and availability as they’re confirmed.
+            We’re preparing ChargePoint EV charging options for Parking Technical
+            Services customers. Ask our team about pairing charging with Get My
+            Parking to create a more convenient parking and payment experience
+            for your property.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/contact-2" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-blue-700">
@@ -33,8 +35,11 @@ export default function EVChargersPage() {
               Explore Parking Products
             </Link>
           </div>
+          <div className="mt-8 border-t border-slate-200 pt-6">
+            <Image src="/images/ev-chargers/chargepoint-logo.svg" width={158} height={30} alt="ChargePoint" className="h-auto w-[180px]" priority />
+          </div>
           <p className="mt-5 text-sm leading-relaxed text-slate-500">
-            Launch timing and product availability have not yet been announced.
+            Launch timing, charger models, and integration availability will be confirmed for each project.
           </p>
         </div>
 
@@ -61,6 +66,44 @@ export default function EVChargersPage() {
           </div>
           <p className="border-t border-slate-200 px-6 py-4 text-center text-xs leading-relaxed text-slate-500">
             Concept illustration. Product lineup to be announced.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white px-6 py-14 sm:py-20" aria-labelledby="park-charge-heading">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+            <Image src="/images/ev-chargers/chargepoint-logo.svg" width={158} height={30} alt="ChargePoint" className="h-auto w-[180px]" />
+            <span className="text-sm font-medium text-slate-500">with</span>
+            <Link href="/products/get-my-parking" aria-label="Explore Get My Parking" className="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
+              <Image src="/images/get-my-parking/logo-original.webp" width={681} height={230} alt="Get My Parking" className="h-auto w-[150px]" />
+            </Link>
+          </div>
+          <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-blue-700">A connected parking and charging experience</p>
+          <h2 id="park-charge-heading" className="mt-3 max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl">One visit. One convenient payment.</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
+            With a compatible Get My Parking EV configuration, customers can manage
+            their parking and charging sessions through one app and pay for both
+            in a single online transaction. PTS can review ChargePoint equipment
+            and integration requirements to help plan the right setup for your facility.
+          </p>
+          <ol className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              ["Park", "Access parking and find available charging locations through the configured parking app."],
+              ["Charge", "Start and manage a charging session at a compatible station."],
+              ["Pay together", "Combine parking and charging into one online payment with a supported setup."],
+            ].map(([heading, description], index) => (
+              <li key={heading} className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                <p className="text-xs font-semibold tracking-widest text-blue-700">0{index + 1}</p>
+                <h3 className="mt-3 text-xl font-semibold">{heading}</h3>
+                <p className="mt-3 leading-relaxed text-slate-600">{description}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-slate-500">
+            Combined payments depend on charger compatibility, network access,
+            software configuration, and enabled integrations. PTS will confirm
+            support for the selected ChargePoint equipment before quoting an integrated solution.
           </p>
         </div>
       </section>
