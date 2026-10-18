@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight, FaCheckCircle, FaHeadset } from "react-icons/fa";
+import { FaArrowRight, FaCheckCircle, FaHeadset, FaParking } from "react-icons/fa";
 import { pageMetadata } from "@/config/seo";
 
 export const metadata = pageMetadata(
@@ -14,19 +14,19 @@ const solutions = [
     name: "GMP App",
     title: "Your parking experience. Your brand.",
     description: "Bring discovery, reservations, parking access, and payments together in a mobile and web app branded for your business. Parkers can manage vehicles, payment methods, permits, and validations in one place.",
-    image: "parking-app",
-    width: 253,
-    height: 495,
-    alt: "Get My Parking branded mobile app example showing parking locations",
+    image: "app-original",
+    width: 1000,
+    height: 1000,
+    alt: "Get My Parking branded mobile app example showing parking locations and sessions",
     imageClass: "max-h-[280px] w-auto",
   },
   {
     name: "GMP QR",
     title: "Scan, park, and pay. No app required.",
     description: "Give visitors an app-free way to pay through a branded web experience. QR and text-to-pay options help transient parkers start and manage their sessions from their phones.",
-    image: "qr-payments",
-    width: 354,
-    height: 347,
+    image: "qr-original",
+    width: 3285,
+    height: 3945,
     alt: "Get My Parking web app examples for QR parking and payment",
     imageClass: "max-h-[260px] w-auto",
   },
@@ -34,9 +34,9 @@ const solutions = [
     name: "GMP Partner Portal",
     title: "Simpler permits and validations.",
     description: "Give tenants, retailers, and corporate partners self-service tools to assign parking privileges, issue validations, manage parkers, receive invoices, and settle payments online.",
-    image: "partner-portal",
-    width: 406,
-    height: 281,
+    image: "portal-original",
+    width: 2016,
+    height: 1270,
     alt: "Get My Parking Partner Portal example for permits and validations",
     imageClass: "max-h-[250px] w-auto",
   },
@@ -44,9 +44,9 @@ const solutions = [
     name: "GMP IQ",
     title: "See the bigger picture.",
     description: "Bring session, revenue, permit, and promotion data into configurable dashboards. Explore trends across locations, customize reports, and set alerts to support day-to-day decisions.",
-    image: "analytics",
-    width: 295,
-    height: 377,
+    image: "iq-original",
+    width: 2016,
+    height: 1270,
     alt: "Get My Parking IQ example dashboard with parking analytics and reports",
     imageClass: "max-h-[280px] w-auto",
   },
@@ -82,14 +82,14 @@ export default function GetMyParkingPage() {
           </div>
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-6 py-4">
-              <Image src="/images/get-my-parking/logo.webp" width={190} height={85} alt="Get My Parking" className="h-auto w-[140px]" priority />
+              <Image src="/images/get-my-parking/logo-original.webp" width={681} height={230} alt="Get My Parking" className="h-auto w-[140px]" priority />
               <span className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-800">Your brand. One platform.</span>
             </div>
-            <div className="grid grid-cols-[1fr_1fr] items-center gap-5 px-6 py-8 sm:gap-8 sm:px-10">
-              <Image src="/images/get-my-parking/parking-app.webp" width={253} height={495} alt="Example of a Get My Parking app customized with an operator’s branding" className="mx-auto h-auto max-h-[330px] w-auto" sizes="(max-width: 640px) 40vw, 170px" priority />
-              <ul className="space-y-6 text-sm font-medium text-slate-700">
+            <div className="px-6 py-6 sm:px-10">
+              <Image src="/images/get-my-parking/app-original.webp" width={1000} height={1000} alt="Example of a Get My Parking app customized with an operator’s branding" className="mx-auto h-auto w-full max-w-[300px]" sizes="(max-width: 640px) 75vw, 300px" priority />
+              <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-4 text-sm font-medium text-slate-700">
                 {["Ticketless access", "Mobile & web payments", "Digital permits", "Connected reporting"].map((feature) => (
-                  <li key={feature} className="flex flex-col items-start gap-2"><FaCheckCircle className="text-emerald-600" aria-hidden="true" />{feature}</li>
+                  <li key={feature} className="flex items-start gap-2"><FaCheckCircle className="mt-0.5 shrink-0 text-emerald-600" aria-hidden="true" />{feature}</li>
                 ))}
               </ul>
             </div>
@@ -107,8 +107,10 @@ export default function GetMyParkingPage() {
           <p className="text-lg leading-relaxed text-slate-600">ExpressLane combines license plate recognition with AI-assisted vehicle matching to connect entry, payment, and exit. Registered parkers and visitors can use digital access and payment options suited to the location.</p>
         </div>
         <div className="mt-10 overflow-hidden rounded-xl border border-slate-200">
-          <div className="bg-white px-3 py-7 sm:px-12 sm:py-10">
-            <Image src="/images/get-my-parking/expresslane.webp" width={833} height={178} alt="ExpressLane journey: a vehicle enters through a camera-controlled gate, parks, and exits through a matched parking session" className="mx-auto h-auto w-full max-w-[833px]" sizes="(max-width: 900px) 90vw, 833px" />
+          <div className="grid grid-cols-3 items-center gap-3 bg-white p-4 sm:gap-8 sm:p-10">
+            <Image src="/images/get-my-parking/drive-in.webp" width={596} height={360} alt="ExpressLane camera reads a vehicle’s plate and opens the entry gate" className="h-auto w-full" sizes="(max-width: 767px) 30vw, 360px" quality={90} />
+            <div className="flex flex-col items-center gap-3 text-blue-700"><FaParking className="text-4xl sm:text-6xl" aria-hidden="true" /><span className="text-center text-xs font-semibold sm:text-base">Park &amp; pay</span></div>
+            <Image src="/images/get-my-parking/drive-out.webp" width={596} height={360} alt="ExpressLane matches the vehicle’s parking session at the exit gate" className="h-auto w-full" sizes="(max-width: 767px) 30vw, 360px" quality={90} />
           </div>
           <ol className="grid border-t border-slate-200 bg-slate-50 md:grid-cols-3">
             {steps.map((step, index) => (
@@ -131,7 +133,7 @@ export default function GetMyParkingPage() {
             {solutions.map((solution) => (
               <article key={solution.name} className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white">
                 <div className="flex h-[310px] items-center justify-center border-b border-slate-100 p-5">
-                  <Image src={`/images/get-my-parking/${solution.image}.webp`} width={solution.width} height={solution.height} alt={solution.alt} className={`max-w-full object-contain ${solution.imageClass}`} sizes="(max-width: 767px) 80vw, 400px" />
+                  <Image src={`/images/get-my-parking/${solution.image}.webp`} width={solution.width} height={solution.height} alt={solution.alt} className={`max-w-full object-contain ${solution.imageClass}`} sizes="(max-width: 767px) 80vw, 450px" quality={90} />
                 </div>
                 <div className="p-6 sm:p-8">
                   <p className="text-xs font-semibold uppercase tracking-widest text-blue-700">{solution.name}</p>
@@ -171,15 +173,12 @@ export default function GetMyParkingPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Connected hardware</p>
           <h2 id="hardware-heading" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">The right setup for your facility.</h2>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">PTS can help plan a parking system around your lanes, payment needs, and existing infrastructure. Equipment selection and compatibility are reviewed for each project.</p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <article className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-              <div className="relative h-64 sm:h-80"><Image src="/images/get-my-parking/payment-kiosk.webp" alt="LamasaTech Zentron outdoor payment kiosk shown in the supplied product brochure" fill className="object-contain p-5" sizes="(max-width: 767px) 90vw, 550px" /></div>
-              <div className="border-t border-slate-100 p-6 sm:p-8"><h3 className="text-2xl font-semibold">Payment kiosks & displays</h3><p className="mt-3 leading-relaxed text-slate-600">Outdoor display and payment equipment can guide visitors through the parking journey and provide an in-lane payment option.</p></div>
-            </article>
-            <article className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-              <div className="relative h-64 sm:h-80"><Image src="/images/get-my-parking/lpr-camera.webp" alt="INEX IZA500GR license plate recognition camera from the supplied product datasheet" fill className="object-contain p-8" sizes="(max-width: 767px) 90vw, 450px" /></div>
-              <div className="border-t border-slate-100 p-6 sm:p-8"><h3 className="text-2xl font-semibold">License plate recognition</h3><p className="mt-3 leading-relaxed text-slate-600">LPR cameras connect vehicle entry and exit events to digital parking sessions, supporting ticketless access and lane management.</p></div>
-            </article>
+          <div className="mt-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div className="p-4 sm:p-8"><Image src="/images/get-my-parking/hardware-original.svg" alt="Get My Parking retrofit equipment illustration showing an LPR camera, gate controller, card reader, and display kiosk" width={1022} height={389} className="mx-auto h-auto w-full max-w-[1022px]" /></div>
+            <div className="grid border-t border-slate-100 md:grid-cols-2">
+              <div className="p-6 sm:p-8"><h3 className="text-2xl font-semibold">Payment kiosks & displays</h3><p className="mt-3 leading-relaxed text-slate-600">Outdoor display and payment equipment can guide visitors through the parking journey and provide an in-lane payment option.</p></div>
+              <div className="border-t border-slate-100 p-6 sm:p-8 md:border-l md:border-t-0"><h3 className="text-2xl font-semibold">License plate recognition</h3><p className="mt-3 leading-relaxed text-slate-600">LPR cameras connect vehicle entry and exit events to digital parking sessions, supporting ticketless access and lane management.</p></div>
+            </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-slate-500">Product images are illustrative. Features, integrations, hardware, and support options depend on the selected configuration.</p>
         </div>
