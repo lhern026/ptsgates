@@ -18,7 +18,7 @@ const navItems = [
     label: "PARKING REVENUE CONTROL PRODUCTS",
     href: "/products",
     subitems: [
-      { label: "SCHEIDT-BACHMANN", href: "/products/scheidt-bachmann/" },
+      { label: "GET MY PARKING", href: "/products/get-my-parking" },
       { label: "EV CHARGERS COMING SOON", href: "/products/ev-chargers", isDisabled: false },
     ],
   },

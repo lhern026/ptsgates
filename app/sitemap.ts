@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/installationsandservices",
     "/accesscontrol/kerisystems",
     "/accesscontrol/securekey",
-    "/products/scheidt-bachmann",
+    "/products/get-my-parking",
     "/products/ev-chargers",
     "/contact",
     "/contact-2",

@@ -129,7 +129,7 @@ export default function PastInstallationsPage() {
             <div className="mx-auto mt-3 h-[2px] w-10 bg-blue-700" />
             <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {[
-  "Scheidt & Bachmann",
+  "Get My Parking",
   "Amano",
   "Federal APD",
   "SysParc",

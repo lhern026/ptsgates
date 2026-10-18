@@ -29,7 +29,7 @@ export default function EVChargersPage() {
             <Link href="/contact-2" className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-blue-700">
               Ask About EV Charging
             </Link>
-            <Link href="/products/scheidt-bachmann" className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3.5 font-semibold transition-colors hover:bg-slate-100">
+            <Link href="/products/get-my-parking" className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3.5 font-semibold transition-colors hover:bg-slate-100">
               Explore Parking Products
             </Link>
           </div>
