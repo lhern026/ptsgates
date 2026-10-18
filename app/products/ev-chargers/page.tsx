@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/config/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "EV Chargers — Coming Soon",
-  description:
-    "EV charging products are coming to Parking Technical Services. Contact our team for updates on products and availability.",
-};
+export const metadata = pageMetadata(
+  "EV Chargers — Coming Soon",
+  "EV charging products are coming to Parking Technical Services. Contact our team for updates on products and availability.",
+  "/products/ev-chargers",
+);
 
 export default function EVChargersPage() {
   return (

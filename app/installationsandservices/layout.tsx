@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/config/seo";
+
+export const metadata = pageMetadata(
+  "Parking Equipment Installation & Service",
+  "Parking equipment installation, maintenance, and service across Southern California. Explore Parking Technical Services capabilities and request assistance.",
+  "/installationsandservices",
+);
+
 export default function PricingLayout({
   children,
 }: {

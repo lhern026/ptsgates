@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/config/seo";
+
+export const metadata = pageMetadata(
+  "About Us",
+  "Learn about Parking Technical Services, a Riverside-based provider of parking revenue and access control installations and service in Southern California.",
+  "/about",
+);
+
 export default function PricingLayout({
   children,
 }: {

@@ -1,3 +1,11 @@
+import { pageMetadata } from "@/config/seo";
+
+export const metadata = pageMetadata(
+  "Contact PTS for Parking & Access Control Service",
+  "Contact Parking Technical Services in Riverside, California, for parking equipment and access control service inquiries.",
+  "/contact",
+);
+
 import React from "react";
 
 export default function PricingLayout({

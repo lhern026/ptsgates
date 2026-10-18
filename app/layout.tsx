@@ -3,6 +3,7 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
+import { productionUrl } from "@/config/seo";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -10,11 +11,13 @@ import Image from "next/image";
 import { GoogleReCaptchaProvider } from "../node_modules/react-google-recaptcha-v3";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(productionUrl),
+  alternates: { canonical: productionUrl + "/" },
   title: {
-    default: siteConfig.name,
+    default: "Parking Technical Services | Southern California",
     template: `%s - ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: "Parking revenue control and building access control equipment, installation, and service from Riverside-based Parking Technical Services, serving Southern California.",
   icons: {
     icon: "/favicon.ico",
   },
