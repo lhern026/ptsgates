@@ -19,7 +19,7 @@ const navItems = [
     href: "/products",
     subitems: [
       { label: "SCHEIDT-BACHMANN", href: "/products/scheidt-bachmann/" },
-      { label: "EV CHARGERS COMING SOON", href: "#", isDisabled: true },
+      { label: "EV CHARGERS COMING SOON", href: "/products/ev-chargers", isDisabled: false },
     ],
   },
   {
