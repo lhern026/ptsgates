@@ -173,12 +173,23 @@ export default function GetMyParkingPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">Connected hardware</p>
           <h2 id="hardware-heading" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">The right setup for your facility.</h2>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">PTS can help plan a parking system around your lanes, payment needs, and existing infrastructure. Equipment selection and compatibility are reviewed for each project.</p>
-          <div className="mt-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
-            <div className="p-4 sm:p-8"><Image src="/images/get-my-parking/hardware-original.svg" alt="Get My Parking retrofit equipment illustration showing an LPR camera, gate controller, card reader, and display kiosk" width={1022} height={389} className="mx-auto h-auto w-full max-w-[1022px]" /></div>
-            <div className="grid border-t border-slate-100 md:grid-cols-2">
-              <div className="p-6 sm:p-8"><h3 className="text-2xl font-semibold">Payment kiosks & displays</h3><p className="mt-3 leading-relaxed text-slate-600">Outdoor display and payment equipment can guide visitors through the parking journey and provide an in-lane payment option.</p></div>
-              <div className="border-t border-slate-100 p-6 sm:p-8 md:border-l md:border-t-0"><h3 className="text-2xl font-semibold">License plate recognition</h3><p className="mt-3 leading-relaxed text-slate-600">LPR cameras connect vehicle entry and exit events to digital parking sessions, supporting ticketless access and lane management.</p></div>
-            </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <article className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <div className="relative h-80 sm:h-96"><Image src="/images/get-my-parking/lamasatech-zentron-21.webp" alt="LamasaTech Zentron 21 outdoor touchscreen payment kiosk" fill quality={90} className="object-contain p-6" sizes="(max-width: 767px) 220px, 250px" /></div>
+              <div className="border-t border-slate-100 p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-widest text-blue-700">Outdoor payment kiosk</p>
+                <h3 className="mt-3 text-2xl font-semibold">LamasaTech Zentron 21</h3>
+                <p className="mt-3 leading-relaxed text-slate-600">An outdoor touchscreen kiosk for visitor guidance and self-service payments, with QR and barcode scanning and integrated communication features. Payment equipment and software are selected to suit your project.</p>
+              </div>
+            </article>
+            <article className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <div className="relative h-80 sm:h-96"><Image src="/images/get-my-parking/inex-iza500gr.webp" alt="INEX IZA500GR all-in-one license plate recognition camera" fill quality={90} className="object-contain p-8 sm:p-10" sizes="(max-width: 767px) 85vw, 500px" /></div>
+              <div className="border-t border-slate-100 p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-widest text-blue-700">License plate recognition camera</p>
+                <h3 className="mt-3 text-2xl font-semibold">INEX IZA500GR</h3>
+                <p className="mt-3 leading-relaxed text-slate-600">An all-in-one license plate recognition camera with onboard processing. Connect vehicle entry and exit events to digital parking sessions to support ticketless access and lane management.</p>
+              </div>
+            </article>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-slate-500">Product images are illustrative. Features, integrations, hardware, and support options depend on the selected configuration.</p>
         </div>
