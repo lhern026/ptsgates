@@ -16,7 +16,7 @@ export function TextParallaxContent({
 }: TextParallaxContentProps) {
   return (
     <div>
-      <section className="relative mx-3 h-[320px] overflow-hidden rounded-2xl sm:h-[420px] lg:h-[480px]">
+      <section className="relative mx-3 h-[320px] overflow-hidden rounded-sm sm:mx-6 sm:h-[400px] lg:h-[440px]">
         <Image
           src={imgUrl}
           alt=""

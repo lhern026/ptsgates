@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCheckCircle, FaLock, FaClock } from "react-icons/fa";
+import { CheckBadgeIcon, LockClosedIcon, ClockIcon } from "@heroicons/react/24/outline";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -12,19 +12,19 @@ import Slider from "react-slick";
 // ---------- Data ----------
 const features = [
   {
-    icon: <FaCheckCircle className="text-4xl text-slate-800 mb-4 mx-auto" />,
+    icon: <CheckBadgeIcon className="mb-6 h-8 w-8 text-slate-700" strokeWidth={1.2} aria-hidden="true" />,
     title: "Professionalism & Reliability",
     description:
       "With over thirty years of experience, our team is known for its professionalism, reliability, and quality of services. We address and resolve parking revenue control system issues, no matter how complex.",
   },
   {
-    icon: <FaLock className="text-4xl text-slate-800 mb-4 mx-auto" />,
+    icon: <LockClosedIcon className="mb-6 h-8 w-8 text-slate-700" strokeWidth={1.2} aria-hidden="true" />,
     title: "Enhanced Security",
     description:
       "Our advanced security features prevent unauthorized access and ensure the safety of parked vehicles, making us a reliable choice for all your parking system needs.",
   },
   {
-    icon: <FaClock className="text-4xl text-slate-800 mb-4 mx-auto" />,
+    icon: <ClockIcon className="mb-6 h-8 w-8 text-slate-700" strokeWidth={1.2} aria-hidden="true" />,
     title: "Cost-Effective Solutions",
     description:
       "We provide excellent service at the most affordable prices, with a quick response to clients' requests and versatility, servicing most types of parking revenue control systems.",
@@ -56,12 +56,12 @@ const howItWorksItems = [
 ];
 
 const heroImageUrls = [
-  "https://i.imgur.com/aTB62po.jpeg",
-  "https://i.imgur.com/j3Obu3L.jpeg",
-  "https://i.imgur.com/w1hU99Y.jpeg",
-  "https://i.imgur.com/kxqa6u1.jpeg",
-  "https://i.imgur.com/YmeLknf.jpeg",
-  "https://i.imgur.com/9b2dKhr.jpeg",
+  "/images/home/parking-01.webp",
+  "/images/home/parking-02.webp",
+  "/images/home/parking-03.webp",
+  "/images/home/parking-04.webp",
+  "/images/home/parking-05.webp",
+  "/images/home/parking-06.webp",
 ];
 
 // ---------- Motion ----------
@@ -90,10 +90,7 @@ const heroTextItemVariants = {
 };
 
 const Home = () => {
-  const prefersReduced =
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReduced = useReducedMotion();
 
   const sliderSettings = useMemo(
     () => ({
@@ -102,20 +99,23 @@ const Home = () => {
       speed: prefersReduced ? 0 : 600,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: prefersReduced ? false : true,
+      autoplay: false,
       autoplaySpeed: 4500,
       arrows: false,
+      lazyLoad: "ondemand" as const,
       fade: true,
       cssEase: "linear",
-      pauseOnHover: false,
-      pauseOnFocus: false,
+      pauseOnHover: true,
+      pauseOnFocus: true,
       appendDots: (dots: React.ReactNode) => (
         <div className="!bottom-8">
           <ul className="m-0 flex items-center justify-center gap-3">{dots}</ul>
         </div>
       ),
-      customPaging: () => (
-        <div className="w-2.5 h-2.5 rounded-full bg-white/60 ring-1 ring-white/40 transition-opacity duration-200 slick-dot" />
+      customPaging: (index: number) => (
+        <button type="button" aria-label={`Show parking photo ${index + 1}`}>
+          <span aria-hidden="true" className="slick-dot" />
+        </button>
       ),
     }),
     [prefersReduced]
@@ -132,21 +132,19 @@ const Home = () => {
 
       <div id="main" className="flex-grow">
         {/* Hero */}
-        <section className="relative h-screen w-full text-white overflow-hidden">
+        <section className="home-hero relative w-full overflow-hidden text-white">
           <Slider {...sliderSettings}>
             {heroImageUrls.map((image, index) => (
               <div
                 key={index}
-                className="h-screen outline-none focus:outline-none"
+                className="home-hero-slide outline-none focus:outline-none"
               >
-                <div
-                  className="flex items-center justify-center h-full bg-cover bg-center relative"
-                  style={{ backgroundImage: `url(${image})` }}
-                >
-                  <div className="absolute inset-0 bg-black/65" />
-                  <div className="relative z-10 px-4 sm:px-6 text-center max-w-3xl lg:max-w-4xl mx-auto">
+                <div className="relative flex h-full items-center justify-center">
+                  <Image src={image} alt="" fill sizes="100vw" quality={90} priority={index === 0} className="object-cover" />
+                  <div className="home-hero-shade absolute inset-0" />
+                  <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
                     <motion.h1
-                      className="text-[clamp(2rem,6vw,4rem)] font-extrabold tracking-tight mb-4 text-white"
+                      className="text-[clamp(2.75rem,5.5vw,5.5rem)] mb-6 text-white"
                       variants={heroTextItemVariants}
                       initial="hidden"
                       animate="visible"
@@ -154,7 +152,7 @@ const Home = () => {
                       Parking Technical Services
                     </motion.h1>
                     <motion.p
-                      className="text-[clamp(1rem,2.2vw,1.375rem)] mb-8 text-slate-100"
+                      className="text-[clamp(1rem,1.8vw,1.25rem)] mb-10 text-slate-100"
                       variants={heroTextItemVariants}
                       initial="hidden"
                       animate="visible"
@@ -168,7 +166,7 @@ const Home = () => {
                       prefetch
                     >
                       <motion.span
-                        className="inline-block px-7 py-3 text-base font-semibold bg-white text-slate-900 rounded-md ring-1 ring-slate-300 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-200"
+                        className="home-hero-action inline-block px-8 py-3.5 text-sm font-medium"
                         initial={{ opacity: 0, scale: 0.94 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.22, duration: 0.35 }}
@@ -186,7 +184,7 @@ const Home = () => {
         </section>
 
         {/* Features */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-20 sm:py-28 bg-white">
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
             initial="hidden"
@@ -205,12 +203,12 @@ const Home = () => {
               {features.map((feature) => (
                 <motion.article
                   key={feature.title}
-                  className="p-6 lg:p-7 bg-white rounded-none border border-slate-200 hover:border-slate-300 transition-colors"
+                  className="border-t border-slate-200 px-6 py-8 lg:px-8 lg:py-10"
                   variants={itemVariants}
                 >
                   <div className="flex flex-col items-center text-center">
                     {feature.icon}
-                    <h3 className="text-lg font-semibold mt-2 mb-2 tracking-wide uppercase">
+                    <h3 className="mb-4 text-lg font-medium">
                       {feature.title}
                     </h3>
                     <p className="text-slate-600 leading-relaxed">
@@ -226,7 +224,7 @@ const Home = () => {
         <hr className="border-t border-slate-200" aria-hidden="true" />
 
         {/* How It Works */}
-        <section className="py-16 sm:py-20 bg-white">
+        <section className="py-20 sm:py-28 bg-white">
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
             initial="hidden"
@@ -245,10 +243,10 @@ const Home = () => {
               {howItWorksItems.map((item) => (
                 <motion.article
                   key={item.title}
-                  className="bg-white border border-slate-200 rounded-none overflow-hidden"
+                  className="overflow-hidden bg-white"
                   variants={itemVariants}
                 >
-                  <div className="relative aspect-[16/9] w-full">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
                     <Image
                       src={item.imageUrl}
                       alt={item.alt}
@@ -258,8 +256,8 @@ const Home = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 lg:p-7">
-                    <h3 className="text-lg font-semibold mb-2 tracking-wide uppercase">
+                  <div className="px-1 pb-2 pt-7 lg:pt-8">
+                    <h3 className="mb-4 text-lg font-medium">
                       {item.title}
                     </h3>
                     <p className="text-slate-600 leading-relaxed">
@@ -274,18 +272,12 @@ const Home = () => {
 
         {/* CTA — German gradients */}
         <section
-          className="py-20 sm:py-24"
-          style={{
-            backgroundImage: `
-              radial-gradient(60% 50% at 50% 0%, rgba(17,24,39,0.06) 0%, rgba(17,24,39,0) 60%),
-              linear-gradient(180deg, #f7f7f7 0%, #e9edf1 100%)
-            `,
-          }}
+          className="border-t border-slate-200 bg-slate-50 py-20 sm:py-28"
           aria-label="Call to action to upgrade parking system"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
-              className="bg-white/90 p-10 sm:p-14 lg:p-16 backdrop-blur-sm border border-slate-200"
+              className="py-2 sm:py-6"
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.25 }}
@@ -303,7 +295,7 @@ const Home = () => {
                 aria-label="Contact us now for parking solutions"
                 prefetch
               >
-                <span className="inline-block px-8 py-3 text-base font-medium bg-slate-900 text-white rounded-md ring-1 ring-slate-900/10 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300">
+                <span className="site-button">
                   Contact Us
                 </span>
               </Link>

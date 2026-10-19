@@ -49,3 +49,167 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* A restrained, shared finish; photography and brand marks retain their colors. */
+:root {
+  --site-ink: #202b26;
+  --site-accent: #334c5a;
+  --site-paper: #fdfcf9;
+  --site-border: #dfdcd4;
+}
+
+body {
+  font-family: var(--font-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-content :is(h1, h2) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.site-content h3 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+.site-content p {
+  text-wrap: pretty;
+}
+
+.site-content :is(article, .rounded-xl, .rounded-2xl) {
+  border-radius: 4px;
+}
+
+.site-content a.rounded-md {
+  border-radius: 3px;
+}
+
+.site-header {
+  background: var(--site-paper);
+}
+
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid transparent;
+  color: #454d47;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link[data-open] {
+  color: var(--site-ink);
+  border-color: #9a9589;
+}
+
+.site-dropdown {
+  box-shadow: 0 14px 36px rgb(32 43 38 / 7%);
+}
+
+.site-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid var(--site-accent);
+  border-radius: 3px;
+  background: var(--site-accent);
+  color: var(--site-paper);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.site-button:hover {
+  background: #20333d;
+  border-color: #20333d;
+}
+
+.home-hero,
+.home-hero-slide {
+  height: clamp(520px, 78svh, 800px);
+}
+
+.home-hero-shade {
+  background: linear-gradient(180deg, rgb(16 28 24 / 48%), rgb(16 28 24 / 54%));
+}
+
+.home-hero h1 {
+  text-shadow: 0 2px 24px rgb(0 0 0 / 12%);
+}
+
+.home-hero-action {
+  border: 1px solid rgb(253 252 249 / 75%);
+  border-radius: 3px;
+  background: transparent;
+  color: #fdfcf9;
+  letter-spacing: 0.05em;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+a:hover .home-hero-action {
+  background: #fdfcf9;
+  color: #202b26;
+}
+
+a:focus-visible .home-hero-action {
+  outline: 2px solid #fdfcf9;
+  outline-offset: 4px;
+}
+
+.home-hero .slick-dots li .slick-dot {
+  display: block;
+  height: 2px;
+  width: 18px;
+  background: #fdfcf9;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.home-hero .slick-dots {
+  bottom: 1.5rem;
+  z-index: 2;
+}
+
+.home-hero .slick-dots li,
+.home-hero .slick-dots li button {
+  width: 36px;
+  height: 36px;
+  margin: 0;
+}
+
+.home-hero .slick-dots li button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.home-hero .slick-dots li button::before {
+  content: none;
+}
+
+.home-hero .slick-dots li button:focus-visible {
+  outline: 2px solid #fdfcf9;
+  outline-offset: 2px;
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline-color: #334c5a;
+}
