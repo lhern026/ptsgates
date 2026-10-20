@@ -213,3 +213,34 @@ a:focus-visible .home-hero-action {
 :where(a, button, input, textarea, select):focus-visible {
   outline-color: #334c5a;
 }
+
+/* Navigation and footer share a clear hierarchy across screen sizes. */
+.site-nav-link[data-active],
+.site-nav-link[aria-current="page"] {
+  color: var(--site-accent);
+  border-color: var(--site-accent);
+}
+.site-dropdown a[aria-current="page"],
+.mobile-nav-link[aria-current="page"] {
+  background: #eeebe4;
+  color: var(--site-accent);
+}
+.footer-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+.footer-link {
+  display: block;
+  min-height: 40px;
+  padding: 0.6rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-underline-offset: 4px;
+}
+.footer-link:hover {
+  color: var(--site-accent);
+  text-decoration: underline;
+}
