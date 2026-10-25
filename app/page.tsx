@@ -61,7 +61,6 @@ const heroImageUrls = [
   "/images/home/parking-03.webp",
   "/images/home/parking-04.webp",
   "/images/home/parking-05.webp",
-  "/images/home/parking-06.webp",
 ];
 
 // ---------- Motion ----------
