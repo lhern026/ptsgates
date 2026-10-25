@@ -131,11 +131,9 @@ export default function PastInstallationsPage() {
               {[
   "Get My Parking",
   "Amano",
-  "Federal APD",
   "SysParc",
   "Parking Boxx",
-  "Keri Systems",
-  "Secura Key"
+  "Keri Systems"
 ].map((brand) => (
                 <li
                   key={brand}
